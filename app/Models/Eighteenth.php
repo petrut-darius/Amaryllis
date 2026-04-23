@@ -2,15 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Model;
 
+#[Fillable(["name", "description"])]
 class Eighteenth extends Model
 {
-    protected $fillable = [
-        "name",
-        "description"
-    ];
-
     public function images() {
         return $this->morphMany(EventImage::class,"imageable");
     }

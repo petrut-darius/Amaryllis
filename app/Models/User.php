@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-#[Fillable(['name', 'email', 'password'])]
+#[Fillable(['name', "super_admin", 'email', 'password'])]
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {
@@ -27,6 +27,20 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'super_admin' => "boolean"
         ];
+    }
+
+    public function permissions() {
+        return $this->belongsToMany(Permission::class, "user_permission");
+    }
+
+    public function hasAnyPermission(array $permissions): bool {
+        $enumPermissions = array_map(function($permission) {
+            strtolower($permission instanceof \BackedEnum ? $permission->value : $permission);
+        }, $permissions);
+
+
+        return !empty($this->permissions()->whereIn("slug", $enumPermissions)->get());
     }
 }
