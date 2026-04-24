@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string("name")->unique();
             $table->string("description");
             $table->string("color");
+            $table->json("images")->nullable();
             $table->string("occasion")->nullable();
             $table->timestamps();
         });

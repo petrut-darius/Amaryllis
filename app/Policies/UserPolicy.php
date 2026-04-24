@@ -62,9 +62,9 @@ class UserPolicy
      */
     public function delete(User $user, User $model): bool
     {
-        if($user->super_admin === true) return true;
-
         if($user->id === $model->id) return false;
+
+        if($user->super_admin === true) return true;
 
         if($user->hasAnyPermission([UserPermissions::MANAGE_USERS->value, UserPermissions::DELETE_USERS->value]) && $model->super_admin === true) return false;
 

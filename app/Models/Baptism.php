@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Model;
 
-#[Fillable(["name", "description"])]
+#[Fillable(["name", "description", "images"])]
 class Baptism extends Model
 {
-    public function images() {
-        return $this->morphMany(EventImage::class,"imageable");
-    }
+    protected $casts = [
+        "images" => "array",
+    ];
 }

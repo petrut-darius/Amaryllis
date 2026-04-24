@@ -4,7 +4,7 @@ namespace App\Policies;
 
 use App\Models\EventImage;
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
+use App\Enums\UserPermissions;
 
 class EventImagePolicy
 {
@@ -13,14 +13,22 @@ class EventImagePolicy
      */
     public function viewAny(User $user): bool
     {
+        if($user->super_admin === true) return true;
+
+        if($user->hasAnyPermission([UserPermissions::MANAGE_EVENT_IMAGES->value, UserPermissions::CREATE_EVENT_IMAGES->value, UserPermissions::UPDATE_EVENT_IMAGES->value, UserPermissions::DELETE_EVENT_IMAGES->value])) return true;
+
         return false;
     }
 
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, EventImage $eventImage): bool
+    public function view(User $user, EventImage $model): bool
     {
+        if($user->super_admin === true) return true;
+
+        if($user->hasAnyPermission([UserPermissions::MANAGE_EVENT_IMAGES->value, UserPermissions::CREATE_EVENT_IMAGES->value, UserPermissions::UPDATE_EVENT_IMAGES->value, UserPermissions::DELETE_EVENT_IMAGES->value])) return true;
+
         return false;
     }
 
@@ -29,29 +37,41 @@ class EventImagePolicy
      */
     public function create(User $user): bool
     {
+        if($user->super_admin === true) return true;
+
+        if($user->hasAnyPermission([UserPermissions::MANAGE_EVENT_IMAGES->value, UserPermissions::CREATE_EVENT_IMAGES->value])) return true;
+
         return false;
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, EventImage $eventImage): bool
+    public function update(User $user, EventImage $model): bool
     {
+        if($user->super_admin === true) return true;
+
+        if($user->hasAnyPermission([UserPermissions::MANAGE_EVENT_IMAGES->value, UserPermissions::UPDATE_EVENT_IMAGES->value])) return true;
+
         return false;
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, EventImage $eventImage): bool
+    public function delete(User $user, EventImage $model): bool
     {
+        if($user->super_admin === true) return true;
+
+        if($user->hasAnyPermission([UserPermissions::MANAGE_EVENT_IMAGES->value, UserPermissions::DELETE_EVENT_IMAGES->value])) return true;
+
         return false;
     }
 
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, EventImage $eventImage): bool
+    public function restore(User $user, EventImage $model): bool
     {
         return false;
     }
@@ -59,7 +79,7 @@ class EventImagePolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, EventImage $eventImage): bool
+    public function forceDelete(User $user, EventImage $model): bool
     {
         return false;
     }

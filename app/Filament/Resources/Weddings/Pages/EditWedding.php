@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Filament\Resources\Weddings\Pages;
+
+use App\Filament\Resources\Weddings\WeddingResource;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\ViewAction;
+use Filament\Resources\Pages\EditRecord;
+
+class EditWedding extends EditRecord
+{
+
+    protected static string $resource = WeddingResource::class;
+
+    protected function getHeaderActions(): array
+    {
+        return [
+            ViewAction::make(),
+            DeleteAction::make(),
+        ];
+    }
+}
