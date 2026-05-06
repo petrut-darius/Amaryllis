@@ -1,12 +1,12 @@
 <script setup>
+import { useForm } from '@inertiajs/vue3';
+import { nextTick, ref } from 'vue';
 import DangerButton from '@/Components/DangerButton.vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import Modal from '@/Components/Modal.vue';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
-import { useForm } from '@inertiajs/vue3';
-import { nextTick, ref } from 'vue';
 
 const confirmingUserDeletion = ref(false);
 const passwordInput = ref(null);
@@ -33,7 +33,6 @@ const deleteUser = () => {
 const closeModal = () => {
     confirmingUserDeletion.value = false;
 
-    form.clearErrors();
     form.reset();
 };
 </script>
@@ -41,37 +40,35 @@ const closeModal = () => {
 <template>
     <section class="space-y-6">
         <header>
-            <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-                Delete Account
+            <h2 class="text-2xl font-serif text-gray-900">
+                Ștergere Cont
             </h2>
 
-            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                Once your account is deleted, all of its resources and data will
-                be permanently deleted. Before deleting your account, please
-                download any data or information that you wish to retain.
+            <p class="mt-2 text-sm text-gray-500 font-light leading-relaxed">
+                Odată ce contul dumneavoastră este șters, toate resursele și datele sale vor
+                fi șterse definitiv. Înainte de a vă șterge contul, vă rugăm să
+                descărcați orice date sau informații pe care doriți să le păstrați.
             </p>
         </header>
 
-        <DangerButton @click="confirmUserDeletion">Delete Account</DangerButton>
+        <DangerButton @click="confirmUserDeletion">Ștergere Cont</DangerButton>
 
         <Modal :show="confirmingUserDeletion" @close="closeModal">
-            <div class="p-6">
-                <h2
-                    class="text-lg font-medium text-gray-900 dark:text-gray-100"
-                >
-                    Are you sure you want to delete your account?
+            <div class="p-8">
+                <h2 class="text-2xl font-serif text-gray-900">
+                    Sunteți sigur că doriți să vă ștergeți contul?
                 </h2>
 
-                <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                    Once your account is deleted, all of its resources and data
-                    will be permanently deleted. Please enter your password to
-                    confirm you would like to permanently delete your account.
+                <p class="mt-4 text-sm text-gray-500 font-light">
+                    Odată ce contul dumneavoastră este șters, toate resursele și datele sale
+                    vor fi șterse definitiv. Vă rugăm să introduceți parola pentru a
+                    confirma că doriți ștergerea definitivă a contului.
                 </p>
 
-                <div class="mt-6">
+                <div class="mt-8">
                     <InputLabel
                         for="password"
-                        value="Password"
+                        value="Parolă"
                         class="sr-only"
                     />
 
@@ -81,16 +78,16 @@ const closeModal = () => {
                         v-model="form.password"
                         type="password"
                         class="mt-1 block w-3/4"
-                        placeholder="Password"
+                        placeholder="Parolă"
                         @keyup.enter="deleteUser"
                     />
 
                     <InputError :message="form.errors.password" class="mt-2" />
                 </div>
 
-                <div class="mt-6 flex justify-end">
+                <div class="mt-8 flex justify-end">
                     <SecondaryButton @click="closeModal">
-                        Cancel
+                        Anulează
                     </SecondaryButton>
 
                     <DangerButton
@@ -99,7 +96,7 @@ const closeModal = () => {
                         :disabled="form.processing"
                         @click="deleteUser"
                     >
-                        Delete Account
+                        Ștergere Cont
                     </DangerButton>
                 </div>
             </div>

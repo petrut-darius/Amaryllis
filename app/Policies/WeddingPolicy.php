@@ -59,7 +59,7 @@ class WeddingPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, User $model): bool
+    public function delete(User $user, Wedding $model): bool
     {
         if($user->super_admin === true) return true;
 

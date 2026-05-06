@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { onMounted, ref } from 'vue';
 
 const model = defineModel({
@@ -19,7 +19,7 @@ defineExpose({ focus: () => input.value.focus() });
 
 <template>
     <input
-        class="rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-indigo-600 dark:focus:ring-indigo-600"
+        class="w-full border-0 border-b border-brand-charcoal/10 bg-transparent py-4 px-0 text-brand-charcoal placeholder:text-brand-charcoal/20 focus:border-brand-ruby focus:ring-0 transition-all duration-300 text-sm font-light outline-none"
         v-model="model"
         ref="input"
     />

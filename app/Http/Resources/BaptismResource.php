@@ -16,9 +16,13 @@ class BaptismResource extends JsonResource
     {
         return [
             "id" => $this->id,
-            "name" => $this->id,
-            "description" => $this->id,
-            "images" => $this->images ? EventImageResource::collection($this->images) : null,
+            "name" => $this->name,
+            "description" => $this->description,
+            "images" => collect($this->images)->map(function($image) {
+                return [
+                    "path" => "/storage/event_images/$image",
+                ];
+            }),
         ];
     }
 }

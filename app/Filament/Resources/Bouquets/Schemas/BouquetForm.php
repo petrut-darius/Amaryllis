@@ -30,11 +30,13 @@ class BouquetForm
                     ])->columns(2),
 
                 Section::make('Gallery')
-                    ->description('Upload one or more images of this bouquet.')
+                    ->description('Upload one image of this bouquet.')
                     ->schema([
                         FileUpload::make('images')
+                            ->maxsize((int) 20480)
                             ->disk('event_images')
                             ->visibility('public')
+                            ->acceptedFileTypes(['image/jpeg', 'image/jpg', 'image/png', 'image/webp'])
                     ])
             ]);
     }

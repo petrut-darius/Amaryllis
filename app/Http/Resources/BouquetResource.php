@@ -19,6 +19,7 @@ class BouquetResource extends JsonResource
             "name" => $this->name,
             "description" => $this->description,
             "color" => $this->color,
+            "images" => $this->images ? "/storage/event_images/$this->images" : null,
             "occasion" => $this->occasion ? $this->occasion : null,
         ];
     }

@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use League\Csv\Serializer\CastToArray;
 
 class WeddingResource extends JsonResource
 {
@@ -16,9 +17,13 @@ class WeddingResource extends JsonResource
     {
         return [
             "id" => $this->id,
-            "name" => $this->id,
-            "description" => $this->id,
-            "images" => $this->images ? EventImageResource::collection($this->images) : null,
+            "name" => $this->name,
+            "description" => $this->description,
+            "images" => collect($this->images)->map(function($image) {
+                return [
+                    "path" => "/storage/event_images/$image",
+                ];
+            }),
         ];
     }
 }

@@ -12,8 +12,18 @@ export default {
 
     theme: {
         extend: {
+            colors: {
+                brand: {
+                    'dusty-blue': '#C0E1D2', 
+                    'cream': '#F6F4E8',      
+                    'charcoal': '#2D3436',   
+                    'sage': '#E5EEE4',       
+                    'blush': '#DC9B9B',      
+                }
+            },
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['Inter', ...defaultTheme.fontFamily.sans],
+                serif: ['"Playfair Display"', ...defaultTheme.fontFamily.serif],
             },
         },
     },
