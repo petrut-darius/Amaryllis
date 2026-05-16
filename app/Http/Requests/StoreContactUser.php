@@ -29,7 +29,13 @@ class StoreContactUser extends FormRequest
             "subject" => "required|string|min:10|max:50",
             "event_date" => "nullable|string|max:50",
             "vision" => "nullable|string|max:500",
-            "message" => "required|string|min:30|max:1000",
+            "message" => "required|string|max:500",
         ];
+    }
+
+    protected function prepareForValidation() {
+        $this->merge([
+            "event_date" => $this->eventDate,
+        ]);
     }
 }

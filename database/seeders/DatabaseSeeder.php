@@ -57,6 +57,7 @@ class DatabaseSeeder extends Seeder
         $thepdi = User::factory()->create([
             'name' => "thepdi",
             'email' => 'eminoviciidarius@gmail.com',
+            "phone" => "0752096360",
             "super_admin" => 1,
         ]);
         

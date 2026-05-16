@@ -4,7 +4,7 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 
 const categories = [
-    { name: 'Bouquets', routeName: 'bouquets', image: 'https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&q=80&w=800' },
+    { name: 'Flowers', routeName: 'flowers', image: 'https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&q=80&w=800' },
     { name: 'Events', routeName: 'events', image: 'https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&q=80&w=800' },
 ];
 </script>
@@ -13,7 +13,7 @@ const categories = [
     <Head title="Gallery" />
 
     <GuestLayout>
-        <div class="space-y-32 md:space-y-64">
+        <div class="space-y-16 md:space-y-32">
             <!-- Header -->
             <div class="max-w-3xl mx-auto text-center space-y-8">
                 <span class="uppercase tracking-[0.5em] text-[10px] text-brand-ruby font-semibold block">Portfolio</span>
@@ -38,7 +38,7 @@ const categories = [
             </div>
 
             <!-- Final CTA -->
-            <section class="py-32 border-y border-brand-charcoal text-center space-y-10">
+            <section class="py-20 border-y border-brand-charcoal text-center space-y-10">
                 <h2 class="text-3xl md:text-5xl font-serif text-brand-charcoal">Love what you see?</h2>
                 <div class="pt-4">
                     <Link :href="route('contact.create')" >

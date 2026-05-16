@@ -18,6 +18,9 @@ class ContactController extends Controller
 
     public function store(StoreContactUser $request) {
         $data = $request->validated();
+
+        //dd($data);
+
         //save contact in the db
         $contact = Contact::create([
             "name" => $data["name"],
@@ -25,9 +28,10 @@ class ContactController extends Controller
             "phone" => $data["phone"],
             "subject" => $data["subject"],
             "message" => $data["message"],
-            "event_date" => $data["eventDate"],
+            "event_date" => $data["event_date"],
             "vision" => $data["vision"]
         ]);
+    /*
         //email to user that have manage:users
         $adminUsers = User::whereHas("permissions", function($q) {
             $q->where("slug", UserPermissions::MANAGE_USERS->value);
@@ -36,9 +40,7 @@ class ContactController extends Controller
         foreach($adminUsers as $user) {
             Mail::to($user)->send(new UserContacted($contact));
         }
-
-        //toast notifs
-
+    */
         return redirect()->back();
     }
 }

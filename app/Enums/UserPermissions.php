@@ -27,12 +27,6 @@ enum UserPermissions: string {
     case UPDATE_EIGHTEENTHS = 'update:eighteenths';
     case DELETE_EIGHTEENTHS = 'delete:eighteenths';
 
-    // Event Images
-    case MANAGE_EVENT_IMAGES = 'manage:eventImages';
-    case CREATE_EVENT_IMAGES = 'create:eventImages';
-    case UPDATE_EVENT_IMAGES = 'update:eventImages';
-    case DELETE_EVENT_IMAGES = 'delete:eventImages';
-
     // Permissions
     case MANAGE_PERMISSIONS = 'manage:permissions';
     case CREATE_PERMISSIONS = 'create:permissions';

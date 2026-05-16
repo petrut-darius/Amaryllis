@@ -23,10 +23,10 @@ const contactForm = useForm({
 const submitContactForm = () => {
     contactForm.post(route("contact.store"), {
         preserveScroll: true,
-        forceFormData: true
+        forceFormData: true,
+        onSuccess: () => contactForm.reset(),
     })
 }
-
 </script>
 <template>
     <Head title="Contact" />

@@ -8,7 +8,7 @@ import GuestLayout from '@/Layouts/GuestLayout.vue';
     <Head title="Our Story" />
 
     <GuestLayout>
-        <div class="space-y-48 md:space-y-80 pt-6 md:pt-6">
+        <div class="space-y-24 md:space-y-48 pt-6 md:pt-6">
             <!-- Story Section: Large Scale Editorial -->
             <section class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
                 <div class="lg:col-span-6 space-y-12 order-2 lg:order-1">
@@ -58,7 +58,7 @@ import GuestLayout from '@/Layouts/GuestLayout.vue';
                         </div>
                     </div>
                     <!-- Column 2 (Offset) -->
-                    <div class="md:col-span-6 space-y-16 group md:mt-64">
+                    <div class="md:col-span-6 space-y-16 group md:mt-32">
                         <div class="relative aspect-[4/3] overflow-hidden bg-brand-rose/10 shadow-2xl animate-reveal delay-500">
                             <img src="https://images.unsplash.com/photo-1453904300235-0f2f60b15b5d?auto=format&fit=crop&q=80&w=1000" alt="Sourcing" class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-transform duration-[2s] group-hover:scale-110" />
                         </div>
@@ -73,7 +73,7 @@ import GuestLayout from '@/Layouts/GuestLayout.vue';
             </section>
 
             <!-- Final Quote: Minimalist Grandeur -->
-            <section class="py-32 md:py-64 text-center border-t border-brand-charcoal">
+            <section class="py-20 md:py-32 text-center border-t border-brand-charcoal">
                 <div class="max-w-4xl mx-auto px-6 space-y-12">
                     <p class="text-3xl md:text-6xl font-serif italic text-brand-charcoal leading-snug">
                         "Every bouquet is a unique story, told through the <span class="text-brand-gold font-script text-4xl md:text-8xl lowercase tracking-normal">delicate whisper</span> of petals."

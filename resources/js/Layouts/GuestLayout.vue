@@ -34,7 +34,7 @@ import Navigation from '@/Components/Navigation.vue';
         </header>
 
         <!-- Main Content -->
-        <main class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pb-16 md:pb-24 lg:pb-40 pt-8 md:pt-12">
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pb-16 md:pb-24 lg:pb-24 pt-8 md:pt-12">
             <slot />
         </main>
 

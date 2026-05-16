@@ -1,14 +1,16 @@
 <?php
 
+use App\Http\Controllers\ArrangementController;
 use App\Http\Controllers\BaptismsController;
 use App\Http\Controllers\BouquetsController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EighteenthsController;
-use App\Http\Controllers\EventsController;
+use App\Http\Controllers\FuneralArrangementController;
+use App\Http\Controllers\SubscriberController;
+use App\Http\Controllers\ThreadController;
 use App\Http\Controllers\WeddingsController;
 
 Route::get('/', function () {
@@ -21,9 +23,14 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 */
 
+//home
 Route::fallback(function () {
     return Inertia::render("Welcome");
 });
+
+//newsletter
+Route::get("/newsletter", [SubscriberController::class, "create"])->name("newsletter.create");
+Route::post("/newsletter", [SubscriberController::class, "store"])->name("newsletter.store");
 
 //contact
 Route::get("/contact", [ContactController::class, "create"])->name("contact.create");//static
@@ -36,8 +43,7 @@ Route::get("/despre-noi", function() {
 
 //livrare
 Route::get("/livrari", function() {
-    return Inertia::render("Delivery", [
-        'reviews' => [
+    $reviews = [
                 [
                     "name" => "Carina Vermețan",
                     "photo" => "https://lh3.googleusercontent.com/a/ACg8ocLy4X6CWX2fA83-ZF53cbt81iNqjG-Veu_9NVmLL83rqYq9Xg=s200-c-rp-mo-ba2-br100",
@@ -79,14 +85,7 @@ Route::get("/livrari", function() {
                     "date" => "2026-01-31",
                     "rating" => 5,
                     "text" => "Am fost multumita de serviciile florariei. M-a interesat in mod special buchetele gata facute, am avut de unde alege, fiind multe facute. Domnisoara foarte amabila, draguta si deschisa. Am sa revin!"
-                ],/*
-                [
-                    "name" => "Catalin Naipeanu",
-                    "photo" => "https://lh3.googleusercontent.com/a/ACg8ocLhCbEribRBj-1ie1hzw7OBkIn2pVTJJLtl5lYYpi9rW_XHJQ=s200-c-rp-mo-br100",
-                    "date" => "2026-01-24",
-                    "rating" => 3,
-                    "text" => "Scump al naiba!"
-                ],*/
+                ],
                 [
                     "name" => "Pistu Sas",
                     "photo" => "https://lh3.googleusercontent.com/a-/ALV-UjUMN53bK7Px4LtEpc0paD2_1idBUwyGcUVT-ssVTpCLOs6IJ-w=s200-c-rp-mo-br100",
@@ -122,7 +121,20 @@ Route::get("/livrari", function() {
                     "rating" => 5,
                     "text" => "Türkiye'den aradım çok ilgili ve yardımcı oldu teşekkür ederim."
                 ],
-            ]
+            ];
+
+    $arrayIndex = array_rand($reviews, 3);
+
+    $selectedReviews = [];
+
+    foreach($arrayIndex as $key => $index) {
+        $selectedReviews[$key] = $reviews[$index];
+    }
+
+    //dd($selectedReviews);
+
+    return Inertia::render("Delivery", [
+        'reviews' => $selectedReviews,
     ]);//static
 })->name("delivery");
 
@@ -131,8 +143,22 @@ Route::get("/galerie", function() {
     return Inertia::render("Gallery");//static
 })->name("gallery");
 
+//flori
+Route::get("/flori", function() {
+    return Inertia::render("Flowers"); //static
+})->name("flowers");
+
 //buchete - good
 Route::get("/buchete", BouquetsController::class)->name("bouquets");
+
+//aranjamente florale
+Route::get("/aranjamente", ArrangementController::class)->name("arrangements");
+
+//aranjamente funerare florale
+Route::get("/aranjamente-funerare", FuneralArrangementController::class)->name("funeralArrangements");
+
+//fir
+Route::get("flori-la-fir", ThreadController::class)->name("threads");
 
 //evenimente
 //Route::get("/evenimente", EventsController::class)->name("events");
@@ -153,7 +179,6 @@ Route::get("/nunti", WeddingsController::class)->name("weddings");
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 require __DIR__.'/auth.php';

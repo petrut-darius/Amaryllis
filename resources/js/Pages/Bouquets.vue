@@ -19,7 +19,7 @@ const toggleBouquet = (id) => {
     <Head title="Bouquets" />
 
     <GuestLayout>
-        <div class="space-y-32 md:space-y-48">
+        <div class="space-y-16 md:space-y-32">
             <!-- Header: Elegant & Focused -->
             <div class="max-w-4xl mx-auto text-center space-y-12">
                 <div class="space-y-6">
@@ -63,7 +63,7 @@ const toggleBouquet = (id) => {
                         <!-- Mobile Info Overlay (Toggled) -->
                         <div 
                             v-if="activeBouquetId === bouquet.id"
-                            class="md:hidden absolute inset-0 bg-brand-charcoal/90 flex flex-col items-center justify-center p-10 text-center animate-in fade-in duration-500 backdrop-blur-sm"
+                            class="md:hidden absolute inset-0 bg-brand-charcoal/90 flex flex-col items-center justify-center p-10 text-center animate-in fade-in duration-1000 backdrop-blur-sm"
                         >
                             <div class="space-y-8">
                                 <h3 class="text-3xl font-serif text-white italic">
@@ -108,7 +108,7 @@ const toggleBouquet = (id) => {
             </div>
             
             <!-- Empty State -->
-            <div v-if="!bouquets.data || bouquets.data.length === 0" class="text-center py-64 border-t border-brand-charcoal">
+            <div v-if="!bouquets.data || bouquets.data.length === 0" class="text-center py-32 border-t border-brand-charcoal">
                 <p class="text-brand-charcoal/20 font-serif italic text-3xl">The collection is currently being refreshed.</p>
             </div>
         </div>
@@ -117,7 +117,7 @@ const toggleBouquet = (id) => {
 
 <style scoped>
 .animate-in {
-    animation: fadeIn 0.3s ease-out;
+    animation: fadeIn 1.2s ease-out;
 }
 @keyframes fadeIn {
     from { opacity: 0; }

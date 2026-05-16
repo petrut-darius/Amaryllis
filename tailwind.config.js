@@ -17,7 +17,7 @@ export default {
                     'dusty-blue': '#C0E1D2', 
                     'cream': '#F6F4E8',      
                     'charcoal': '#2D3436',   
-                    'sage': '#E5EEE4',       
+                    'sage': '#E5EEE4',
                     'blush': '#DC9B9B',      
                 }
             },

@@ -24,7 +24,7 @@ defineProps({
             </div>
 
             <!-- Baptisms List -->
-            <div class="space-y-48 md:space-y-80">
+            <div class="space-y-24 md:space-y-48">
                 <section v-for="(baptism, idx) in baptisms.data" :key="baptism.id" class="space-y-24">
                     <!-- Baptism Info -->
                     <div class="max-w-2xl mx-auto text-center space-y-10">
@@ -42,23 +42,22 @@ defineProps({
                     </div>
 
                     <!-- Baptism Photos Grid -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-4 lg:gap-8">
+                    <div class="grid grid-cols-1 gap-8 md:gap-16 max-w-5xl mx-auto w-full">
                         <div v-for="(image, index) in baptism.images" :key="index" 
-                            class="aspect-[3/4] overflow-hidden bg-brand-cream group relative rounded-sm shadow-sm ring-1 ring-brand-charcoal/5"
+                            class="max-h-[600px] flex justify-center overflow-hidden group relative"
                         >
                             <img 
                                 :src="image.path" 
                                 :alt="baptism.name" 
-                                class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-[2s]" 
+                                class="w-full h-full object-contain grayscale-[0.1] group-hover:grayscale-0 transition-all duration-[2s]" 
                             />
-                            <div class="absolute inset-0 ring-1 ring-inset ring-brand-charcoal/5 group-hover:ring-brand-charcoal/0 transition-all"></div>
                         </div>
                     </div>
                 </section>
             </div>
 
             <!-- Final CTA -->
-            <section class="py-32 border-y border-brand-charcoal text-center space-y-10">
+            <section class="py-20 border-y border-brand-charcoal text-center space-y-10">
                 <h2 class="text-3xl md:text-5xl font-serif text-brand-charcoal">Planning a baptism?</h2>
                 <div class="pt-4">
                     <Link :href="route('contact.create')">

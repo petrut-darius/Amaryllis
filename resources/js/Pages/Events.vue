@@ -67,7 +67,7 @@ const categories = [
             </div>
             
             <!-- Custom Inquiry CTA -->
-            <section class="py-32 border-y border-brand-charcoal flex flex-col items-center text-center space-y-12">
+            <section class="py-20 border-y border-brand-charcoal flex flex-col items-center text-center space-y-12">
                 <div class="space-y-6">
                     <h2 class="text-3xl md:text-5xl font-serif text-brand-charcoal leading-tight max-w-2xl">Host an event that <br/> feels like a dream.</h2>
                     <p class="text-brand-charcoal/40 text-[10px] uppercase tracking-[0.4em] font-medium">Custom floral installations & designs</p>

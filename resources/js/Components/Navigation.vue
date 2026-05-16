@@ -14,11 +14,11 @@ watch(isOpen, (val) => {
 
 const primaryLinks = [
     { name: "Gallery", route: "gallery"},
-    { name: "Bouquets", route: "bouquets" },
+    { name: "Flowers", route: "flowers" },
     { name: "Events", route: "events" },
     { name: "About", route: "about" },
     { name: "Contact", route: "contact.create" },
-    { name: "Delyvery", route: "delivery"}
+    { name: "Delivery", route: "delivery"}
 ];
 
 const isActive = (routeName) => {
@@ -50,7 +50,7 @@ const toggleMenu = () => {
         <div class="flex items-center space-x-8 text-[8px] uppercase tracking-[0.3em] text-brand-charcoal/20">
             <template v-if="$page.props.auth.user">
                 <Link :href="route('profile.edit')" class="hover:text-brand-charcoal transition-colors hover:tracking-[0.4em]">Account</Link>
-                <Link :href="route('logout')" method="post" as="button" class="hover:text-brand-charcoal transition-colors hover:tracking-[0.4em]">Logout</Link>
+                <Link :href="route('logout')" method="post" as="button" class="hover:text-brand-charcoal transition-colors hover:tracking-[0.4em] bg-transparent border-none p-0 cursor-pointer">Logout</Link>
             </template>
             <template v-else>
                 <Link :href="route('login')" class="hover:text-brand-charcoal transition-colors hover:tracking-[0.4em]">Login</Link>
@@ -117,12 +117,12 @@ const toggleMenu = () => {
                 
                 <div class="space-y-6 pt-12 border-t border-brand-charcoal w-full max-w-[200px]">
                     <template v-if="$page.props.auth.user">
-                        <Link :href="route('profile.edit')" @click="isOpen = false" class="block text-[11px] uppercase tracking-[0.5em] text-brand-charcoal/40 hover:text-brand-gold transition-colors">Account</Link>
-                        <Link :href="route('logout')" method="post" as="button" @click="isOpen = false" class="block text-[11px] uppercase tracking-[0.5em] text-brand-charcoal/40 hover:text-brand-gold transition-colors">Logout</Link>
+                        <Link :href="route('profile.edit')" @click="isOpen = false" class="block w-full text-center text-[11px] uppercase tracking-[0.5em] text-brand-charcoal/40 hover:text-brand-gold transition-colors">Account</Link>
+                        <Link :href="route('logout')" method="post" as="button" @click="isOpen = false" class="block w-full text-center text-[11px] uppercase tracking-[0.5em] text-brand-charcoal/40 hover:text-brand-gold transition-colors bg-transparent border-none p-0">Logout</Link>
                     </template>
                     <template v-else>
-                        <Link :href="route('login')" @click="isOpen = false" class="block text-[11px] uppercase tracking-[0.5em] text-brand-charcoal/40 hover:text-brand-gold transition-colors">Login</Link>
-                        <Link :href="route('register')" @click="isOpen = false" class="block text-[11px] uppercase tracking-[0.5em] text-brand-charcoal/40 hover:text-brand-gold transition-colors">Register</Link>
+                        <Link :href="route('login')" @click="isOpen = false" class="block w-full text-center text-[11px] uppercase tracking-[0.5em] text-brand-charcoal/40 hover:text-brand-gold transition-colors">Login</Link>
+                        <Link :href="route('register')" @click="isOpen = false" class="block w-full text-center text-[11px] uppercase tracking-[0.5em] text-brand-charcoal/40 hover:text-brand-gold transition-colors">Register</Link>
                     </template>
                 </div>
 

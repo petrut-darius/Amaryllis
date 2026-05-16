@@ -19,6 +19,7 @@ const user = usePage().props.auth.user;
 const form = useForm({
     name: user.name,
     email: user.email,
+    phone: user.phone,
 });
 </script>
 
@@ -69,7 +70,9 @@ const form = useForm({
                 <InputError class="mt-2" :message="form.errors.email" />
             </div>
 
-            <div v-if="mustVerifyEmail && user.email_verified_at === null">
+            <!-- this was <div v-if="mustVerifyEmail && user.email_verified_at === null">-->
+
+            <div v-if="user.email_verified_at === null">
                 <p class="mt-2 text-sm text-gray-800">
                     Adresa dumneavoastră de email nu este verificată.
                     <Link
@@ -88,6 +91,20 @@ const form = useForm({
                 >
                     Un nou link de verificare a fost trimis la adresa dumneavoastră de email.
                 </div>
+            </div>
+            <div>
+                <InputLabel for="phone" value="Numar de telefon"/>
+
+                <TextInput 
+                    id="phone"
+                    type="tel"
+                    class="mt-1 block w-full"
+                    v-model="form.phone"
+                    required
+                    autocomplete="phone"
+                />
+
+                <InputError class="mt-2" :message="form.errors.phone" />
             </div>
 
             <div class="flex items-center gap-4">

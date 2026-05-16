@@ -1,0 +1,39 @@
+<?php
+
+namespace App\Filament\Resources\FuneralArrangements\Schemas;
+
+use Filament\Forms\Components\FileUpload;
+use Filament\Schemas\Components\Section;
+use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Schema;
+
+class FuneralArrangementForm
+{
+    public static function configure(Schema $schema): Schema
+    {
+        return $schema
+            ->components([
+                Section::make("Funeral Arrangement Information")
+                    ->schema([
+                        TextInput::make('name')
+                            ->required(),
+                        TextInput::make('description')
+                            ->required(),
+                        TextInput::make('color')
+                            ->required(),
+                        TextInput::make('occasion')
+                            ->default(null),
+                    ])->columns(2),
+                
+                Section::make("Gallery")
+                    ->description("Upload one iamge of this funeral arrangement.")
+                    ->schema([
+                        FileUpload::make("images")
+                            ->maxsize((int) 20480)
+                            ->disk("event_images")
+                            ->visibility("public")
+                            ->acceptedFileTypes(["image/jpeg", "image/jpg", "image/png", "image/webp"])
+                    ])
+            ]);
+    }
+}
