@@ -11,6 +11,8 @@ class EventsController extends Controller
      */
     public function __invoke(Request $request)
     {
+        //the events page is static
+
         //get all events
 
         //return them

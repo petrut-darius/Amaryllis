@@ -1,11 +1,37 @@
 <script setup lang="ts">
 import { Head } from '@inertiajs/vue3';
+import { computed, onMounted, onUnmounted } from 'vue';
 import { GoogleMap, Marker } from 'vue3-google-map';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 
-defineProps({
+const props = defineProps({
     reviews: Array
 })
+
+const structuredData = computed(() => {
+    return JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Livrare și Ridicare Flori | Amaryllis",
+        "description": "Informații despre serviciile de livrare flori în Târgu Mureș și ridicare personală din studio.",
+        "mainEntity": {
+            "@id": "https://amaryllis-flori.ro/#organization"
+        }
+    });
+});
+
+onMounted(() => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "structured-data";
+    script.textContent = structuredData.value;
+    document.head.appendChild(script);
+});
+
+onUnmounted(() => {
+    const existing = document.head.querySelector('script#structured-data');
+    if (existing) existing.remove();
+});
 
 const center = {lat: 46.53663, lng: 24.58163}
 const placeId = 'ChIJw7OIf5y3S0cRdMzs4tJBJKU'
@@ -31,10 +57,20 @@ function handleImageError(e: Event) {
 }
 </script>
 <template>
-    <Head title="Delivery & Pickup" />
+    <Head>
+        <title>Livrare Flori Târgu Mureș | Amaryllis</title>
+        <meta name="description" content="Livrare rapidă și sigură de flori în Târgu Mureș. Ne asigurăm că fiecare petală ajunge în condiții perfecte la ușa ta. Info livrare și ridicare personală din studio.">
+        <link rel="canonical" :href="route('delivery')" />
+
+        <meta property="og:title" content="Livrare Flori Târgu Mureș | Amaryllis" />
+        <meta property="og:description" content="Livrare rapidă și sigură de flori în Târgu Mureș." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" :content="route('delivery')" />
+        <meta property="og:image" content="/amaryllis_logo.png" />
+    </Head>
 
     <GuestLayout>
-        <div class="max-w-7xl mx-auto space-y-16 md:space-y-32 mb-16">
+        <div class="max-w-7xl mx-auto space-y-12 md:space-y-24 mb-16">
             <!-- Header -->
             <div class="max-w-3xl mx-auto text-center space-y-8 px-4">
                 <span class="uppercase tracking-[0.5em] text-[10px] text-brand-ruby font-bold block">Services</span>
@@ -46,7 +82,7 @@ function handleImageError(e: Event) {
             </div>
 
             <!-- Content Grid -->
-            <div class="flex flex-col gap-16 lg:gap-32 items-start px-4 max-w-5xl mx-auto">
+            <div class="flex flex-col gap-12 lg:gap-24 items-start px-4 max-w-5xl mx-auto">
                 <div class="space-y-12 w-full order-2">
                     <div class="space-y-6">
                         <h2 class="font-serif text-3xl md:text-5xl text-brand-charcoal">Local Delivery</h2>
@@ -91,12 +127,12 @@ function handleImageError(e: Event) {
             </div>
 
             <!-- FAQ Section -->
-            <section class="space-y-24 px-4">
+            <section class="space-y-16 px-4">
                 <div class="text-center space-y-6">
                     <h2 class="font-serif text-3xl md:text-5xl text-brand-charcoal">Common Questions</h2>
                     <div class="w-12 h-px bg-brand-ruby mx-auto"></div>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-32 max-w-5xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 max-w-5xl mx-auto">
                     <div class="space-y-6 group">
                         <p class="font-semibold text-brand-charcoal uppercase tracking-[0.3em] text-[10px] group-hover:text-brand-ruby transition-colors duration-300">How will my flowers be packaged?</p>
                         <p class="text-brand-charcoal/50 font-light leading-relaxed text-sm md:text-base">We use minimal, eco-friendly packaging that protects the blooms while highlighting their natural beauty. Each arrangement includes care instructions and flower food.</p>
@@ -109,7 +145,7 @@ function handleImageError(e: Event) {
             </section>
 
             <!-- Testimonials Section -->
-            <section class="space-y-24 px-4 py-20 bg-brand-cream/20 rounded-3xl">
+            <section class="space-y-16 px-4 py-12 bg-brand-cream/20 rounded-3xl">
                 <div class="text-center space-y-6">
                     <span class="uppercase tracking-[0.5em] text-[10px] text-brand-ruby font-bold block">Testimonials</span>
                     <h2 class="font-serif text-3xl md:text-5xl text-brand-charcoal">Kind Words</h2>

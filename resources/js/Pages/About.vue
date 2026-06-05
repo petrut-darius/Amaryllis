@@ -1,16 +1,54 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
+import { computed, onMounted, onUnmounted } from 'vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
+
+const structuredData = computed(() => {
+    return JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "mainEntity": {
+            "@id": "https://amaryllis-flori.ro/#organization"
+        },
+        "description": "Povestea Amaryllis - Pasiunea noastră pentru design floral organic și sustenabil în Târgu Mureș.",
+        "publisher": {
+            "@id": "https://amaryllis-flori.ro/#organization"
+        }
+    });
+});
+
+onMounted(() => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "structured-data";
+    script.textContent = structuredData.value;
+    document.head.appendChild(script);
+});
+
+onUnmounted(() => {
+    const existing = document.head.querySelector('script#structured-data');
+    if (existing) existing.remove();
+});
 </script>
 
 <template>
-    <Head title="Our Story" />
+    <Head>
+        <title>Povestea Noastră | Amaryllis Florărie Târgu Mureș</title>
+        <meta name="description" content="Află mai multe despre pasiunea noastră pentru design floral organic și sustenabil. Amaryllis - unde fiecare floare are o poveste și fiecare aranjament este o operă de artă.">
+        <link rel="canonical" :href="route('about')" />
+
+        <meta property="og:title" content="Povestea Noastră | Amaryllis Florărie Târgu Mureș" />
+        <meta property="og:description" content="Află mai multe despre pasiunea noastră pentru design floral organic și sustenabil." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" :content="route('about')" />
+        <meta property="og:image" content="/amaryllis_logo.png" />
+    </Head>
 
     <GuestLayout>
-        <div class="space-y-24 md:space-y-48 pt-6 md:pt-6">
+        <div class="space-y-16 md:space-y-32 pt-6 md:pt-6">
             <!-- Story Section: Large Scale Editorial -->
-            <section class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+            <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
                 <div class="lg:col-span-6 space-y-12 order-2 lg:order-1">
                     <div class="space-y-8">
                         <span class="uppercase tracking-[1em] text-[10px] text-brand-ruby font-bold block animate-fade-in">The Beginning</span>
@@ -38,15 +76,15 @@ import GuestLayout from '@/Layouts/GuestLayout.vue';
             </section>
 
             <!-- Philosophy Section: Asymmetrical Split -->
-            <section class="space-y-16">
+            <section class="space-y-12">
                 <div class="text-center space-y-8 max-w-3xl mx-auto">
                     <p class="text-[10px] uppercase tracking-[1em] text-brand-ruby font-bold">The Core</p>
                     <h2 class="text-4xl md:text-7xl font-serif text-brand-charcoal">Our Approach to <span class="italic font-normal font-script text-4xl md:text-8xl text-brand-gold lowercase tracking-normal">nature</span></h2>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-24 items-start">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-16 items-start">
                     <!-- Column 1 -->
-                    <div class="md:col-span-6 space-y-16 group">
+                    <div class="md:col-span-6 space-y-12 group">
                         <div class="relative aspect-[4/3] overflow-hidden bg-brand-ruby/10 shadow-2xl animate-reveal delay-300">
                             <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=1000" alt="Work Process" class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-transform duration-[2s] group-hover:scale-110" />
                         </div>
@@ -58,7 +96,7 @@ import GuestLayout from '@/Layouts/GuestLayout.vue';
                         </div>
                     </div>
                     <!-- Column 2 (Offset) -->
-                    <div class="md:col-span-6 space-y-16 group md:mt-32">
+                    <div class="md:col-span-6 space-y-12 group md:mt-16">
                         <div class="relative aspect-[4/3] overflow-hidden bg-brand-rose/10 shadow-2xl animate-reveal delay-500">
                             <img src="https://images.unsplash.com/photo-1453904300235-0f2f60b15b5d?auto=format&fit=crop&q=80&w=1000" alt="Sourcing" class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-transform duration-[2s] group-hover:scale-110" />
                         </div>
@@ -73,7 +111,7 @@ import GuestLayout from '@/Layouts/GuestLayout.vue';
             </section>
 
             <!-- Final Quote: Minimalist Grandeur -->
-            <section class="py-20 md:py-32 text-center border-t border-brand-charcoal">
+            <section class="py-12 md:py-20 text-center border-t border-brand-charcoal">
                 <div class="max-w-4xl mx-auto px-6 space-y-12">
                     <p class="text-3xl md:text-6xl font-serif italic text-brand-charcoal leading-snug">
                         "Every bouquet is a unique story, told through the <span class="text-brand-gold font-script text-4xl md:text-8xl lowercase tracking-normal">delicate whisper</span> of petals."

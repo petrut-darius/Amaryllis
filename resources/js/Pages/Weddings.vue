@@ -1,15 +1,62 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
+import { computed, onMounted, onUnmounted } from 'vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 
-defineProps({
+const props = defineProps({
     weddings: Object,
+});
+
+const structuredData = computed(() => {
+    return JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Portofoliu Nunți",
+        "description": "Design floral personalizat pentru nunți în Târgu Mureș.",
+        "numberOfItems": props.weddings?.data?.length || 0,
+        "itemListElement": (props.weddings?.data || []).map((item, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "item": {
+                "@type": "CreativeWork",
+                "name": item.name,
+                "description": item.description,
+                "image": item.images?.[0]?.path,
+                "author": {
+                    "@id": "https://amaryllis-flori.ro/#organization"
+                }
+            }
+        }))
+    });
+});
+
+onMounted(() => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "structured-data";
+    script.textContent = structuredData.value;
+    document.head.appendChild(script);
+});
+
+onUnmounted(() => {
+    const existing = document.head.querySelector('script#structured-data');
+    if (existing) existing.remove();
 });
 </script>
 
 <template>
-    <Head title="Weddings" />
+    <Head>
+        <title>Nunți | Design Floral Amaryllis Târgu Mureș</title>
+        <meta name="description" content="Design floral personalizat pentru nunta ta de vis. De la buchetul miresei la decorul complet al locației în Târgu Mureș, transformăm viziunea ta în realitate.">
+        <link rel="canonical" :href="route('weddings')" />
+
+        <meta property="og:title" content="Nunți | Design Floral Amaryllis Târgu Mureș" />
+        <meta property="og:description" content="Design floral personalizat pentru nunta ta de vis în Târgu Mureș." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" :content="route('weddings')" />
+        <meta property="og:image" content="/amaryllis_logo.png" />
+    </Head>
 
     <GuestLayout>
         <div class="space-y-16 md:space-y-16">

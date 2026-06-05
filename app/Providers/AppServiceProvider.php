@@ -5,6 +5,8 @@ namespace App\Providers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
+use App\Models\Baptism;
+use Illuminate\Auth\Access\Gate;
 
 class AppServiceProvider extends ServiceProvider
 {

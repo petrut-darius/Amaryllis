@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\WeddingResource;
 use App\Models\Wedding;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Inertia\Inertia;
 
 class WeddingsController extends Controller
@@ -14,7 +15,9 @@ class WeddingsController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $weddings = Wedding::all();
+        $weddings = collect(Cache::remember("weddings", 600, function() {
+            return Wedding::all()->toArray();
+        }));
 
         return Inertia::render("Weddings", [
             "weddings" => WeddingResource::collection($weddings),

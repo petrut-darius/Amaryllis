@@ -1,24 +1,22 @@
 <x-mail::message>
-# New Inquiry Received
+<div style="text-align: center; margin-bottom: 30px;">
+<img src="{{ config('app.url') }}/amaryllis_logo.png" alt="{{ config('app.name') }}" width="150" style="display: inline-block;">
+</div>
 
-You have received a new contact inquiry from the website.
+# Am primit mesajul tău!
 
-**Contact Details:**
-- **Name:** {{ $contact->name }}
-- **Email:** {{ $contact->email }}
-- **Phone:** {{ $contact->phone }}
-
-**Subject:**
-{{ $contact->subject }}
-
-**Message:**
-{{ $contact->message }}
+Îți mulțumim că ne-ai contactat. Echipa noastră a primit solicitarea ta și te vom contacta în cel mai scurt timp posibil pentru a discuta mai multe detalii despre dorințele tale florale.
 
 <x-mail::panel>
-**Submission Metadata:**
-- **Date:** {{ $contact->created_at->format('M d, Y H:i') }}
+Dacă este o urgență sau dorești să modifici ceva în mesajul trimis, nu ezita să ne răspunzi la acest e-mail.
 </x-mail::panel>
 
-Best regards,
-**Amaryllis Floral Design**
+O zi plină de culoare,<br>
+Echipa {{ config('app.name') }}
+
+@if($token)
+<sub style="display: block; text-align: center; margin-top: 20px; color: #718096;">
+    Dacă nu mai dorești să primești aceste e-mailuri, te poți <a href="{{ route('newsletter.destroy', ['token' => $token]) }}" style="color: #718096; text-decoration: underline;">dezabona aici</a>.
+</sub>
+@endif
 </x-mail::message>

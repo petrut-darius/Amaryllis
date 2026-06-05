@@ -23,7 +23,9 @@ const submit = () => {
 
 <template>
     <AuthLayout>
-        <Head title="Register" />
+        <Head title="Register">
+            <meta name="robots" content="noindex, nofollow" />
+        </Head>
 
         <form @submit.prevent="submit">
             <div>

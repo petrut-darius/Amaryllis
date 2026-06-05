@@ -48,7 +48,10 @@ class UserPolicy
      */
     public function update(User $user, User $model): bool
     {
+
         if($user->super_admin === true) return true;
+
+        if($user->id === $model->id) return false;
 
         if($user->hasAnyPermission([UserPermissions::MANAGE_USERS->value, UserPermissions::UPDATE_USERS->value]) && $model->super_admin === true) return false;
 

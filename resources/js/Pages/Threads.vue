@@ -1,9 +1,9 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
-import { ref } from 'vue';
+import { ref, computed, onMounted, onUnmounted } from 'vue';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 
-defineProps({
+const props = defineProps({
     threads: Object,
 })
 
@@ -13,10 +13,56 @@ const toggleThread = (id) => {
     activeThreadId.value = activeThreadId.value === id ? null : id;
 };
 
+const structuredData = computed(() => {
+    return JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Flori la Fir",
+        "description": "Selecție premium de flori la fir disponibilă în Târgu Mureș.",
+        "numberOfItems": props.threads?.data?.length || 0,
+        "itemListElement": (props.threads?.data || []).map((item, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "item": {
+                "@type": "Product",
+                "name": item.name,
+                "description": item.description,
+                "image": item.images,
+                "brand": {
+                    "@id": "https://amaryllis-flori.ro/#organization"
+                }
+            }
+        }))
+    });
+});
+
+onMounted(() => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "structured-data";
+    script.textContent = structuredData.value;
+    document.head.appendChild(script);
+});
+
+onUnmounted(() => {
+    const existing = document.head.querySelector('script#structured-data');
+    if (existing) existing.remove();
+});
+
 </script>
 
 <template>
-    <Head title="Threads" />
+    <Head>
+        <title>Flori la Fir | Amaryllis Târgu Mureș</title>
+        <meta name="description" content="Selecție premium de flori la fir pentru a-ți crea propriile aranjamente sau pentru un gest simplu și elegant. Calitate excepțională și prospețime garantată.">
+        <link rel="canonical" :href="route('threads')" />
+
+        <meta property="og:title" content="Flori la Fir | Amaryllis Târgu Mureș" />
+        <meta property="og:description" content="Selecție premium de flori la fir pentru a-ți crea propriile aranjamente sau pentru un gest simplu și elegant." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" :content="route('threads')" />
+        <meta property="og:image" content="/amaryllis_logo.png" />
+    </Head>
 
     <GuestLayout>
         <div class="space-y-16 md:space-y-32">

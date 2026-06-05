@@ -1,15 +1,62 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
+import { computed, onMounted, onUnmounted } from 'vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 
-defineProps({
+const props = defineProps({
     eighteenths: Object,
+});
+
+const structuredData = computed(() => {
+    return JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Portofoliu Majorate",
+        "description": "Decor floral modern pentru majorate în Târgu Mureș.",
+        "numberOfItems": props.eighteenths?.data?.length || 0,
+        "itemListElement": (props.eighteenths?.data || []).map((item, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "item": {
+                "@type": "CreativeWork",
+                "name": item.name,
+                "description": item.description,
+                "image": item.images?.[0]?.path,
+                "author": {
+                    "@id": "https://amaryllis-flori.ro/#organization"
+                }
+            }
+        }))
+    });
+});
+
+onMounted(() => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "structured-data";
+    script.textContent = structuredData.value;
+    document.head.appendChild(script);
+});
+
+onUnmounted(() => {
+    const existing = document.head.querySelector('script#structured-data');
+    if (existing) existing.remove();
 });
 </script>
 
 <template>
-    <Head title="Eighteenths" />
+    <Head>
+        <title>Majorate | Decor Floral Amaryllis Târgu Mureș</title>
+        <meta name="description" content="Decor floral creativ și modern pentru petreceri de majorat. Transformăm evenimentul tău într-o experiență memorabilă cu aranjamente florale îndrăznețe și pline de stil.">
+        <link rel="canonical" :href="route('eighteenths')" />
+
+        <meta property="og:title" content="Majorate | Decor Floral Amaryllis Târgu Mureș" />
+        <meta property="og:description" content="Decor floral creativ și modern pentru petreceri de majorat." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" :content="route('eighteenths')" />
+        <meta property="og:image" content="/amaryllis_logo.png" />
+    </Head>
 
     <GuestLayout>
         <div class="space-y-16 md:space-y-16">

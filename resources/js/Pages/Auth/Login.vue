@@ -31,7 +31,9 @@ const submit = () => {
 
 <template>
     <AuthLayout>
-        <Head title="Log in" />
+        <Head title="Log in">
+            <meta name="robots" content="noindex, nofollow" />
+        </Head>
 
         <div v-if="status" class="mb-4 text-sm font-medium text-green-600">
             {{ status }}

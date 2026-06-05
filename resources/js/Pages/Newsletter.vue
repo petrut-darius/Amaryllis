@@ -1,5 +1,6 @@
 <script setup>
 import { useForm, usePage, Head } from '@inertiajs/vue3';
+import { computed, onMounted, onUnmounted } from 'vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
@@ -22,10 +23,45 @@ const submitNewsletterForm = () => {
         onSuccess: () => newsletterForm.reset(),
     })
 }
+
+const structuredData = computed(() => {
+    return JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Newsletter | Amaryllis",
+        "description": "Abonează-te pentru noutăți și inspirație florală de la Amaryllis.",
+        "publisher": {
+            "@id": "https://amaryllis-flori.ro/#organization"
+        }
+    });
+});
+
+onMounted(() => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "structured-data";
+    script.textContent = structuredData.value;
+    document.head.appendChild(script);
+});
+
+onUnmounted(() => {
+    const existing = document.head.querySelector('script#structured-data');
+    if (existing) existing.remove();
+});
 </script>
 
 <template>
-    <Head title="Newsletter" />
+    <Head>
+        <title>Newsletter | Amaryllis Târgu Mureș</title>
+        <meta name="description" content="Abonează-te la newsletter-ul Amaryllis pentru a primi noutăți despre colecțiile noastre de sezon, workshop-uri și inspirație botanică direct în inbox.">
+        <link rel="canonical" :href="route('newsletter.create')" />
+
+        <meta property="og:title" content="Newsletter | Amaryllis Târgu Mureș" />
+        <meta property="og:description" content="Abonează-te la newsletter-ul Amaryllis pentru inspirație botanică." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" :content="route('newsletter.create')" />
+        <meta property="og:image" content="/amaryllis_logo.png" />
+    </Head>
 
     <GuestLayout>
         <div class="max-w-4xl mx-auto space-y-24 md:space-y-40">

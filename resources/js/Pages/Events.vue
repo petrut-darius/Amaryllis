@@ -1,5 +1,6 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
+import { computed, onMounted, onUnmounted } from 'vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 
@@ -23,13 +24,48 @@ const categories = [
         description: 'Vibrant arrangements for celebrating your milestones.'
     }
 ];
+
+const structuredData = computed(() => {
+    return JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Evenimente & Design Floral | Amaryllis",
+        "description": "Design floral artistic pentru nunți, botezuri și majorate în Târgu Mureș.",
+        "publisher": {
+            "@id": "https://amaryllis-flori.ro/#organization"
+        }
+    });
+});
+
+onMounted(() => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "structured-data";
+    script.textContent = structuredData.value;
+    document.head.appendChild(script);
+});
+
+onUnmounted(() => {
+    const existing = document.head.querySelector('script#structured-data');
+    if (existing) existing.remove();
+});
 </script>
 
 <template>
-    <Head title="Events" />
+    <Head>
+        <title>Evenimente & Design Floral | Amaryllis Târgu Mureș</title>
+        <meta name="description" content="Elevăm orice ocazie prin design floral artistic. Transformăm spații și momente în experiențe de neuitat prin compoziții atent studiate și frumusețe naturală.">
+        <link rel="canonical" :href="route('events')" />
+
+        <meta property="og:title" content="Evenimente & Design Floral | Amaryllis Târgu Mureș" />
+        <meta property="og:description" content="Elevăm orice ocazie prin design floral artistic la Amaryllis." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" :content="route('events')" />
+        <meta property="og:image" content="/amaryllis_logo.png" />
+    </Head>
 
     <GuestLayout>
-        <div class="space-y-16 md:space-y-16">
+        <div class="space-y-12">
             <!-- Header -->
             <div class="max-w-3xl mx-auto text-center space-y-8">
                 <span class="uppercase tracking-[0.5em] text-[10px] text-brand-ruby font-bold block">Occasions</span>
@@ -67,7 +103,7 @@ const categories = [
             </div>
             
             <!-- Custom Inquiry CTA -->
-            <section class="py-20 border-y border-brand-charcoal flex flex-col items-center text-center space-y-12">
+            <section class="py-12 border-y border-brand-charcoal flex flex-col items-center text-center space-y-12">
                 <div class="space-y-6">
                     <h2 class="text-3xl md:text-5xl font-serif text-brand-charcoal leading-tight max-w-2xl">Host an event that <br/> feels like a dream.</h2>
                     <p class="text-brand-charcoal/40 text-[10px] uppercase tracking-[0.4em] font-medium">Custom floral installations & designs</p>

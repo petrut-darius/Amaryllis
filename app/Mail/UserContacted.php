@@ -2,7 +2,6 @@
 
 namespace App\Mail;
 
-use App\Models\Contact;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -11,16 +10,16 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class UserContacted extends Mailable implements ShouldQueue
+class UserContacted extends Mailable
 {
     use Queueable, SerializesModels;
 
     /**
      * Create a new message instance.
      */
-    public function __construct(
-        public Contact $contact,
-    ) {
+    public function __construct(public ?string $token = null)
+    {
+        //
     }
 
     /**
@@ -29,10 +28,7 @@ class UserContacted extends Mailable implements ShouldQueue
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: "New Contact Inquiry: " . $this->contact->subject,
-            replyTo: [
-                $this->contact->email => $this->contact->name,
-            ],
+            subject: 'User Contacted',
         );
     }
 

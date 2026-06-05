@@ -6,9 +6,9 @@ const currentYear = new Date().getFullYear();
 
 <template>
     <div class="max-w-7xl mx-auto text-brand-cream/80">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-16 lg:gap-24">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16">
             <!-- Brand Section -->
-            <div class="lg:col-span-5 space-y-8 flex flex-col items-center lg:items-start text-center lg:text-left">
+            <div class="lg:col-span-5 space-y-6 flex flex-col items-center lg:items-start text-center lg:text-left">
                 <Link href="/" class="group inline-block">
                     <span class="font-serif text-3xl md:text-5xl tracking-[0.1em] md:tracking-[0.2em] uppercase text-brand-cream group-hover:text-brand-gold transition-all duration-1000">Amaryllis</span>
                 </Link>
@@ -17,25 +17,25 @@ const currentYear = new Date().getFullYear();
                 </p>
                 
                 <!-- Script Accent -->
-                <div class="pt-4">
+                <div class="pt-2">
                     <span class="font-script text-2xl text-brand-gold opacity-60">Established 2024</span>
                 </div>
             </div>
 
             <!-- Navigation Links -->
             <div class="lg:col-span-4 grid grid-cols-2 gap-8 w-full">
-                <div class="space-y-8 flex flex-col items-center lg:items-start">
+                <div class="space-y-6 flex flex-col items-center lg:items-start">
                     <h4 class="uppercase tracking-[0.5em] text-[10px] font-bold text-brand-cream/20">Portfolio</h4>
-                    <ul class="text-[10px] md:text-[11px] space-y-4 md:space-y-6 uppercase tracking-[0.3em]">
+                    <ul class="text-[10px] md:text-[11px] space-y-4 md:space-y-4 uppercase tracking-[0.3em]">
                         <li><Link :href="route('bouquets')" class="hover:text-brand-rose transition-colors">Bouquets</Link></li>
                         <li><Link :href="route('weddings')" class="hover:text-brand-rose transition-colors">Weddings</Link></li>
                         <li><Link :href="route('events')" class="hover:text-brand-rose transition-colors">Events</Link></li>
                     </ul>
                 </div>
 
-                <div class="space-y-8 flex flex-col items-center lg:items-start">
+                <div class="space-y-6 flex flex-col items-center lg:items-start">
                     <h4 class="uppercase tracking-[0.5em] text-[10px] font-bold text-brand-cream/20">Studio</h4>
-                    <ul class="text-[10px] md:text-[11px] space-y-4 md:space-y-6 uppercase tracking-[0.3em]">
+                    <ul class="text-[10px] md:text-[11px] space-y-4 md:space-y-4 uppercase tracking-[0.3em]">
                         <li><Link :href="route('about')" class="hover:text-brand-rose transition-colors">Our Story</Link></li>
                         <li><Link :href="route('delivery')" class="hover:text-brand-rose transition-colors">Delivery</Link></li>
                         <li><Link :href="route('contact.create')" class="hover:text-brand-rose transition-colors">Inquiry</Link></li>
@@ -44,9 +44,9 @@ const currentYear = new Date().getFullYear();
             </div>
 
             <!-- Social/Connect -->
-            <div class="lg:col-span-3 space-y-8 flex flex-col items-center lg:items-start w-full">
+            <div class="lg:col-span-3 space-y-6 flex flex-col items-center lg:items-start w-full">
                 <h4 class="uppercase tracking-[0.5em] text-[10px] font-bold text-brand-cream/20">Connect</h4>
-                <div class="space-y-8 flex flex-col items-center lg:items-start">
+                <div class="space-y-6 flex flex-col items-center lg:items-start">
                     <a href="mailto:hello@amaryllis.com" class="text-sm md:text-base font-serif italic hover:text-brand-gold transition-colors underline underline-offset-8 decoration-brand-gold/30">hello@amaryllis.com</a>
                     
                     <div class="flex space-x-10">
@@ -63,7 +63,7 @@ const currentYear = new Date().getFullYear();
             </div>
         </div>
 
-        <div class="mt-6 md:mt-6 pt-12 border-t border-brand-cream/10 flex flex-col sm:flex-row justify-between items-center space-y-6 sm:space-y-0 text-[9px] md:text-[10px] uppercase tracking-[0.4em] text-brand-cream/30">
+        <div class="mt-8 pt-8 border-t border-brand-cream/10 flex flex-col sm:flex-row justify-between items-center space-y-6 sm:space-y-0 text-[9px] md:text-[10px] uppercase tracking-[0.4em] text-brand-cream/30">
             <p>&copy; {{ currentYear }} Amaryllis Floral Design.</p>
         </div>
     </div>

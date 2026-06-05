@@ -1,9 +1,9 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
-import { ref } from 'vue';
+import { ref, computed, onMounted, onUnmounted } from 'vue';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 
-defineProps({
+const props = defineProps({
     arrangements: Object,
 })
 
@@ -13,10 +13,56 @@ const toggleArrangement = (id) => {
     activeArrangementId.value = activeArrangementId.value === id ? null : id;
 };
 
+const structuredData = computed(() => {
+    return JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Aranjamente Florale Artizanale",
+        "description": "Colecția noastră de aranjamente florale sofisticate create în Târgu Mureș.",
+        "numberOfItems": props.arrangements?.data?.length || 0,
+        "itemListElement": (props.arrangements?.data || []).map((item, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "item": {
+                "@type": "Product",
+                "name": item.name,
+                "description": item.description,
+                "image": item.images,
+                "brand": {
+                    "@id": "https://amaryllis-flori.ro/#organization"
+                }
+            }
+        }))
+    });
+});
+
+onMounted(() => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "structured-data";
+    script.textContent = structuredData.value;
+    document.head.appendChild(script);
+});
+
+onUnmounted(() => {
+    const existing = document.head.querySelector('script#structured-data');
+    if (existing) existing.remove();
+});
+
 </script>
 
 <template>
-    <Head title="Arrangements" />
+    <Head>
+        <title>Aranjamente Florale | Amaryllis Târgu Mureș</title>
+        <meta name="description" content="Compoziții florale sofisticate designed to elevate any space. Aranjamente deosebite pentru cadouri, decor interior sau momente speciale, create cu atenție la detalii.">
+        <link rel="canonical" :href="route('arrangements')" />
+
+        <meta property="og:title" content="Aranjamente Florale | Amaryllis Târgu Mureș" />
+        <meta property="og:description" content="Compoziții florale sofisticate designed to elevate any space." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" :content="route('arrangements')" />
+        <meta property="og:image" content="/amaryllis_logo.png" />
+    </Head>
 
     <GuestLayout>
         <div class="space-y-16 md:space-y-32">

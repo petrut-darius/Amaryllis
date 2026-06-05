@@ -1,9 +1,9 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
-import { ref } from 'vue';
+import { ref, computed, onMounted, onUnmounted } from 'vue';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 
-defineProps({
+const props = defineProps({
     bouquets: Object,
 })
 
@@ -13,13 +13,59 @@ const toggleBouquet = (id) => {
     activeBouquetId.value = activeBouquetId.value === id ? null : id;
 };
 
+const structuredData = computed(() => {
+    return JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Buchete de Flori Artizanale",
+        "description": "Colecția noastră de buchete de flori artizanale create în Târgu Mureș.",
+        "numberOfItems": props.bouquets?.data?.length || 0,
+        "itemListElement": (props.bouquets?.data || []).map((bouquet, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "item": {
+                "@type": "Product",
+                "name": bouquet.name,
+                "description": bouquet.description,
+                "image": bouquet.images,
+                "brand": {
+                    "@id": "https://amaryllis-flori.ro/#organization"
+                }
+            }
+        }))
+    });
+});
+
+onMounted(() => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "structured-data";
+    script.textContent = structuredData.value;
+    document.head.appendChild(script);
+});
+
+onUnmounted(() => {
+    const existing = document.head.querySelector('script#structured-data');
+    if (existing) existing.remove();
+});
+
 </script>
 
 <template>
-    <Head title="Bouquets" />
+    <Head>
+        <title>Buchete de Flori | Amaryllis Târgu Mureș</title>
+        <meta name="description" content="Descoperă colecția noastră de buchete de flori artizanale. Fiecare buchet este o compoziție unică din flori proaspete de sezon, creată cu pasiune în atelierul nostru.">
+        <link rel="canonical" :href="route('bouquets')" />
+        
+        <meta property="og:title" content="Buchete de Flori | Amaryllis Târgu Mureș" />
+        <meta property="og:description" content="Descoperă colecția noastră de buchete de flori artizanale. Fiecare buchet este o compoziție unică din flori proaspete de sezon." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" :content="route('bouquets')" />
+        <meta property="og:image" content="/amaryllis_logo.png" />
+    </Head>
 
     <GuestLayout>
-        <div class="space-y-16 md:space-y-32">
+        <div class="space-y-12 md:space-y-24">
             <!-- Header: Elegant & Focused -->
             <div class="max-w-4xl mx-auto text-center space-y-12">
                 <div class="space-y-6">
@@ -33,7 +79,7 @@ const toggleBouquet = (id) => {
             </div>
 
             <!-- Grid: Editorial Presentation -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-32 animate-fade-in-up delay-700">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20 animate-fade-in-up delay-700">
                 <div v-for="bouquet in bouquets.data" :key="bouquet.id" 
                     class="group flex flex-col space-y-8"
                 >

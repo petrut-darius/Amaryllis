@@ -6,7 +6,7 @@ import Navigation from '@/Components/Navigation.vue';
 </script>
 
 <template>
-    <div class="min-h-screen bg-brand-cream text-brand-charcoal selection:bg-brand-rose selection:text-brand-charcoal font-sans antialiased overflow-x-hidden">
+    <div class="min-h-screen bg-brand-linen text-brand-charcoal selection:bg-brand-rose selection:text-brand-charcoal font-sans antialiased overflow-x-hidden">
         <!-- Colorful Background Accents -->
         <div class="fixed inset-0 z-[-1] overflow-hidden opacity-30 pointer-events-none">
             <div class="absolute top-[-15%] left-[-10%] w-[50%] h-[50%] bg-brand-mint rounded-full blur-[140px] animate-pulse-glow"></div>
@@ -16,9 +16,9 @@ import Navigation from '@/Components/Navigation.vue';
         </div>
 
         <!-- Header & Navigation Area -->
-        <header class="sticky top-0 z-50 py-4 md:py-8 px-4 sm:px-6 md:px-8 bg-brand-cream/60 backdrop-blur-xl border-b border-brand-charcoal transition-all duration-500">
+        <header class="sticky top-0 z-50 py-3 md:py-6 px-4 sm:px-6 md:px-8 bg-brand-linen/60 backdrop-blur-xl border-b border-brand-charcoal transition-all duration-500">
             <div class="max-w-7xl mx-auto">
-                <div class="flex flex-row md:flex-col items-center justify-between gap-4 md:gap-8">
+                <div class="flex flex-row md:flex-col items-center justify-between gap-3 md:gap-6">
                     <!-- Logo -->
                     <Link href="/" class="hover:scale-105 transition-transform duration-500">
                         <ApplicationLogo size="normal" class="md:hidden" />
@@ -34,12 +34,12 @@ import Navigation from '@/Components/Navigation.vue';
         </header>
 
         <!-- Main Content -->
-        <main class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pb-16 md:pb-24 lg:pb-24 pt-8 md:pt-12">
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pb-12 md:pb-16 lg:pb-16 pt-6 md:pt-8">
             <slot />
         </main>
 
         <!-- Footer -->
-        <footer class="bg-brand-charcoal text-brand-cream py-16 md:py-24 px-4 sm:px-6 md:px-8">
+        <footer class="bg-brand-charcoal text-brand-cream py-12 md:py-16 px-4 sm:px-6 md:px-8">
             <Footer />
         </footer>
     </div>

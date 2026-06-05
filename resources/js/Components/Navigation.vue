@@ -32,8 +32,8 @@ const toggleMenu = () => {
 
 <template>
     <!-- Desktop Navigation -->
-    <nav class="hidden md:flex flex-col items-center space-y-6 w-full">
-        <div class="flex items-center justify-center space-x-10 lg:space-x-16 uppercase tracking-[0.4em] text-[9px] md:text-[10px] font-semibold text-brand-charcoal/40">
+    <nav class="hidden md:flex flex-col items-center space-y-4 w-full">
+        <div class="flex items-center justify-center space-x-8 lg:space-x-12 uppercase tracking-[0.4em] text-[9px] md:text-[10px] font-semibold text-brand-charcoal/40">
             <Link 
                 v-for="link in primaryLinks" 
                 :key="link.name" 

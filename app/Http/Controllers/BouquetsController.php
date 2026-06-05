@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\BouquetResource;
 use App\Models\Bouquet;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Inertia\Inertia;
 
 class BouquetsController extends Controller
@@ -15,13 +16,15 @@ class BouquetsController extends Controller
     public function __invoke(Request $request)
     {
         //get all bouquets
-        $bouquets = BouquetResource::collection(Bouquet::all());
+        $bouquets = collect(Cache::remember("bouquets", 600, function() {
+            return Bouquet::all()->toArray();
+        }));
 
         //dd($bouquets);
 
         //return them
         return Inertia::render("Bouquets", [
-            "bouquets" => $bouquets,
+            "bouquets" => BouquetResource::collection($bouquets),
         ]);
     }
 }

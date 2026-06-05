@@ -31,6 +31,7 @@ Route::fallback(function () {
 //newsletter
 Route::get("/newsletter", [SubscriberController::class, "create"])->name("newsletter.create");
 Route::post("/newsletter", [SubscriberController::class, "store"])->name("newsletter.store");
+Route::get("/newsletter/{token}", [SubscriberController::class, "destroy"])->name("newsletter.destroy");
 
 //contact
 Route::get("/contact", [ContactController::class, "create"])->name("contact.create");//static

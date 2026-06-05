@@ -1,5 +1,6 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
+import { computed, onMounted, onUnmounted } from 'vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 
@@ -29,13 +30,48 @@ const categories = [
         description: 'Single stems and delicate threads of natural elegance.'
     }
 ];
+
+const structuredData = computed(() => {
+    return JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Flori & Colecții | Amaryllis",
+        "description": "Explorați colecțiile noastre de buchete, aranjamente și flori la fir.",
+        "publisher": {
+            "@id": "https://amaryllis-flori.ro/#organization"
+        }
+    });
+});
+
+onMounted(() => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "structured-data";
+    script.textContent = structuredData.value;
+    document.head.appendChild(script);
+});
+
+onUnmounted(() => {
+    const existing = document.head.querySelector('script#structured-data');
+    if (existing) existing.remove();
+});
 </script>
 
 <template>
-    <Head title="Flowers" />
+    <Head>
+        <title>Flori & Colecții | Amaryllis Târgu Mureș</title>
+        <meta name="description" content="Explorează diversitatea florilor noastre. De la buchete bogate la fire delicate, fiecare categorie reflectă pasiunea noastră pentru frumosul botanic.">
+        <link rel="canonical" :href="route('flowers')" />
+
+        <meta property="og:title" content="Flori & Colecții | Amaryllis Târgu Mureș" />
+        <meta property="og:description" content="Explorează diversitatea florilor noastre realizate cu pasiune la Amaryllis." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" :content="route('flowers')" />
+        <meta property="og:image" content="/amaryllis_logo.png" />
+    </Head>
 
     <GuestLayout>
-        <div class="space-y-16 md:space-y-16">
+        <div class="space-y-12">
             <!-- Header -->
             <div class="max-w-3xl mx-auto text-center space-y-8">
                 <span class="uppercase tracking-[0.5em] text-[10px] text-brand-ruby font-bold block">Collection</span>
@@ -73,7 +109,7 @@ const categories = [
             </div>
             
             <!-- Custom Inquiry CTA -->
-            <section class="py-20 border-y border-brand-charcoal flex flex-col items-center text-center space-y-12">
+            <section class="py-12 border-y border-brand-charcoal flex flex-col items-center text-center space-y-12">
                 <div class="space-y-6">
                     <h2 class="text-3xl md:text-5xl font-serif text-brand-charcoal leading-tight max-w-2xl">Find the perfect <br/> expression in bloom.</h2>
                     <p class="text-brand-charcoal/40 text-[10px] uppercase tracking-[0.4em] font-medium">Custom floral designs for every moment</p>

@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string("email")->unique();
             $table->string("name");
+            $table->string("token")->unique();
+            $table->dateTime("subscribed_at");
+            $table->dateTime("unsubscribed_at");
             $table->timestamps();
         });
     }

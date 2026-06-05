@@ -1,9 +1,9 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
-import { ref } from 'vue';
+import { ref, computed, onMounted, onUnmounted } from 'vue';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 
-defineProps({
+const props = defineProps({
     funeralArrangements: Object,
 })
 
@@ -13,10 +13,56 @@ const toggleFuneral = (id) => {
     activeFuneralId.value = activeFuneralId.value === id ? null : id;
 };
 
+const structuredData = computed(() => {
+    return JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Aranjamente Funerare",
+        "description": "Omagii florale realizate cu respect și delicatețe în Târgu Mureș.",
+        "numberOfItems": props.funeralArrangements?.data?.length || 0,
+        "itemListElement": (props.funeralArrangements?.data || []).map((item, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "item": {
+                "@type": "Product",
+                "name": item.name,
+                "description": item.description,
+                "image": item.images,
+                "brand": {
+                    "@id": "https://amaryllis-flori.ro/#organization"
+                }
+            }
+        }))
+    });
+});
+
+onMounted(() => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "structured-data";
+    script.textContent = structuredData.value;
+    document.head.appendChild(script);
+});
+
+onUnmounted(() => {
+    const existing = document.head.querySelector('script#structured-data');
+    if (existing) existing.remove();
+});
+
 </script>
 
 <template>
-    <Head title="Funeral Arrangements" />
+    <Head>
+        <title>Aranjamente Funerare | Amaryllis Târgu Mureș</title>
+        <meta name="description" content="Omagii florale realizate cu respect și delicatețe. Coroane, jerbe și aranjamente funerare deosebite, create pentru a onora memoria celor dragi.">
+        <link rel="canonical" :href="route('funeralArrangements')" />
+
+        <meta property="og:title" content="Aranjamente Funerare | Amaryllis Târgu Mureș" />
+        <meta property="og:description" content="Omagii florale realizate cu respect și delicatețe." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" :content="route('funeralArrangements')" />
+        <meta property="og:image" content="/amaryllis_logo.png" />
+    </Head>
 
     <GuestLayout>
         <div class="space-y-16 md:space-y-32">
