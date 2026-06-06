@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Head } from '@inertiajs/vue3';
 import { computed, onMounted, onUnmounted } from 'vue';
-import { GoogleMap } from 'vue3-google-map';
+import { GoogleMap, Marker } from 'vue3-google-map';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 
 const props = defineProps({
