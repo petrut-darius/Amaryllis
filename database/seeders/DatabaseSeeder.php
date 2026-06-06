@@ -54,7 +54,7 @@ class DatabaseSeeder extends Seeder
             ["slug" => "delete:weddings", "description" => "Delete weddings"],
         ]);
         
-        $thepdi = User::factory()->create([
+        $thepdi = User::create([
             'name' => "thepdi",
             'email' => 'eminoviciidarius@gmail.com',
             "phone" => "0752096360",
