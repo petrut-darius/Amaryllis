@@ -59,7 +59,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'eminoviciidarius@gmail.com',
             "phone" => "0752096360",
             "super_admin" => 1,
-            "password" => "30ianpdi"
+            "password" => "30ianpdi",
         ]);
 
     }

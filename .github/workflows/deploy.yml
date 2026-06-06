@@ -15,7 +15,7 @@ jobs:
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: 8.4
+        php-version: 8.5
 
     - name: Install Composer Dependencies
       run: composer install --optimize-autoloader --no-dev --no-progress --no-interaction --prefer-dist
@@ -39,6 +39,7 @@ jobs:
         REMOTE_HOST: ${{ secrets.VPS_HOST }}
         REMOTE_USER: ${{ secrets.VPS_USER }}
         TARGET: "/var/www/html/Amaryllis"
+        EXCLUDE: "/node_modules/, /.git/, /.github/"
 
     - name: Run Remote/Artisan Commands
       uses: appleboy/ssh-action@v0.1.6
