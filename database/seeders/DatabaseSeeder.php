@@ -6,6 +6,7 @@ use App\Models\Permission;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -59,7 +60,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'eminoviciidarius@gmail.com',
             "phone" => "0752096360",
             "super_admin" => 1,
-            "password" => "30ianpdi",
+            "password" => Hash::make('30ianpdi'),
         ]);
 
     }
