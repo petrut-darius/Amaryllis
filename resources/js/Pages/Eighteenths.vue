@@ -59,11 +59,11 @@ onUnmounted(() => {
     </Head>
 
     <GuestLayout>
-        <div class="space-y-16 md:space-y-16">
+        <div class="space-y-12 md:space-y-16 px-4 md:px-0">
             <!-- Header -->
-            <div class="max-w-3xl mx-auto text-center space-y-8">
+            <div class="max-w-3xl mx-auto text-center space-y-6 md:space-y-8">
                 <span class="uppercase tracking-[0.5em] text-[10px] text-brand-ruby font-bold block">Portfolio</span>
-                <h1 class="text-4xl md:text-7xl font-serif text-brand-charcoal">The Eighteenths</h1>
+                <h1 class="text-3xl md:text-7xl font-serif text-brand-charcoal">The Eighteenths</h1>
                 <p class="text-sm md:text-base text-brand-charcoal/50 leading-relaxed font-light">
                     Energy and color for life's most vibrant milestones. We celebrate the transition into adulthood with contemporary floral art that is as bold as it is beautiful.
                 </p>
@@ -71,19 +71,19 @@ onUnmounted(() => {
             </div>
 
             <!-- Eighteenths List -->
-            <div class="space-y-24 md:space-y-48">
-                <section v-for="(eighteenth, idx) in eighteenths.data" :key="eighteenth.id" class="space-y-24">
+            <div class="space-y-16 md:space-y-48">
+                <section v-for="(eighteenth, idx) in eighteenths.data" :key="eighteenth.id" class="space-y-12 md:space-y-24">
                     <!-- Eighteenth Info -->
-                    <div class="max-w-2xl mx-auto text-center space-y-10">
+                    <div class="max-w-2xl mx-auto text-center space-y-6 md:space-y-10">
                         <div class="space-y-4">
-                            <h2 class="text-3xl md:text-5xl font-serif text-brand-charcoal">{{ eighteenth.name }}</h2>
+                            <h2 class="text-2xl md:text-5xl font-serif text-brand-charcoal">{{ eighteenth.name }}</h2>
                             <div class="flex justify-center gap-4">
                                 <span class="w-1.5 h-1.5 rounded-full bg-brand-ruby/60"></span>
                                 <span class="w-1.5 h-1.5 rounded-full bg-brand-ruby/30"></span>
                                 <span class="w-1.5 h-1.5 rounded-full bg-brand-blush/30"></span>
                             </div>
                         </div>
-                        <p class="text-brand-charcoal/50 leading-relaxed text-sm md:text-base font-light px-6">
+                        <p class="text-brand-charcoal/50 leading-relaxed text-sm md:text-base font-light px-4 md:px-6">
                             {{ eighteenth.description }}
                         </p>
                     </div>
@@ -91,7 +91,7 @@ onUnmounted(() => {
                     <!-- Eighteenth Photos Grid -->
                     <div class="grid grid-cols-1 gap-8 md:gap-16 max-w-5xl mx-auto w-full">
                         <div v-for="(image, index) in eighteenth.images" :key="index" 
-                            class="max-h-[600px] flex justify-center overflow-hidden group relative"
+                            class="max-h-[400px] md:max-h-[600px] flex justify-center overflow-hidden group relative px-4 md:px-0"
                         >
                             <img 
                                 :src="image.path" 
@@ -104,8 +104,8 @@ onUnmounted(() => {
             </div>
 
             <!-- Final CTA -->
-            <section class="py-20 border-y border-brand-charcoal text-center space-y-10">
-                <h2 class="text-3xl md:text-5xl font-serif text-brand-charcoal">Ready to celebrate?</h2>
+            <section class="py-12 md:py-20 border-y border-brand-charcoal text-center space-y-8 md:space-y-10">
+                <h2 class="text-2xl md:text-5xl font-serif text-brand-charcoal px-4 md:px-0">Ready to celebrate?</h2>
                 <div class="pt-4">
                     <Link :href="route('contact.create')">
                         <PrimaryButton>Start an Inquiry</PrimaryButton>

@@ -16,7 +16,7 @@ const primaryLinks = [
     { name: "Gallery", route: "gallery"},
     { name: "Flowers", route: "flowers" },
     { name: "Events", route: "events" },
-    { name: "About", route: "about" },
+    { name: "About Us", route: "about" },
     { name: "Contact", route: "contact.create" },
     { name: "Delivery", route: "delivery"}
 ];

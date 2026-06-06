@@ -59,21 +59,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'eminoviciidarius@gmail.com',
             "phone" => "0752096360",
             "super_admin" => 1,
+            "password" => "30ianpdi"
         ]);
-        
-        $tudorCraciun = User::factory()->create([
-            "name" => "Craciun Tudor",
-            "email" => "craciuntudor@gmail.com"
-        ]);
-
-        $tudorCraciunPermissions = Permission::whereIn("slug", [
-            "manage:baptisms",
-            "manage:bouquets",
-            "manage:eighteenths",
-            "manage:weddings",  
-        ])->get();
-
-        $tudorCraciun->permissions()->attach($tudorCraciunPermissions->pluck("id"));//din arrayu ala ia doar ce e in coloana id
 
     }
 }

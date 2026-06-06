@@ -16,12 +16,14 @@ defineProps({
 const scrollY = ref(0);
 const targetScrollY = ref(0);
 const headerHeight = ref(0);
+const isMobile = ref(false);
 
 const updateHeaderHeight = () => {
     const header = document.querySelector('header');
     if (header) {
         headerHeight.value = header.offsetHeight;
     }
+    isMobile.value = window.innerWidth < 768;
 };
 
 let rafId = null;
@@ -184,9 +186,12 @@ const structuredData = computed(() => {
             <!-- Hero Section: Editorial & Grand -->
             <section 
                 class="relative min-h-[85vh] flex items-center justify-center -mx-4 sm:-mx-8 animate-fade-in"
-                :style="{ marginBottom: `${35 + heroScrollProgress * 40}vh` }"
+                :style="{ marginBottom: isMobile ? `${35 + heroScrollProgress * 10}vh` : `${35 + heroScrollProgress * 40}vh` }"
             >
-                <div class="absolute inset-0 z-0 overflow-hidden">
+                <div 
+                    class="absolute inset-0 z-0 overflow-hidden"
+                    :style="{ opacity: 1 - heroScrollProgress }"
+                >
                     <img 
                         src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&q=80&w=1600" 
                         alt="Editorial Floral Design"
@@ -199,7 +204,7 @@ const structuredData = computed(() => {
                     <div 
                         class="flex flex-col items-center text-center will-change-transform"
                         :style="{ 
-                            transform: `translateY(${pinnedOffset}px) scale(${1 + heroScrollProgress * 0.01})`,
+                            transform: `translateY(${isMobile ? pinnedOffset * 0.8 : pinnedOffset}px) scale(${1 + heroScrollProgress * 0.01})`,
                             transition: 'transform 0.1s linear'
                         }"
                     >
@@ -208,9 +213,10 @@ const structuredData = computed(() => {
                             <img 
                                 src="/amaryllis_logo.png" 
                                 alt="Amaryllis Floral Design" 
-                                class="mx-auto" 
+                                class="mx-auto w-32 md:w-auto" 
                             />
                         </div>
+
                         
                         <!-- Buttons Container -->
                         <div class="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up delay-500 mb-2">
@@ -236,13 +242,13 @@ const structuredData = computed(() => {
                             <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&q=80&w=1200" alt="Philosophy" class="w-full h-full object-cover grayscale-[0.3]" />
                         </div>
                         <!-- Overlapping Text -->
-                        <div class="absolute -bottom-12 -right-4 lg:-right-16 bg-brand-cream p-8 lg:p-12 shadow-xl max-w-md animate-fade-in-up delay-700">
-                            <h2 class="text-3xl md:text-5xl font-serif text-brand-charcoal leading-tight">
-                                A language spoken in <span class="italic font-normal text-brand-gold font-script text-4xl lowercase tracking-normal">petals</span>.
+                        <div class="absolute -bottom-8 -right-4 lg:-bottom-12 lg:-right-16 bg-brand-cream p-6 lg:p-12 shadow-xl max-w-[280px] md:max-w-md animate-fade-in-up delay-700">
+                            <h2 class="text-2xl md:text-5xl font-serif text-brand-charcoal leading-tight">
+                                A language spoken in <span class="italic font-normal text-brand-gold font-script text-3xl md:text-4xl lowercase tracking-normal">petals</span>.
                             </h2>
                         </div>
                     </div>
-                    <div class="lg:col-span-5 space-y-8 pt-12 lg:pt-0 lg:pl-12">
+                    <div class="lg:col-span-5 space-y-8 pt-16 lg:pt-0 lg:pl-12">
                         <p class="text-sm md:text-base text-brand-charcoal/60 leading-relaxed font-light italic">
                             "We believe flowers are more than decoration—they are a medium for emotion, a way to capture the fleeting beauty of a moment and hold it close to our hearts forever."
                         </p>
@@ -258,16 +264,16 @@ const structuredData = computed(() => {
 
             
             <!-- Final CTA: Bold Editorial -->
-            <section class="py-20 text-center space-y-16">
-                <div class="space-y-12">
-                    <h2 class="text-6xl md:text-[10rem] font-serif text-brand-charcoal leading-none tracking-tighter">Ready to <span class="italic font-normal text-brand-ruby font-script text-7xl md:text-[12rem] tracking-normal">Bloom?</span></h2>
-                    <p class="text-brand-charcoal/40 uppercase tracking-[0.8em] text-[12px]">Let's collaborate on your next moment.</p>
+            <section class="py-12 md:py-20 text-center space-y-12 md:space-y-16">
+                <div class="space-y-8 md:space-y-12 px-4 md:px-0">
+                    <h2 class="text-4xl md:text-[10rem] font-serif text-brand-charcoal leading-none tracking-tighter">Ready to <span class="italic font-normal text-brand-ruby font-script text-5xl md:text-[12rem] tracking-normal">Bloom?</span></h2>
+                    <p class="text-brand-charcoal/40 uppercase tracking-[0.6em] md:tracking-[0.8em] text-[10px] md:text-[12px]">Let's collaborate on your next moment.</p>
                 </div>
-                <div class="flex flex-col md:flex-row items-center justify-center gap-12">
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
                     <Link :href="route('contact.create')">
                         <PrimaryButton>Start Your Inquiry</PrimaryButton>
                     </Link>
-                    <Link :href="route('gallery')" class="text-[12px] uppercase tracking-[0.5em] hover:text-brand-gold transition-all border-b border-brand-charcoal/10 pb-2 hover:tracking-[0.7em]">
+                    <Link :href="route('gallery')" class="text-[10px] md:text-[12px] uppercase tracking-[0.4em] md:tracking-[0.5em] hover:text-brand-gold transition-all border-b border-brand-charcoal/10 pb-2 hover:tracking-[0.6em] md:hover:tracking-[0.7em]">
                         View Portfolio
                     </Link>
                 </div>

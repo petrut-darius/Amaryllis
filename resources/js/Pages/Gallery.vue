@@ -49,34 +49,34 @@ onUnmounted(() => {
     </Head>
 
     <GuestLayout>
-        <div class="space-y-12 md:space-y-24">
+        <div class="space-y-8 md:space-y-24 px-4 md:px-0">
             <!-- Header -->
-            <div class="max-w-3xl mx-auto text-center space-y-8">
-                <span class="uppercase tracking-[0.5em] text-[10px] text-brand-ruby font-semibold block">Portfolio</span>
-                <h1 class="text-4xl md:text-7xl font-serif text-brand-charcoal">The Gallery</h1>
-                <p class="text-sm md:text-base text-brand-charcoal/50 leading-relaxed font-light">
+            <div class="max-w-3xl mx-auto text-center space-y-4 md:space-y-8">
+                <span class="uppercase tracking-[0.4em] md:tracking-[0.5em] text-[8px] md:text-[10px] text-brand-ruby font-semibold block">Portfolio</span>
+                <h1 class="text-3xl md:text-7xl font-serif text-brand-charcoal">The Gallery</h1>
+                <p class="text-xs md:text-base text-brand-charcoal/50 leading-relaxed font-light">
                     A visual journey through our floral landscapes. Each creation is a testament to the beauty of the natural world and our dedication to the art of arrangement.
                 </p>
                 <div class="w-12 h-px bg-brand-blush mx-auto"></div>
             </div>
 
             <!-- Category Links -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 max-w-7xl mx-auto">
                 <Link v-for="category in categories" :key="category.name" :href="route(category.routeName)"
-                    class="group relative aspect-[16/9] overflow-hidden rounded-sm bg-brand-cream shadow-sm ring-1 ring-brand-charcoal/5"
+                    class="group relative aspect-video md:aspect-[16/9] overflow-hidden rounded-sm bg-brand-cream shadow-sm ring-1 ring-brand-charcoal/5"
                 >
                     <img :src="category.image" :alt="category.name" class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-[2s] group-hover:scale-105" />
                     <div class="absolute inset-0 bg-brand-charcoal/20 group-hover:bg-brand-charcoal/40 transition-colors duration-700"></div>
                     <div class="absolute inset-0 flex items-center justify-center">
-                        <h2 class="text-white text-3xl md:text-5xl font-serif tracking-[0.2em] uppercase">{{ category.name }}</h2>
+                        <h2 class="text-white text-2xl md:text-5xl font-serif tracking-[0.1em] md:tracking-[0.2em] uppercase">{{ category.name }}</h2>
                     </div>
                 </Link>
             </div>
 
             <!-- Final CTA -->
-            <section class="py-12 border-y border-brand-charcoal text-center space-y-10">
-                <h2 class="text-3xl md:text-5xl font-serif text-brand-charcoal">Love what you see?</h2>
-                <div class="pt-4">
+            <section class="py-8 md:py-12 border-y border-brand-charcoal text-center space-y-8 md:space-y-10">
+                <h2 class="text-2xl md:text-5xl font-serif text-brand-charcoal px-4 md:px-0">Love what you see?</h2>
+                <div class="pt-2 md:pt-4">
                     <Link :href="route('contact.create')" >
                         <PrimaryButton>Start Your Own Story</PrimaryButton>
                     </Link>

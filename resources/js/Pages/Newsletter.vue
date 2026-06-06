@@ -64,11 +64,11 @@ onUnmounted(() => {
     </Head>
 
     <GuestLayout>
-        <div class="max-w-4xl mx-auto space-y-24 md:space-y-40">
+        <div class="max-w-4xl mx-auto space-y-12 md:space-y-40 px-4 md:px-0">
             <!-- Header -->
             <div class="text-center space-y-8 animate-fade-in-up">
                 <span class="uppercase tracking-[0.8em] text-[10px] text-brand-ruby font-bold block">Stay Updated</span>
-                <h1 class="text-4xl md:text-8xl font-serif text-brand-charcoal">The Newsletter</h1>
+                <h1 class="text-3xl md:text-8xl font-serif text-brand-charcoal">The Newsletter</h1>
                 <p class="text-sm md:text-base text-brand-charcoal/60 leading-relaxed font-light max-w-2xl mx-auto italic">
                     Join our floral community. Be the first to receive updates on seasonal collections, exclusive workshops, and botanical inspiration delivered straight to your inbox.
                 </p>
@@ -77,7 +77,7 @@ onUnmounted(() => {
 
             <!-- Form -->
             <form @submit.prevent="submitNewsletterForm" class="space-y-24 animate-fade-in-up delay-300">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16 bg-white/50 p-8 md:p-16 rounded-sm shadow-sm ring-1 ring-brand-charcoal/5">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10 md:gap-x-12 md:gap-y-16 bg-white/50 p-6 md:p-16 rounded-sm shadow-sm ring-1 ring-brand-charcoal/5">
                     <div class="space-y-4 group">
                         <InputLabel for="name" value="Name" class="text-[9px] uppercase tracking-[0.5em] text-brand-charcoal/40 group-focus-within:text-brand-ruby transition-all duration-500 font-bold" />
                         <TextInput v-model="newsletterForm.name" id="name" type="text" class="w-full border-0 border-b-2 border-brand-charcoal/20 focus:border-brand-ruby focus:ring-0 bg-transparent px-0 py-4 text-base font-light placeholder:text-brand-charcoal/10 transition-all duration-700 outline-none" placeholder="Your full name" />
@@ -94,7 +94,7 @@ onUnmounted(() => {
                 <div class="text-center pt-16">
                     <PrimaryButton 
                         type="submit"
-                        class="!px-20 !py-6"
+                        class="!px-12 !py-4 md:!px-20 md:!py-6"
                         :disabled="newsletterForm.processing"
                     >
                         Subscribe

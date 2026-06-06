@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Head } from '@inertiajs/vue3';
 import { computed, onMounted, onUnmounted } from 'vue';
-import { GoogleMap, Marker } from 'vue3-google-map';
+import { GoogleMap } from 'vue3-google-map';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 
 const props = defineProps({
@@ -38,7 +38,7 @@ const placeId = 'ChIJw7OIf5y3S0cRdMzs4tJBJKU'
 
 function openMaps() {
     window.open(
-        `https://www.google.com/maps?q=place_id:${placeId}`,
+        `https://maps.app.goo.gl/2R46MSLRb8YaJk4z8?g_st=iw`,
         '_blank'
     )
 }
@@ -70,11 +70,11 @@ function handleImageError(e: Event) {
     </Head>
 
     <GuestLayout>
-        <div class="max-w-7xl mx-auto space-y-12 md:space-y-24 mb-16">
+        <div class="max-w-7xl mx-auto space-y-10 md:space-y-24 px-4 md:px-0 mb-16">
             <!-- Header -->
             <div class="max-w-3xl mx-auto text-center space-y-8 px-4">
                 <span class="uppercase tracking-[0.5em] text-[10px] text-brand-ruby font-bold block">Services</span>
-                <h1 class="text-4xl md:text-7xl font-serif text-brand-charcoal">Delivery Info</h1>
+                <h1 class="text-3xl md:text-7xl font-serif text-brand-charcoal">Delivery Info</h1>
                 <p class="text-sm md:text-base text-brand-charcoal/50 leading-relaxed font-light">
                     Transported with care from our studio to your door. We ensure every petal arrives in perfect condition, maintaining the freshness and integrity of our designs.
                 </p>
@@ -82,10 +82,10 @@ function handleImageError(e: Event) {
             </div>
 
             <!-- Content Grid -->
-            <div class="flex flex-col gap-12 lg:gap-24 items-start px-4 max-w-5xl mx-auto">
+            <div class="flex flex-col gap-8 md:gap-12 lg:gap-24 items-start px-4 max-w-5xl mx-auto">
                 <div class="space-y-12 w-full order-2">
                     <div class="space-y-6">
-                        <h2 class="font-serif text-3xl md:text-5xl text-brand-charcoal">Local Delivery</h2>
+                        <h2 class="font-serif text-2xl md:text-5xl text-brand-charcoal">Local Delivery</h2>
                         <p class="text-brand-charcoal/50 leading-relaxed font-light text-sm md:text-base italic">
                             We offer personal delivery services throughout the city and surrounding areas. Each arrangement is secured and transported in a climate-controlled environment to preserve its beauty.
                         </p>
@@ -99,7 +99,7 @@ function handleImageError(e: Event) {
 
                 <div class="space-y-12 w-full order-1">
                     <div class="space-y-6">
-                        <h2 class="font-serif text-3xl md:text-5xl text-brand-charcoal">Studio Pickup</h2>
+                        <h2 class="font-serif text-2xl md:text-5xl text-brand-charcoal">Studio Pickup</h2>
                         <p class="text-brand-charcoal/50 leading-relaxed font-light text-sm md:text-base italic">
                             You are welcome to visit our studio to pick up your order. This is a great opportunity to see the latest seasonal blooms and meet our designers in person.
                         </p>
@@ -127,12 +127,12 @@ function handleImageError(e: Event) {
             </div>
 
             <!-- FAQ Section -->
-            <section class="space-y-16 px-4">
+            <section class="space-y-10 md:space-y-16 px-4">
                 <div class="text-center space-y-6">
-                    <h2 class="font-serif text-3xl md:text-5xl text-brand-charcoal">Common Questions</h2>
+                    <h2 class="font-serif text-2xl md:text-5xl text-brand-charcoal">Common Questions</h2>
                     <div class="w-12 h-px bg-brand-ruby mx-auto"></div>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 max-w-5xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-24 max-w-5xl mx-auto">
                     <div class="space-y-6 group">
                         <p class="font-semibold text-brand-charcoal uppercase tracking-[0.3em] text-[10px] group-hover:text-brand-ruby transition-colors duration-300">How will my flowers be packaged?</p>
                         <p class="text-brand-charcoal/50 font-light leading-relaxed text-sm md:text-base">We use minimal, eco-friendly packaging that protects the blooms while highlighting their natural beauty. Each arrangement includes care instructions and flower food.</p>
@@ -145,16 +145,16 @@ function handleImageError(e: Event) {
             </section>
 
             <!-- Testimonials Section -->
-            <section class="space-y-16 px-4 py-12 bg-brand-cream/20 rounded-3xl">
+            <section class="space-y-10 md:space-y-16 px-4 py-12 bg-brand-cream/20 rounded-3xl">
                 <div class="text-center space-y-6">
                     <span class="uppercase tracking-[0.5em] text-[10px] text-brand-ruby font-bold block">Testimonials</span>
-                    <h2 class="font-serif text-3xl md:text-5xl text-brand-charcoal">Kind Words</h2>
+                    <h2 class="font-serif text-2xl md:text-5xl text-brand-charcoal">Kind Words</h2>
                     <div class="w-12 h-px bg-brand-ruby mx-auto"></div>
                 </div>
 
                 <div class="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
                     <div v-for="review in reviews" :key="review.name" class="break-inside-avoid">
-                        <div class="bg-white p-8 rounded-2xl space-y-6 border border-brand-charcoal/5 hover:border-brand-ruby/20 transition-all duration-500 group hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-ruby/5">
+                        <div class="bg-white p-6 md:p-8 rounded-2xl space-y-6 border border-brand-charcoal/5 hover:border-brand-ruby/20 transition-all duration-500 group hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-ruby/5">
                             <div class="flex gap-1">
                                 <svg v-for="i in 5" :key="i" 
                                      class="w-3 h-3"

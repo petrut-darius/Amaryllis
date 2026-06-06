@@ -18,7 +18,7 @@ const currentYear = new Date().getFullYear();
                 
                 <!-- Script Accent -->
                 <div class="pt-2">
-                    <span class="font-script text-2xl text-brand-gold opacity-60">Established 2024</span>
+                    <span class="font-script text-2xl text-brand-gold opacity-60">Established 2000</span>
                 </div>
             </div>
 
@@ -49,6 +49,8 @@ const currentYear = new Date().getFullYear();
                 <div class="space-y-6 flex flex-col items-center lg:items-start">
                     <a href="mailto:hello@amaryllis.com" class="text-sm md:text-base font-serif italic hover:text-brand-gold transition-colors underline underline-offset-8 decoration-brand-gold/30">hello@amaryllis.com</a>
                     
+                    <a href="tel:+40745265516" class="text-sm md:text-base font-serif italic hover:text-brand-gold transition-colors underline underline-offset-8 decoration-brand-gold/30">Call us</a>
+
                     <div class="flex space-x-10">
                         <a href="https://instagram.com" target="_blank" rel="noopener" class="hover:text-brand-rose transition-all duration-700 hover:scale-125">
                             <span class="sr-only">Instagram</span>
