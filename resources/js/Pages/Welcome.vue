@@ -83,8 +83,8 @@ const heroScrollProgress = computed(() => {
     
     if (scrollY.value <= triggerPoint) return 0;
     
-    // Increased duration for a longer travel distance
-    const scrollDuration = vh * 0.7; 
+    // Adjusted duration for a more controlled travel distance
+    const scrollDuration = vh * 0.5; 
     const progress = (scrollY.value - triggerPoint) / scrollDuration;
     
     return Math.min(Math.max(progress, 0), 1);
@@ -93,18 +93,18 @@ const heroScrollProgress = computed(() => {
 const pinnedOffset = computed(() => {
     if (typeof window === 'undefined') return 0;
     const vh = window.innerHeight;
-    const heroCenter = headerHeight.value + (vh * 0.6);
+    const heroCenter = headerHeight.value + (vh * 0.5);
     const viewportCenter = vh / 2;
     const triggerPoint = heroCenter - viewportCenter;
     
     if (scrollY.value <= triggerPoint) return 0;
     
-    const scrollDuration = vh * 0.7;
+    const scrollDuration = vh * 0.5;
     const offset = scrollY.value - triggerPoint;
     
-    // Pin to center + "Sink" further down (extra 25vh of downward travel)
+    // Reduced pinning and sink to avoid hitting the image below
     const pinning = Math.min(offset, scrollDuration);
-    const sink = heroScrollProgress.value * (vh * 0.1);
+    const sink = heroScrollProgress.value * (vh * 0.05);
     
     return pinning + sink;
 });

@@ -82,40 +82,41 @@ onUnmounted(() => {
             </div>
 
             <!-- Quick Contact Actions -->
-            <div class="flex flex-wrap justify-center gap-3 md:gap-6 animate-fade-in-up delay-150">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 animate-fade-in-up delay-150">
                 <a 
                     href="https://wa.me/40743331147?text=Salut%20%ai%20%15%20%lei?" 
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm bg-brand-charcoal px-8 md:px-12 py-4 md:py-6 text-[9px] md:text-[11px] font-medium uppercase tracking-[0.4em] text-white transition-all duration-700 hover:shadow-2xl hover:shadow-brand-ruby/20 active:scale-95 w-full sm:w-auto"
+                    class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm bg-brand-charcoal px-4 py-5 md:py-7 text-[10px] font-medium uppercase tracking-[0.4em] text-white transition-all duration-700 hover:shadow-xl hover:shadow-brand-ruby/10 active:scale-95"
                 >
                     <div class="absolute inset-0 w-0 bg-brand-ruby transition-all duration-500 ease-out group-hover:w-full"></div>
                     <span class="relative z-10 flex items-center gap-3">
-                        <i class="fa-brands fa-whatsapp text-lg"></i>
-                        WhatsApp
+                        <i class="fa-brands fa-whatsapp text-base"></i>
+                        <span class="hidden md:inline">WhatsApp</span>
+                        <span class="md:hidden">WA</span>
                     </span>
                     <div class="absolute inset-0 border border-brand-ruby/20 group-hover:border-brand-ruby/40 transition-colors duration-500"></div>
                 </a>
 
                 <a 
                     href="mailto:eminoviciidarius@gmail.com"
-                    class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm bg-brand-charcoal px-8 md:px-12 py-4 md:py-6 text-[9px] md:text-[11px] font-medium uppercase tracking-[0.4em] text-white transition-all duration-700 hover:shadow-2xl hover:shadow-brand-ruby/20 active:scale-95 w-full sm:w-auto"
+                    class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm bg-brand-charcoal px-4 py-5 md:py-7 text-[10px] font-medium uppercase tracking-[0.4em] text-white transition-all duration-700 hover:shadow-xl hover:shadow-brand-ruby/10 active:scale-95"
                 >
                     <div class="absolute inset-0 w-0 bg-brand-ruby transition-all duration-500 ease-out group-hover:w-full"></div>
                     <span class="relative z-10 flex items-center gap-3">
-                        <i class="fa-solid fa-envelope text-lg"></i>
-                        Email Us
+                        <i class="fa-solid fa-envelope text-base"></i>
+                        Email
                     </span>
                     <div class="absolute inset-0 border border-brand-ruby/20 group-hover:border-brand-ruby/40 transition-colors duration-500"></div>
                 </a>
 
                 <Link 
                     :href="route('delivery')"
-                    class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm border border-brand-charcoal/20 px-8 md:px-12 py-4 md:py-6 text-[9px] md:text-[11px] font-medium uppercase tracking-[0.4em] text-brand-charcoal transition-all duration-700 hover:bg-brand-charcoal hover:text-white active:scale-95 w-full sm:w-auto"
+                    class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm border border-brand-charcoal/20 px-4 py-5 md:py-7 text-[10px] font-medium uppercase tracking-[0.4em] text-brand-charcoal transition-all duration-700 hover:bg-brand-charcoal hover:text-white active:scale-95"
                 >
                     <span class="relative z-10 flex items-center gap-3">
-                        <i class="fa-solid fa-truck-fast text-lg"></i>
-                        Delivery Info
+                        <i class="fa-solid fa-truck-fast text-base"></i>
+                        Delivery
                     </span>
                     <div class="absolute inset-0 border border-brand-charcoal/10 group-hover:border-brand-charcoal/30 transition-colors duration-500"></div>
                 </Link>
@@ -124,12 +125,12 @@ onUnmounted(() => {
                     href="tel:+40745265516" 
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm bg-brand-charcoal px-8 md:px-12 py-4 md:py-6 text-[9px] md:text-[11px] font-medium uppercase tracking-[0.4em] text-white transition-all duration-700 hover:shadow-2xl hover:shadow-brand-ruby/20 active:scale-95 w-full sm:w-auto"
+                    class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm bg-brand-charcoal px-4 py-5 md:py-7 text-[10px] font-medium uppercase tracking-[0.4em] text-white transition-all duration-700 hover:shadow-xl hover:shadow-brand-ruby/10 active:scale-95"
                 >
                     <div class="absolute inset-0 w-0 bg-brand-ruby transition-all duration-500 ease-out group-hover:w-full"></div>
                     <span class="relative z-10 flex items-center gap-3">
-                        <i class="fa-solid fa-phone text-lg"></i>
-                        Call us!
+                        <i class="fa-solid fa-phone text-base"></i>
+                        Call
                     </span>
                     <div class="absolute inset-0 border border-brand-ruby/20 group-hover:border-brand-ruby/40 transition-colors duration-500"></div>
                 </a>

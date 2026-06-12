@@ -6,6 +6,7 @@ use App\Http\Requests\StoreSubscriberRequest;
 use App\Models\Subscriber;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Auth;
 
 class SubscriberController extends Controller
 {
@@ -18,14 +19,26 @@ class SubscriberController extends Controller
 
         //dd($data);
 
-        Subscriber::create([
-            "name" => $data["name"],
-            "email" => $data["email"],
-            "token" => Str::uuid(),
-            "subscribed_at" => now(),
-        ]);
+        if(Auth::check()) {
+            $termsAcceptedAt = Auth::user()->terms_accepted_at;
+        }else{
+            $termsAcceptedAt = $data["terms_accepted_at"];
+        }
 
-        return redirect()->back();
+        Subscriber::firstOrCreate(
+            [
+                "email" => $data["email"]
+            ],
+            [
+                "name" => $data["name"],
+                "email" => $data["email"],
+                "token" => Str::uuid(),
+                "subscribed_at" => now(),
+                "terms_accepted_at" => $termsAcceptedAt ? now() : null,
+            ]
+        );
+
+        return redirect()->route("home");
     }
 
     public function destroy(String $token) {

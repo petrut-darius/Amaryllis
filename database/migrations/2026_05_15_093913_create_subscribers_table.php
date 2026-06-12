@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string("name");
             $table->string("token")->unique();
             $table->dateTime("subscribed_at");
-            $table->dateTime("unsubscribed_at");
+            $table->dateTime("unsubscribed_at")->nullable();
+            $table->timestamp("terms_accepted_at")->nullable();
             $table->timestamps();
         });
     }

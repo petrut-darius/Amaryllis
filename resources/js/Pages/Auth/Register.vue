@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Head, Link, useForm } from '@inertiajs/vue3';
+import Checkbox from '@/Components/Checkbox.vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
@@ -12,6 +13,7 @@ const form = useForm({
     phone: "", 
     password: '',
     password_confirmation: '',
+    terms_accepted_at: false,
 });
 
 const submit = () => {
@@ -107,6 +109,25 @@ const submit = () => {
                 <InputError
                     class="mt-2"
                     :message="form.errors.password_confirmation"
+                />
+            </div>
+
+            <div class="mt-4 block">
+                <label class="flex items-center group cursor-pointer">
+                    <Checkbox
+                        name="terms_accepted_at"
+                        v-model:checked="form.terms_accepted_at"
+                    />
+                    <span
+                        class="ms-3 text-[9px] uppercase tracking-[0.4em] text-brand-charcoal/40 group-hover:text-brand-ruby transition-colors duration-300"
+                    >
+                        Accept our terms
+                    </span>
+                </label>
+
+                <InputError
+                    class="mt-2"
+                    :message="form.errors.terms_accepted_at"
                 />
             </div>
 

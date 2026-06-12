@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Enums\UserPermissions;
 use App\Http\Requests\StoreContactUser;
 use App\Mail\AdminUserContacted;
+use App\Mail\UserContacted;
 use App\Models\User;
 use App\Models\Contact;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Inertia\Inertia;
 
@@ -40,7 +42,11 @@ class ContactController extends Controller
         foreach($adminUsers as $user) {
             Mail::to($user)->send(new AdminUserContacted($contact, $data));
         }
+
+        $user = Auth::user();
     
+        Mail::to($user)->send(new UserContacted());
+
         return redirect()->back();
     }
 }

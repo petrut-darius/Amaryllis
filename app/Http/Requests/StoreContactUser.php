@@ -28,6 +28,7 @@ class StoreContactUser extends FormRequest
             "phone" => "required|string|digits_between:10,12",
             "subject" => "required|string|min:10|max:50",
             "event_date" => "nullable|string|max:50",
+            "terms_accepted_at" => "boolean",
             "vision" => "nullable|string|max:500",
             "message" => "required|string|max:500",
         ];

@@ -13,7 +13,8 @@ import Navigation from '@/Components/Navigation.vue';
                     <!-- Logo -->
                     <div class="mb-6">
                         <Link href="/">
-                            <ApplicationLogo size="large" />
+                            <ApplicationLogo size="normal" class="md:hidden" />
+                            <ApplicationLogo size="large" class="hidden md:flex" />
                         </Link>
                     </div>
 

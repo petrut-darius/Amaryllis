@@ -84,7 +84,7 @@ const toggleMenu = () => {
         >
             <div 
                 v-if="isOpen"
-                class="md:hidden fixed inset-0 bg-brand-cream/98 backdrop-blur-3xl z-[200] flex flex-col items-center justify-center p-8 text-center"
+                class="md:hidden fixed inset-0 bg-brand-cream/98 backdrop-blur-3xl z-[200] flex flex-col items-center justify-center p-8 text-center overflow-y-auto"
             >
                 <!-- Close Button Area (Optional, since toggle is z-[110] but Teleport changes things) -->
                 <!-- We should move the toggle inside or keep it outside. 
@@ -102,20 +102,20 @@ const toggleMenu = () => {
                     <span class="block w-6 h-0.5 bg-brand-charcoal -rotate-45 -translate-y-[8px] transition-all duration-500"></span>
                 </button>
 
-                <nav class="flex flex-col items-center space-y-10 mb-12">
+                <nav class="flex flex-col items-center space-y-6 mb-8">
                     <Link 
                         v-for="link in primaryLinks"
                         :key="link.name"
                         :href="route(link.route)"
                         @click="isOpen = false"
-                        class="text-5xl font-serif text-brand-charcoal/30 hover:text-brand-charcoal transition-all duration-500 tracking-tight"
+                        class="text-3xl font-serif text-brand-charcoal/30 hover:text-brand-charcoal transition-all duration-500 tracking-tight"
                         :class="{ 'text-brand-charcoal italic !opacity-100': isActive(link.route) }"
                     >
                         {{ link.name }}
                     </Link>
                 </nav>
                 
-                <div class="space-y-6 pt-12 border-t border-brand-charcoal w-full max-w-[200px]">
+                <div class="space-y-4 pt-8 border-t border-brand-charcoal w-full max-w-[200px]">
                     <template v-if="$page.props.auth.user">
                         <Link :href="route('profile.edit')" @click="isOpen = false" class="block w-full text-center text-[11px] uppercase tracking-[0.5em] text-brand-charcoal/40 hover:text-brand-gold transition-colors">Account</Link>
                         <Link :href="route('logout')" method="post" as="button" @click="isOpen = false" class="block w-full text-center text-[11px] uppercase tracking-[0.5em] text-brand-charcoal/40 hover:text-brand-gold transition-colors bg-transparent border-none p-0">Logout</Link>
@@ -127,8 +127,8 @@ const toggleMenu = () => {
                 </div>
 
                 <!-- Decorative Footer in Menu -->
-                <div class="absolute bottom-16 left-0 w-full text-center">
-                    <span class="font-script text-3xl text-brand-gold/60 lowercase">amaryllis floral design</span>
+                <div class="mt-12 text-center">
+                    <span class="font-script text-2xl text-brand-gold/60 lowercase">amaryllis floral design</span>
                 </div>
             </div>
         </Transition>

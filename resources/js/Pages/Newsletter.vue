@@ -1,6 +1,7 @@
 <script setup>
 import { useForm, usePage, Head } from '@inertiajs/vue3';
 import { computed, onMounted, onUnmounted } from 'vue';
+import Checkbox from '@/Components/Checkbox.vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
@@ -14,11 +15,11 @@ const user = page.props.auth.user
 const newsletterForm = useForm({
     name: user?.name ?? "",
     email: user?.email ?? "",
+    terms_accepted_at: user?.terms_accepted_at ?? false,
 })
 
 const submitNewsletterForm = () => {
     newsletterForm.post(route("newsletter.store"), {
-        preserveScroll: true,
         forceFormData: true,
         onSuccess: () => newsletterForm.reset(),
     })
@@ -88,6 +89,21 @@ onUnmounted(() => {
                         <InputLabel for="email" value="Email" class="text-[9px] uppercase tracking-[0.5em] text-brand-charcoal/40 group-focus-within:text-brand-ruby transition-all duration-500 font-bold" />
                         <TextInput v-model="newsletterForm.email" id="email" type="email" class="w-full border-0 border-b-2 border-brand-charcoal/20 focus:border-brand-ruby focus:ring-0 bg-transparent px-0 py-4 text-base font-light placeholder:text-brand-charcoal/10 transition-all duration-700 outline-none" placeholder="Email address" />
                         <InputError :message="newsletterForm.errors.email" />
+                    </div>
+                
+                    <div class="space-y-4 group">
+                        <label class="flex items-center group cursor-pointer">
+                            <Checkbox
+                                name="terms_accepted_at"
+                                v-model:checked="newsletterForm.terms_accepted_at"
+                            />
+                            <span
+                                class="ms-3 text-[9px] uppercase tracking-[0.5em] text-brand-charcoal/40 group-hover:text-brand-ruby transition-all duration-500 font-bold"
+                            >
+                                Agree with our terms
+                            </span>
+                        </label>
+                        <InputError :message="newsletterForm.errors.terms_accepted_at" />
                     </div>
                 </div>
 

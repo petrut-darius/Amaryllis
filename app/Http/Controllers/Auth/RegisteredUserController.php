@@ -36,19 +36,23 @@ class RegisteredUserController extends Controller
             'email' => 'required|string|lowercase|email|max:255|unique:'.User::class,
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             "phone" => "required|string|digits_between:10,12",
+            "terms_accepted_at" => "boolean"
         ]);
+
+        //dd($request);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             "phone" => $request->phone,
+            "terms_accepted_at" => $request->terms_accepted_at ? now() : null,
         ]);
 
         event(new Registered($user));
 
         Auth::login($user);
 
-        return redirect(route('home', absolute: false));
+        return redirect(route('newsletter.create', absolute: false));
     }
 }

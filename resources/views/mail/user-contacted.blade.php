@@ -14,6 +14,8 @@ Dacă este o urgență sau dorești să modifici ceva în mesajul trimis, nu ezi
 O zi plină de culoare,<br>
 Echipa {{ config('app.name') }}
 
+
+<!-- nu bag token la asta -->
 @if($token)
 <sub style="display: block; text-align: center; margin-top: 20px; color: #718096;">
     Dacă nu mai dorești să primești aceste e-mailuri, te poți <a href="{{ route('newsletter.destroy', ['token' => $token]) }}" style="color: #718096; text-decoration: underline;">dezabona aici</a>.

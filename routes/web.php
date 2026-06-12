@@ -26,7 +26,7 @@ Route::get('/dashboard', function () {
 //home
 Route::fallback(function () {
     return Inertia::render("Welcome");
-});
+})->name("home");
 
 //newsletter
 Route::get("/newsletter", [SubscriberController::class, "create"])->name("newsletter.create");

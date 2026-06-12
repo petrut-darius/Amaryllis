@@ -25,6 +25,7 @@ class StoreSubscriberRequest extends FormRequest
         return [
             "name" => "required|string|max:40",
             "email" => "required|string|email",
+            "terms_accepted_at" => "required|boolean",
         ];
     }
 }
