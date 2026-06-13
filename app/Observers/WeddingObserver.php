@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\Wedding;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 
 class WeddingObserver
@@ -12,19 +13,22 @@ class WeddingObserver
      */
     public function created(Wedding $wedding): void
     {
-        //
+        Cache::forget('weddings');
     }
 
-    public function updating(Wedding $wedding): void {
-        if($wedding->isDirty("images")) {
-            $old = $wedding->getOriginal("images");
+    public function updating(Wedding $wedding): void
+    {
+        if ($wedding->isDirty('images')) {
+            $old = $wedding->getOriginal('images');
 
             $toDelete = array_diff($old, $wedding->images);
 
-            foreach($toDelete as $image) {
-                Storage::disk("event_images")->delete($image);
+            foreach ($toDelete as $image) {
+                Storage::disk('event_images')->delete($image);
             }
         }
+
+        Cache::forget('weddings');
     }
 
     /**
@@ -32,7 +36,7 @@ class WeddingObserver
      */
     public function updated(Wedding $wedding): void
     {
-        //
+        Cache::forget('weddings');
     }
 
     /**
@@ -40,11 +44,13 @@ class WeddingObserver
      */
     public function deleted(Wedding $wedding): void
     {
-        if($wedding->images) {
-            foreach($wedding->images as $image) {
-                Storage::disk("event_images")->delete($image);
+        if ($wedding->images) {
+            foreach ($wedding->images as $image) {
+                Storage::disk('event_images')->delete($image);
             }
         }
+
+        Cache::forget('weddings');
     }
 
     /**

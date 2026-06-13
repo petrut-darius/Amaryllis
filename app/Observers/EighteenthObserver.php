@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\Eighteenth;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 
 class EighteenthObserver
@@ -12,20 +13,23 @@ class EighteenthObserver
      */
     public function created(Eighteenth $eighteenth): void
     {
-        //
+        Cache::forget('eighteenths');
     }
 
-    public function updating(Eighteenth $eighteenth): void {
-        if($eighteenth->isDirty("images")) {
-            $old = $eighteenth->getOriginal("images") ?? [];
+    public function updating(Eighteenth $eighteenth): void
+    {
+        if ($eighteenth->isDirty('images')) {
+            $old = $eighteenth->getOriginal('images') ?? [];
             $new = $eighteenth->images ?? [];
 
             $toDelete = array_diff($old, $new);
 
-            foreach($toDelete as $image) {
-                Storage::disk("event_images")->delete($image);
+            foreach ($toDelete as $image) {
+                Storage::disk('event_images')->delete($image);
             }
         }
+
+        Cache::forget('eighteenths');
     }
 
     /**
@@ -33,7 +37,7 @@ class EighteenthObserver
      */
     public function updated(Eighteenth $eighteenth): void
     {
-        //
+        Cache::forget('eighteenths');
     }
 
     /**
@@ -41,11 +45,13 @@ class EighteenthObserver
      */
     public function deleted(Eighteenth $eighteenth): void
     {
-        if($eighteenth->images) {
-            foreach($eighteenth->images as $image) {
-                Storage::disk("event_images")->delete($image);
+        if ($eighteenth->images) {
+            foreach ($eighteenth->images as $image) {
+                Storage::disk('event_images')->delete($image);
             }
         }
+
+        Cache::forget('eighteenths');
     }
 
     /**

@@ -2,24 +2,23 @@
 
 namespace App\Providers;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Vite;
-use Illuminate\Support\ServiceProvider;
+use App\Models\Arrangement;
 use App\Models\Baptism;
 use App\Models\Bouquet;
-use App\Models\Wedding;
-use App\Models\Arrangement;
 use App\Models\Eighteenth;
 use App\Models\FuneralArrangement;
 use App\Models\Thread;
-use App\Observers\BouquetObserver;
-use App\Observers\WeddingObserver;
+use App\Models\Wedding;
 use App\Observers\ArrangementObserver;
 use App\Observers\BaptismObserver;
+use App\Observers\BouquetObserver;
 use App\Observers\EighteenthObserver;
 use App\Observers\FuneralArrangementObserver;
 use App\Observers\ThreadObserver;
-use Illuminate\Auth\Access\Gate;
+use App\Observers\WeddingObserver;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Vite;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {

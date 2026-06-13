@@ -16,7 +16,7 @@ class UserForm
     {
         return $schema
             ->components([
-                Section::make("Personal user information")
+                Section::make('Personal user information')
                     ->schema([
                         TextInput::make('name')
                             ->required(),
@@ -30,19 +30,19 @@ class UserForm
                             ->required()
                             ->hiddenOn(Operation::Edit),
                     ]),
-                Section::make("Backend user information")
+                Section::make('Backend user information')
                     ->schema([
-                        Radio::make("super_admin")
-                            ->label("Super Admin?")
-                            ->boolean(trueLabel: "Da", falseLabel: "Nu")
+                        Radio::make('super_admin')
+                            ->label('Super Admin?')
+                            ->boolean(trueLabel: 'Da', falseLabel: 'Nu')
                             ->inline()
                             ->default(false),
-                        CheckboxList::make("permissions")
-                            ->label("User permissions")
-                            ->relationship("permissions", "slug")
+                        CheckboxList::make('permissions')
+                            ->label('User permissions')
+                            ->relationship('permissions', 'slug')
                             ->columns(3)
                             ->searchable(),
-                    ]),     
+                    ]),
             ]);
     }
 }

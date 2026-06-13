@@ -2,9 +2,9 @@
 
 namespace App\Policies;
 
+use App\Enums\UserPermissions;
 use App\Models\Bouquet;
 use App\Models\User;
-use App\Enums\UserPermissions;
 
 class BouquetPolicy
 {
@@ -13,9 +13,13 @@ class BouquetPolicy
      */
     public function viewAny(User $user): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_BOUQUETS->value, UserPermissions::CREATE_BOUQUETS->value, UserPermissions::UPDATE_BOUQUETS->value, UserPermissions::DELETE_BOUQUETS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_BOUQUETS->value, UserPermissions::CREATE_BOUQUETS->value, UserPermissions::UPDATE_BOUQUETS->value, UserPermissions::DELETE_BOUQUETS->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -25,9 +29,13 @@ class BouquetPolicy
      */
     public function view(User $user, Bouquet $model): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_BOUQUETS->value, UserPermissions::CREATE_BOUQUETS->value, UserPermissions::UPDATE_BOUQUETS->value, UserPermissions::DELETE_BOUQUETS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_BOUQUETS->value, UserPermissions::CREATE_BOUQUETS->value, UserPermissions::UPDATE_BOUQUETS->value, UserPermissions::DELETE_BOUQUETS->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -37,9 +45,13 @@ class BouquetPolicy
      */
     public function create(User $user): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_BOUQUETS->value, UserPermissions::CREATE_BOUQUETS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_BOUQUETS->value, UserPermissions::CREATE_BOUQUETS->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -49,9 +61,13 @@ class BouquetPolicy
      */
     public function update(User $user, Bouquet $model): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_BOUQUETS->value, UserPermissions::UPDATE_BOUQUETS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_BOUQUETS->value, UserPermissions::UPDATE_BOUQUETS->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -61,9 +77,13 @@ class BouquetPolicy
      */
     public function delete(User $user, Bouquet $model): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_BOUQUETS->value, UserPermissions::DELETE_BOUQUETS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_BOUQUETS->value, UserPermissions::DELETE_BOUQUETS->value])) {
+            return true;
+        }
 
         return false;
     }

@@ -2,9 +2,9 @@
 
 namespace App\Policies;
 
+use App\Enums\UserPermissions;
 use App\Models\FuneralArrangement;
 use App\Models\User;
-use App\Enums\UserPermissions;
 
 class FuneralArrangementPolicy
 {
@@ -13,9 +13,13 @@ class FuneralArrangementPolicy
      */
     public function viewAny(User $user): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_BOUQUETS->value, UserPermissions::CREATE_BOUQUETS->value, UserPermissions::UPDATE_BOUQUETS->value, UserPermissions::DELETE_BOUQUETS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_BOUQUETS->value, UserPermissions::CREATE_BOUQUETS->value, UserPermissions::UPDATE_BOUQUETS->value, UserPermissions::DELETE_BOUQUETS->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -25,9 +29,13 @@ class FuneralArrangementPolicy
      */
     public function view(User $user, FuneralArrangement $model): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_BOUQUETS->value, UserPermissions::CREATE_BOUQUETS->value, UserPermissions::UPDATE_BOUQUETS->value, UserPermissions::DELETE_BOUQUETS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_BOUQUETS->value, UserPermissions::CREATE_BOUQUETS->value, UserPermissions::UPDATE_BOUQUETS->value, UserPermissions::DELETE_BOUQUETS->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -37,9 +45,13 @@ class FuneralArrangementPolicy
      */
     public function create(User $user): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_BOUQUETS->value, UserPermissions::CREATE_BOUQUETS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_BOUQUETS->value, UserPermissions::CREATE_BOUQUETS->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -49,9 +61,13 @@ class FuneralArrangementPolicy
      */
     public function update(User $user, FuneralArrangement $model): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_BOUQUETS->value, UserPermissions::UPDATE_BOUQUETS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_BOUQUETS->value, UserPermissions::UPDATE_BOUQUETS->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -61,9 +77,13 @@ class FuneralArrangementPolicy
      */
     public function delete(User $user, FuneralArrangement $model): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_BOUQUETS->value, UserPermissions::DELETE_BOUQUETS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_BOUQUETS->value, UserPermissions::DELETE_BOUQUETS->value])) {
+            return true;
+        }
 
         return false;
     }

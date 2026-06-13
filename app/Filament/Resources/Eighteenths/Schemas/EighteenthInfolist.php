@@ -4,8 +4,8 @@ namespace App\Filament\Resources\Eighteenths\Schemas;
 
 use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
-use Filament\Schemas\Schema;
 use Filament\Schemas\Components\Section;
+use Filament\Schemas\Schema;
 
 class EighteenthInfolist
 {
@@ -32,9 +32,9 @@ class EighteenthInfolist
                 Section::make('Event Gallery')
                     ->description('Photos of the event.')
                     ->schema([
-                        ImageEntry::make("images")
-                            ->disk("event_images"),
-                    ])
+                        ImageEntry::make('images')
+                            ->disk('event_images'),
+                    ]),
             ]);
     }
 }

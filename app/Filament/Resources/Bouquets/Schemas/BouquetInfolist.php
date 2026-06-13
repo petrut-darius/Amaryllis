@@ -2,9 +2,6 @@
 
 namespace App\Filament\Resources\Bouquets\Schemas;
 
-use Filament\Infolists\Components\ImageEntry;
-use Filament\Infolists\Components\Section;
-use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
 class BouquetInfolist

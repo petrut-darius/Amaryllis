@@ -4,7 +4,6 @@ namespace App\Filament\Resources\Arrangements\Schemas;
 
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
@@ -14,7 +13,7 @@ class ArrangementForm
     {
         return $schema
             ->components([
-                Section::make("Arrangement Information")
+                Section::make('Arrangement Information')
                     ->schema([
                         TextInput::make('name')
                             ->required(),
@@ -25,16 +24,16 @@ class ArrangementForm
                         TextInput::make('occasion')
                             ->default(null),
                     ])->columns(2),
-                
-                Section::make("Gallery")
-                    ->description("Upload one iamge of this arrangement.")
+
+                Section::make('Gallery')
+                    ->description('Upload one iamge of this arrangement.')
                     ->schema([
-                        FileUpload::make("images")
+                        FileUpload::make('images')
                             ->maxsize((int) 20480)
-                            ->disk("event_images")
-                            ->visibility("public")
-                            ->acceptedFileTypes(["image/jpeg", "image/jpg", "image/png", "image/webp"])
-                    ])
+                            ->disk('event_images')
+                            ->visibility('public')
+                            ->acceptedFileTypes(['image/jpeg', 'image/jpg', 'image/png', 'image/webp']),
+                    ]),
             ]);
     }
 }

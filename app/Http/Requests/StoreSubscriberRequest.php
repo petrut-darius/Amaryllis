@@ -23,9 +23,9 @@ class StoreSubscriberRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "name" => "required|string|max:40",
-            "email" => "required|string|email",
-            "terms_accepted_at" => "required|boolean",
+            'name' => 'required|string|max:40',
+            'email' => 'required|string|email',
+            'terms_accepted_at' => 'required|boolean',
         ];
     }
 }

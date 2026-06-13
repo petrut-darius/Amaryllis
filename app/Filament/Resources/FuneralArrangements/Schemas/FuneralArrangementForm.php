@@ -3,8 +3,8 @@
 namespace App\Filament\Resources\FuneralArrangements\Schemas;
 
 use Filament\Forms\Components\FileUpload;
-use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
 class FuneralArrangementForm
@@ -13,7 +13,7 @@ class FuneralArrangementForm
     {
         return $schema
             ->components([
-                Section::make("Funeral Arrangement Information")
+                Section::make('Funeral Arrangement Information')
                     ->schema([
                         TextInput::make('name')
                             ->required(),
@@ -24,16 +24,16 @@ class FuneralArrangementForm
                         TextInput::make('occasion')
                             ->default(null),
                     ])->columns(2),
-                
-                Section::make("Gallery")
-                    ->description("Upload one iamge of this funeral arrangement.")
+
+                Section::make('Gallery')
+                    ->description('Upload one iamge of this funeral arrangement.')
                     ->schema([
-                        FileUpload::make("images")
+                        FileUpload::make('images')
                             ->maxsize((int) 20480)
-                            ->disk("event_images")
-                            ->visibility("public")
-                            ->acceptedFileTypes(["image/jpeg", "image/jpg", "image/png", "image/webp"])
-                    ])
+                            ->disk('event_images')
+                            ->visibility('public')
+                            ->acceptedFileTypes(['image/jpeg', 'image/jpg', 'image/png', 'image/webp']),
+                    ]),
             ]);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\Thread;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 
 class ThreadObserver
@@ -12,20 +13,23 @@ class ThreadObserver
      */
     public function created(Thread $thread): void
     {
-        //
+        Cache::forget('threads');
     }
 
-    public function updating(Thread $thread): void {
-        if($thread->isDirty("images")) {
-            $old = $thread->getOriginal("images") ?? [];
+    public function updating(Thread $thread): void
+    {
+        if ($thread->isDirty('images')) {
+            $old = $thread->getOriginal('images') ?? [];
             $new = $thread->images ?? [];
 
             $toDelete = array_diff($old, $new);
 
-            foreach($toDelete as $image) {
-                Storage::disk("event_images")->delete($image);
+            foreach ($toDelete as $image) {
+                Storage::disk('event_images')->delete($image);
             }
         }
+
+        Cache::forget('threads');
     }
 
     /**
@@ -33,7 +37,7 @@ class ThreadObserver
      */
     public function updated(Thread $thread): void
     {
-        //
+        Cache::forget('threads');
     }
 
     /**
@@ -41,11 +45,13 @@ class ThreadObserver
      */
     public function deleted(Thread $thread): void
     {
-        if($thread->images) {
-            foreach($thread->images as $image) {
-                Storage::disk("event_images")->delete($image);
+        if ($thread->images) {
+            foreach ($thread->images as $image) {
+                Storage::disk('event_images')->delete($image);
             }
         }
+
+        Cache::forget('threads');
     }
 
     /**

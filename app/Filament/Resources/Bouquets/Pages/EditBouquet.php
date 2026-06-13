@@ -9,7 +9,6 @@ use Filament\Resources\Pages\EditRecord;
 
 class EditBouquet extends EditRecord
 {
-
     protected static string $resource = BouquetResource::class;
 
     protected function getHeaderActions(): array

@@ -3,8 +3,8 @@
 namespace App\Filament\Resources\Weddings\Schemas;
 
 use Filament\Infolists\Components\ImageEntry;
-use Filament\Schemas\Components\Section;
 use Filament\Infolists\Components\TextEntry;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
 class WeddingInfolist
@@ -28,12 +28,12 @@ class WeddingInfolist
                             ->label('Date created'),
                     ])->columns(2),
 
-                Section::make("Wedding")
+                Section::make('Wedding')
                     ->description('Visual memories of the special day.')
                     ->schema([
-                        ImageEntry::make("images")
-                            ->disk("event_images"),
-                    ])
+                        ImageEntry::make('images')
+                            ->disk('event_images'),
+                    ]),
             ]);
     }
 }

@@ -13,8 +13,8 @@ class UserInfolist
         return $schema
             ->components([
                 TextEntry::make('name'),
-                TextEntry::make("super_admin")
-                    ->label("Super Admin?")
+                TextEntry::make('super_admin')
+                    ->label('Super Admin?')
                     ->badge(),
                 TextEntry::make('email')
                     ->label('Email address')

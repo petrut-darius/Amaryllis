@@ -15,12 +15,12 @@ class WeddingsController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $weddings = collect(Cache::remember("weddings", 600, function() {
+        $weddings = collect(Cache::remember('weddings', 600, function () {
             return Wedding::all()->toArray();
         }));
 
-        return Inertia::render("Weddings", [
-            "weddings" => WeddingResource::collection($weddings),
+        return Inertia::render('Weddings', [
+            'weddings' => WeddingResource::collection($weddings),
         ]);
     }
 }

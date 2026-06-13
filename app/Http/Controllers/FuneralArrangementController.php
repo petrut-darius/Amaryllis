@@ -15,12 +15,12 @@ class FuneralArrangementController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $funeralArrangements = collect(Cache::remember("funeralArrangements", 600, function() {
+        $funeralArrangements = collect(Cache::remember('funeralArrangements', 600, function () {
             return FuneralArrangement::all()->toArray();
         }));
 
-        return Inertia::render("FuneralArrangements", [
-            "funeralArrangements" => FuneralArrangementResource::collection($funeralArrangements),
+        return Inertia::render('FuneralArrangements', [
+            'funeralArrangements' => FuneralArrangementResource::collection($funeralArrangements),
         ]);
     }
 }

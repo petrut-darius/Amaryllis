@@ -3,8 +3,8 @@
 namespace App\Filament\Resources\Baptisms\Schemas;
 
 use Filament\Infolists\Components\ImageEntry;
-use Filament\Schemas\Components\Section;
 use Filament\Infolists\Components\TextEntry;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
 class BaptismInfolist
@@ -32,10 +32,10 @@ class BaptismInfolist
                 Section::make('Event Gallery')
                     ->description('Photos of the event.')
                     ->schema([
-                        ImageEntry::make("images")
-                            ->disk("event_images"),
-                    ])
-                
+                        ImageEntry::make('images')
+                            ->disk('event_images'),
+                    ]),
+
             ]);
     }
 }

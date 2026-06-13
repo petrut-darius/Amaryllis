@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\Baptism;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 
 class BaptismObserver
@@ -12,20 +13,23 @@ class BaptismObserver
      */
     public function created(Baptism $baptism): void
     {
-        //
+        Cache::forget('baptisms');
     }
 
-    public function updating(Baptism $baptism): void {
-        if($baptism->isDirty("images")) {
-            $old = $baptism->getOriginal("images") ?? [];
+    public function updating(Baptism $baptism): void
+    {
+        if ($baptism->isDirty('images')) {
+            $old = $baptism->getOriginal('images') ?? [];
             $new = $baptism->images ?? [];
 
             $toDelete = array_diff($old, $new);
 
-            foreach($toDelete as $image) {
-                Storage::disk("event_images")->delete($image);
+            foreach ($toDelete as $image) {
+                Storage::disk('event_images')->delete($image);
             }
         }
+
+        Cache::forget('baptisms');
     }
 
     /**
@@ -33,7 +37,7 @@ class BaptismObserver
      */
     public function updated(Baptism $baptism): void
     {
-        //
+        Cache::forget('baptisms');
     }
 
     /**
@@ -41,11 +45,13 @@ class BaptismObserver
      */
     public function deleted(Baptism $baptism): void
     {
-        if($baptism->images) {
-            foreach($baptism->images as $image) {
-                Storage::disk("event_images")->delete($image);
+        if ($baptism->images) {
+            foreach ($baptism->images as $image) {
+                Storage::disk('event_images')->delete($image);
             }
         }
+
+        Cache::forget('baptisms');
     }
 
     /**

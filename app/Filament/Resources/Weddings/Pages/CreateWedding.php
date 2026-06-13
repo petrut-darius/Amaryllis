@@ -7,6 +7,5 @@ use Filament\Resources\Pages\CreateRecord;
 
 class CreateWedding extends CreateRecord
 {
-
     protected static string $resource = WeddingResource::class;
 }

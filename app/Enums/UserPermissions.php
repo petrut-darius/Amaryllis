@@ -1,8 +1,9 @@
 <?php
+
 namespace App\Enums;
 
-
-enum UserPermissions: string {
+enum UserPermissions: string
+{
     // Users
     case MANAGE_USERS = 'manage:users';
     case CREATE_USERS = 'create:users';

@@ -2,9 +2,9 @@
 
 namespace App\Policies;
 
+use App\Enums\UserPermissions;
 use App\Models\User;
 use App\Models\Wedding;
-use App\Enums\UserPermissions;
 
 class WeddingPolicy
 {
@@ -13,9 +13,13 @@ class WeddingPolicy
      */
     public function viewAny(User $user): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_WEDDINGS->value, UserPermissions::CREATE_WEDDINGS->value, UserPermissions::UPDATE_WEDDINGS->value, UserPermissions::DELETE_WEDDINGS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_WEDDINGS->value, UserPermissions::CREATE_WEDDINGS->value, UserPermissions::UPDATE_WEDDINGS->value, UserPermissions::DELETE_WEDDINGS->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -25,9 +29,13 @@ class WeddingPolicy
      */
     public function view(User $user, Wedding $model): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_WEDDINGS->value, UserPermissions::CREATE_WEDDINGS->value, UserPermissions::UPDATE_WEDDINGS->value, UserPermissions::DELETE_WEDDINGS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_WEDDINGS->value, UserPermissions::CREATE_WEDDINGS->value, UserPermissions::UPDATE_WEDDINGS->value, UserPermissions::DELETE_WEDDINGS->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -37,9 +45,13 @@ class WeddingPolicy
      */
     public function create(User $user): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_WEDDINGS->value, UserPermissions::CREATE_WEDDINGS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_WEDDINGS->value, UserPermissions::CREATE_WEDDINGS->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -49,9 +61,13 @@ class WeddingPolicy
      */
     public function update(User $user, Wedding $model): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_WEDDINGS->value, UserPermissions::UPDATE_WEDDINGS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_WEDDINGS->value, UserPermissions::UPDATE_WEDDINGS->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -61,9 +77,13 @@ class WeddingPolicy
      */
     public function delete(User $user, Wedding $model): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_WEDDINGS->value, UserPermissions::DELETE_WEDDINGS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_WEDDINGS->value, UserPermissions::DELETE_WEDDINGS->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -84,4 +104,3 @@ class WeddingPolicy
         return false;
     }
 }
-

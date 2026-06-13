@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\Arrangement;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 
 class ArrangementObserver
@@ -12,20 +13,23 @@ class ArrangementObserver
      */
     public function created(Arrangement $arrangement): void
     {
-        //
+        Cache::forget('arrangements');
     }
 
-    public function updating(Arrangement $arrangement): void {
-        if($arrangement->isDirty("images")) {
-            $old = $arrangement->getOriginal("images") ?? [];
+    public function updating(Arrangement $arrangement): void
+    {
+        if ($arrangement->isDirty('images')) {
+            $old = $arrangement->getOriginal('images') ?? [];
             $new = $arrangement->images ?? [];
 
             $toDelete = array_diff($old, $new);
 
-            foreach($toDelete as $image) {
-                Storage::disk("event_images")->delete($image);
+            foreach ($toDelete as $image) {
+                Storage::disk('event_images')->delete($image);
             }
         }
+
+        Cache::forget('arrangements');
     }
 
     /**
@@ -33,7 +37,7 @@ class ArrangementObserver
      */
     public function updated(Arrangement $arrangement): void
     {
-        //
+        Cache::forget('arrangements');
     }
 
     /**
@@ -41,11 +45,13 @@ class ArrangementObserver
      */
     public function deleted(Arrangement $arrangement): void
     {
-        if($arrangement->images) {
-            foreach($arrangement->images as $image) {
-                Storage::disk("event_images")->delete($image);
+        if ($arrangement->images) {
+            foreach ($arrangement->images as $image) {
+                Storage::disk('event_images')->delete($image);
             }
         }
+
+        Cache::forget('arrangements');
     }
 
     /**

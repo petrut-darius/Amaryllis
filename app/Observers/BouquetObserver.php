@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\Bouquet;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 
 class BouquetObserver
@@ -12,19 +13,23 @@ class BouquetObserver
      */
     public function created(Bouquet $bouquet): void
     {
-        //
+        Cache::forget('bouquets');
     }
 
-    public function updating(Bouquet $bouquet): void {
-        //verifica daca campului images i s-a schimbat valoarea
-        if($bouquet->isDirty("images")) {
-            //da valoarea din db care era inainte sa se schimbe
-            $old = $bouquet->getOriginal("images");
+    public function updating(Bouquet $bouquet): void
+    {
+        // verifica daca campului images i s-a schimbat valoarea
+        if ($bouquet->isDirty('images')) {
 
-            if($old) {
-                Storage::disk("event_images")->delete($old);
+            // da valoarea din db care era inainte sa se schimbe
+            $old = $bouquet->getOriginal('images');
+
+            if ($old) {
+                Storage::disk('event_images')->delete($old);
             }
         }
+
+        Cache::forget('bouquets');
     }
 
     /**
@@ -32,7 +37,7 @@ class BouquetObserver
      */
     public function updated(Bouquet $bouquet): void
     {
-        //
+        Cache::forget('bouquets');
     }
 
     /**
@@ -40,9 +45,11 @@ class BouquetObserver
      */
     public function deleting(Bouquet $bouquet): void
     {
-        if($bouquet->images) {
-            Storage::disk("event_images")->delete($bouquet->images);
+        if ($bouquet->images) {
+            Storage::disk('event_images')->delete($bouquet->images);
         }
+
+        Cache::forget('bouquets');
     }
 
     /**

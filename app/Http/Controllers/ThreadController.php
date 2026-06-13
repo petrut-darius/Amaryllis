@@ -15,12 +15,12 @@ class ThreadController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $threads = collect(Cache::remember("threads", 600, function() {
+        $threads = collect(Cache::remember('threads', 600, function () {
             return Thread::all()->toArray();
         }));
 
-        return Inertia::render("Threads", [
-            "threads" => ThreadResource::collection($threads),
+        return Inertia::render('Threads', [
+            'threads' => ThreadResource::collection($threads),
         ]);
     }
 }

@@ -3,8 +3,8 @@
 namespace App\Filament\Resources\Threads\Schemas;
 
 use Filament\Forms\Components\FileUpload;
-use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
 class ThreadForm
@@ -32,8 +32,8 @@ class ThreadForm
                             ->maxsize((int) 20480)
                             ->disk('event_images')
                             ->visibility('public')
-                            ->acceptedFileTypes(['image/jpeg', 'image/jpg', 'image/png', 'image/webp'])
-                    ])
+                            ->acceptedFileTypes(['image/jpeg', 'image/jpg', 'image/png', 'image/webp']),
+                    ]),
             ]);
     }
 }

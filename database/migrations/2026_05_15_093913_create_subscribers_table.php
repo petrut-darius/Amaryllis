@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('subscribers', function (Blueprint $table) {
             $table->id();
-            $table->string("email")->unique();
-            $table->string("name");
-            $table->string("token")->unique();
-            $table->dateTime("subscribed_at");
-            $table->dateTime("unsubscribed_at")->nullable();
-            $table->timestamp("terms_accepted_at")->nullable();
+            $table->string('email')->unique();
+            $table->string('name');
+            $table->string('token')->unique();
+            $table->dateTime('subscribed_at');
+            $table->dateTime('unsubscribed_at')->nullable();
+            $table->timestamp('terms_accepted_at')->nullable();
             $table->timestamps();
         });
     }

@@ -47,13 +47,13 @@ return [
             'report' => false,
         ],
 
-        "event_images" => [
-            "driver"=> "local",
-            "root" => storage_path("app/public/event_images"),
-            "url" => rtrim(env("APP_URL", "http://localhost"),"/")."/storage/event_images",
-            "visibility" => "public",
-            "throw" => false,
-            "report" => false,
+        'event_images' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/event_images'),
+            'url' => rtrim(env('APP_URL', 'http://localhost'), '/').'/storage/event_images',
+            'visibility' => 'public',
+            'throw' => false,
+            'report' => false,
         ],
 
         's3' => [

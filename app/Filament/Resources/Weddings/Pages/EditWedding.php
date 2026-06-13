@@ -9,7 +9,6 @@ use Filament\Resources\Pages\EditRecord;
 
 class EditWedding extends EditRecord
 {
-
     protected static string $resource = WeddingResource::class;
 
     protected function getHeaderActions(): array

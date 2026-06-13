@@ -2,9 +2,9 @@
 
 namespace App\Policies;
 
+use App\Enums\UserPermissions;
 use App\Models\Baptism;
 use App\Models\User;
-use App\Enums\UserPermissions;
 
 class BaptismPolicy
 {
@@ -13,9 +13,13 @@ class BaptismPolicy
      */
     public function viewAny(User $user): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_BAPTISMS->value, UserPermissions::CREATE_BAPTISMS->value, UserPermissions::UPDATE_BAPTISMS->value, UserPermissions::DELETE_BAPTISMS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_BAPTISMS->value, UserPermissions::CREATE_BAPTISMS->value, UserPermissions::UPDATE_BAPTISMS->value, UserPermissions::DELETE_BAPTISMS->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -25,9 +29,13 @@ class BaptismPolicy
      */
     public function view(User $user, Baptism $model): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_BAPTISMS->value, UserPermissions::CREATE_BAPTISMS->value, UserPermissions::UPDATE_BAPTISMS->value, UserPermissions::DELETE_BAPTISMS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_BAPTISMS->value, UserPermissions::CREATE_BAPTISMS->value, UserPermissions::UPDATE_BAPTISMS->value, UserPermissions::DELETE_BAPTISMS->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -37,9 +45,13 @@ class BaptismPolicy
      */
     public function create(User $user): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_BAPTISMS->value, UserPermissions::CREATE_BAPTISMS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_BAPTISMS->value, UserPermissions::CREATE_BAPTISMS->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -49,9 +61,13 @@ class BaptismPolicy
      */
     public function update(User $user, Baptism $model): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_BAPTISMS->value, UserPermissions::UPDATE_BAPTISMS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_BAPTISMS->value, UserPermissions::UPDATE_BAPTISMS->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -61,9 +77,13 @@ class BaptismPolicy
      */
     public function delete(User $user, Baptism $model): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_BAPTISMS->value, UserPermissions::DELETE_BAPTISMS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_BAPTISMS->value, UserPermissions::DELETE_BAPTISMS->value])) {
+            return true;
+        }
 
         return false;
     }

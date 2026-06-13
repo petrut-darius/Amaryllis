@@ -2,9 +2,9 @@
 
 namespace App\Policies;
 
+use App\Enums\UserPermissions;
 use App\Models\EventImage;
 use App\Models\User;
-use App\Enums\UserPermissions;
 
 class EventImagePolicy
 {
@@ -13,9 +13,13 @@ class EventImagePolicy
      */
     public function viewAny(User $user): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_EVENT_IMAGES->value, UserPermissions::CREATE_EVENT_IMAGES->value, UserPermissions::UPDATE_EVENT_IMAGES->value, UserPermissions::DELETE_EVENT_IMAGES->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_EVENT_IMAGES->value, UserPermissions::CREATE_EVENT_IMAGES->value, UserPermissions::UPDATE_EVENT_IMAGES->value, UserPermissions::DELETE_EVENT_IMAGES->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -25,9 +29,13 @@ class EventImagePolicy
      */
     public function view(User $user, EventImage $model): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_EVENT_IMAGES->value, UserPermissions::CREATE_EVENT_IMAGES->value, UserPermissions::UPDATE_EVENT_IMAGES->value, UserPermissions::DELETE_EVENT_IMAGES->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_EVENT_IMAGES->value, UserPermissions::CREATE_EVENT_IMAGES->value, UserPermissions::UPDATE_EVENT_IMAGES->value, UserPermissions::DELETE_EVENT_IMAGES->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -37,9 +45,13 @@ class EventImagePolicy
      */
     public function create(User $user): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_EVENT_IMAGES->value, UserPermissions::CREATE_EVENT_IMAGES->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_EVENT_IMAGES->value, UserPermissions::CREATE_EVENT_IMAGES->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -49,9 +61,13 @@ class EventImagePolicy
      */
     public function update(User $user, EventImage $model): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_EVENT_IMAGES->value, UserPermissions::UPDATE_EVENT_IMAGES->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_EVENT_IMAGES->value, UserPermissions::UPDATE_EVENT_IMAGES->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -61,9 +77,13 @@ class EventImagePolicy
      */
     public function delete(User $user, EventImage $model): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_EVENT_IMAGES->value, UserPermissions::DELETE_EVENT_IMAGES->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_EVENT_IMAGES->value, UserPermissions::DELETE_EVENT_IMAGES->value])) {
+            return true;
+        }
 
         return false;
     }

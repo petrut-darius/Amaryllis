@@ -19,7 +19,7 @@ class UsersTable
                 TextColumn::make('name')
                     ->searchable(),
                 TextColumn::make('super_admin')
-                    ->label("Super Admin?")
+                    ->label('Super Admin?')
                     ->searchable(),
                 TextColumn::make('email')
                     ->label('Email address')

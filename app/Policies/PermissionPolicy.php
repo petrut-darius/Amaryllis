@@ -2,10 +2,9 @@
 
 namespace App\Policies;
 
+use App\Enums\UserPermissions;
 use App\Models\Permission;
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
-use App\Enums\UserPermissions;
 
 class PermissionPolicy
 {
@@ -14,9 +13,13 @@ class PermissionPolicy
      */
     public function viewAny(User $user): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_PERMISSIONS->value, UserPermissions::CREATE_PERMISSIONS->value, UserPermissions::UPDATE_PERMISSIONS->value, UserPermissions::DELETE_PERMISSIONS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_PERMISSIONS->value, UserPermissions::CREATE_PERMISSIONS->value, UserPermissions::UPDATE_PERMISSIONS->value, UserPermissions::DELETE_PERMISSIONS->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -26,9 +29,13 @@ class PermissionPolicy
      */
     public function view(User $user, Permission $model): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_PERMISSIONS->value, UserPermissions::CREATE_PERMISSIONS->value, UserPermissions::UPDATE_PERMISSIONS->value, UserPermissions::DELETE_PERMISSIONS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_PERMISSIONS->value, UserPermissions::CREATE_PERMISSIONS->value, UserPermissions::UPDATE_PERMISSIONS->value, UserPermissions::DELETE_PERMISSIONS->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -38,9 +45,13 @@ class PermissionPolicy
      */
     public function create(User $user): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_PERMISSIONS->value, UserPermissions::CREATE_PERMISSIONS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_PERMISSIONS->value, UserPermissions::CREATE_PERMISSIONS->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -50,9 +61,13 @@ class PermissionPolicy
      */
     public function update(User $user, Permission $model): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_PERMISSIONS->value, UserPermissions::UPDATE_PERMISSIONS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_PERMISSIONS->value, UserPermissions::UPDATE_PERMISSIONS->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -62,9 +77,13 @@ class PermissionPolicy
      */
     public function delete(User $user, Permission $model): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_PERMISSIONS->value, UserPermissions::DELETE_PERMISSIONS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_PERMISSIONS->value, UserPermissions::DELETE_PERMISSIONS->value])) {
+            return true;
+        }
 
         return false;
     }

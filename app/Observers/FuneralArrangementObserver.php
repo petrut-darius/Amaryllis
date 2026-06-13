@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\FuneralArrangement;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 
 class FuneralArrangementObserver
@@ -12,20 +13,23 @@ class FuneralArrangementObserver
      */
     public function created(FuneralArrangement $funeralArrangement): void
     {
-        //
+        Cache::forget('funeralArrangements');
     }
 
-    public function updating(FuneralArrangement $funeralArrangement): void {
-        if($funeralArrangement->isDirty("images")) {
-            $old = $funeralArrangement->getOriginal("images") ?? [];
+    public function updating(FuneralArrangement $funeralArrangement): void
+    {
+        if ($funeralArrangement->isDirty('images')) {
+            $old = $funeralArrangement->getOriginal('images') ?? [];
             $new = $funeralArrangement->images ?? [];
 
             $toDelete = array_diff($old, $new);
 
-            foreach($toDelete as $image) {
-                Storage::disk("event_images")->delete($image);
+            foreach ($toDelete as $image) {
+                Storage::disk('event_images')->delete($image);
             }
         }
+
+        Cache::forget('funeralArrangements');
     }
 
     /**
@@ -33,7 +37,7 @@ class FuneralArrangementObserver
      */
     public function updated(FuneralArrangement $funeralArrangement): void
     {
-        //
+        Cache::forget('funeralArrangements');
     }
 
     /**
@@ -41,11 +45,13 @@ class FuneralArrangementObserver
      */
     public function deleted(FuneralArrangement $funeralArrangement): void
     {
-        if($funeralArrangement->images) {
-            foreach($funeralArrangement->images as $image) {
-                Storage::disk("event_images")->delete($image);
+        if ($funeralArrangement->images) {
+            foreach ($funeralArrangement->images as $image) {
+                Storage::disk('event_images')->delete($image);
             }
         }
+
+        Cache::forget('funeralArrangements');
     }
 
     /**

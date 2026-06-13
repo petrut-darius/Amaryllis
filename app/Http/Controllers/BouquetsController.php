@@ -15,16 +15,16 @@ class BouquetsController extends Controller
      */
     public function __invoke(Request $request)
     {
-        //get all bouquets
-        $bouquets = collect(Cache::remember("bouquets", 600, function() {
+        // get all bouquets
+        $bouquets = collect(Cache::remember('bouquets', 600, function () {
             return Bouquet::all()->toArray();
         }));
 
-        //dd($bouquets);
+        // dd($bouquets);
 
-        //return them
-        return Inertia::render("Bouquets", [
-            "bouquets" => BouquetResource::collection($bouquets),
+        // return them
+        return Inertia::render('Bouquets', [
+            'bouquets' => BouquetResource::collection($bouquets),
         ]);
     }
 }

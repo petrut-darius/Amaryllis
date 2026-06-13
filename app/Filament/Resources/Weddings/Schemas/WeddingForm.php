@@ -3,9 +3,8 @@
 namespace App\Filament\Resources\Weddings\Schemas;
 
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Section;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
 class WeddingForm
@@ -23,10 +22,10 @@ class WeddingForm
                 Textarea::make('description')
                     ->required()
                     ->columnSpanFull(),
-                FileUpload::make("images")
-                    ->disk("event_images")
-                    ->visibility("public")
-                    ->multiple()
+                FileUpload::make('images')
+                    ->disk('event_images')
+                    ->visibility('public')
+                    ->multiple(),
             ]);
     }
 }

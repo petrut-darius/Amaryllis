@@ -2,7 +2,6 @@
 
 namespace App\Filament\Resources\Arrangements\Schemas;
 
-use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
 class ArrangementInfolist
@@ -11,7 +10,7 @@ class ArrangementInfolist
     {
         return $schema
             ->components([
-                
+
             ]);
     }
 }

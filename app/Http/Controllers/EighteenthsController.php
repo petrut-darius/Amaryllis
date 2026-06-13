@@ -15,12 +15,12 @@ class EighteenthsController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $eighteenths = collect(Cache::remember("eighteenths", 600, function() {
+        $eighteenths = collect(Cache::remember('eighteenths', 600, function () {
             return Eighteenth::all()->toArray();
         }));
 
-        return Inertia::render("Eighteenths", [
-            "eighteenths" => EighteenthResource::collection($eighteenths),
+        return Inertia::render('Eighteenths', [
+            'eighteenths' => EighteenthResource::collection($eighteenths),
         ]);
     }
 }

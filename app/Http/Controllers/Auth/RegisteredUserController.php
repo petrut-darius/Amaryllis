@@ -35,18 +35,18 @@ class RegisteredUserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|lowercase|email|max:255|unique:'.User::class,
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            "phone" => "required|string|digits_between:10,12",
-            "terms_accepted_at" => "boolean"
+            'phone' => 'required|string|digits_between:10,12',
+            'terms_accepted_at' => 'boolean',
         ]);
 
-        //dd($request);
+        // dd($request);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            "phone" => $request->phone,
-            "terms_accepted_at" => $request->terms_accepted_at ? now() : null,
+            'phone' => $request->phone,
+            'terms_accepted_at' => $request->terms_accepted_at ? now() : null,
         ]);
 
         event(new Registered($user));

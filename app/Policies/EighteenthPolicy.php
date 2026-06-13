@@ -2,9 +2,9 @@
 
 namespace App\Policies;
 
+use App\Enums\UserPermissions;
 use App\Models\Eighteenth;
 use App\Models\User;
-use App\Enums\UserPermissions;
 
 class EighteenthPolicy
 {
@@ -13,9 +13,13 @@ class EighteenthPolicy
      */
     public function viewAny(User $user): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_EIGHTEENTHS->value, UserPermissions::CREATE_EIGHTEENTHS->value, UserPermissions::UPDATE_EIGHTEENTHS->value, UserPermissions::DELETE_EIGHTEENTHS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_EIGHTEENTHS->value, UserPermissions::CREATE_EIGHTEENTHS->value, UserPermissions::UPDATE_EIGHTEENTHS->value, UserPermissions::DELETE_EIGHTEENTHS->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -25,9 +29,13 @@ class EighteenthPolicy
      */
     public function view(User $user, Eighteenth $model): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_EIGHTEENTHS->value, UserPermissions::CREATE_EIGHTEENTHS->value, UserPermissions::UPDATE_EIGHTEENTHS->value, UserPermissions::DELETE_EIGHTEENTHS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_EIGHTEENTHS->value, UserPermissions::CREATE_EIGHTEENTHS->value, UserPermissions::UPDATE_EIGHTEENTHS->value, UserPermissions::DELETE_EIGHTEENTHS->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -37,9 +45,13 @@ class EighteenthPolicy
      */
     public function create(User $user): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_EIGHTEENTHS->value, UserPermissions::CREATE_EIGHTEENTHS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_EIGHTEENTHS->value, UserPermissions::CREATE_EIGHTEENTHS->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -49,9 +61,13 @@ class EighteenthPolicy
      */
     public function update(User $user, Eighteenth $model): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_EIGHTEENTHS->value, UserPermissions::UPDATE_EIGHTEENTHS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_EIGHTEENTHS->value, UserPermissions::UPDATE_EIGHTEENTHS->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -61,9 +77,13 @@ class EighteenthPolicy
      */
     public function delete(User $user, Eighteenth $model): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_EIGHTEENTHS->value, UserPermissions::DELETE_EIGHTEENTHS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_EIGHTEENTHS->value, UserPermissions::DELETE_EIGHTEENTHS->value])) {
+            return true;
+        }
 
         return false;
     }

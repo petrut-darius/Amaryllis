@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\User;
 use App\Enums\UserPermissions;
+use App\Models\User;
 
 class UserPolicy
 {
@@ -12,9 +12,13 @@ class UserPolicy
      */
     public function viewAny(User $user): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_USERS->value, UserPermissions::CREATE_USERS->value, UserPermissions::UPDATE_USERS->value, UserPermissions::DELETE_USERS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_USERS->value, UserPermissions::CREATE_USERS->value, UserPermissions::UPDATE_USERS->value, UserPermissions::DELETE_USERS->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -24,9 +28,13 @@ class UserPolicy
      */
     public function view(User $user, User $model): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_USERS->value, UserPermissions::CREATE_USERS->value, UserPermissions::UPDATE_USERS->value, UserPermissions::DELETE_USERS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_USERS->value, UserPermissions::CREATE_USERS->value, UserPermissions::UPDATE_USERS->value, UserPermissions::DELETE_USERS->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -36,9 +44,13 @@ class UserPolicy
      */
     public function create(User $user): bool
     {
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_USERS->value, UserPermissions::CREATE_USERS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_USERS->value, UserPermissions::CREATE_USERS->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -49,13 +61,21 @@ class UserPolicy
     public function update(User $user, User $model): bool
     {
 
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->id === $model->id) return false;
+        if ($user->id === $model->id) {
+            return false;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_USERS->value, UserPermissions::UPDATE_USERS->value]) && $model->super_admin === true) return false;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_USERS->value, UserPermissions::UPDATE_USERS->value]) && $model->super_admin === true) {
+            return false;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_USERS->value, UserPermissions::UPDATE_USERS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_USERS->value, UserPermissions::UPDATE_USERS->value])) {
+            return true;
+        }
 
         return false;
     }
@@ -65,13 +85,21 @@ class UserPolicy
      */
     public function delete(User $user, User $model): bool
     {
-        if($user->id === $model->id) return false;
+        if ($user->id === $model->id) {
+            return false;
+        }
 
-        if($user->super_admin === true) return true;
+        if ($user->super_admin === true) {
+            return true;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_USERS->value, UserPermissions::DELETE_USERS->value]) && $model->super_admin === true) return false;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_USERS->value, UserPermissions::DELETE_USERS->value]) && $model->super_admin === true) {
+            return false;
+        }
 
-        if($user->hasAnyPermission([UserPermissions::MANAGE_USERS->value, UserPermissions::DELETE_USERS->value])) return true;
+        if ($user->hasAnyPermission([UserPermissions::MANAGE_USERS->value, UserPermissions::DELETE_USERS->value])) {
+            return true;
+        }
 
         return false;
     }
