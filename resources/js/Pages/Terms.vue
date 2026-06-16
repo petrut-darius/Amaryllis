@@ -21,7 +21,7 @@ import GuestLayout from '@/Layouts/GuestLayout.vue';
                 <section class="space-y-4">
                     <h2 class="text-xl font-serif text-brand-charcoal border-b border-brand-charcoal/10 pb-2">1. Introducere</h2>
                     <p>
-                        Bun venit pe site-ul Amaryllis (amaryllis-flori.ro). Prin accesarea și utilizarea acestui site, sunteți de acord să respectați următorii termeni și condiții. Vă rugăm să îi citiți cu atenție înainte de a utiliza serviciile noastre.
+                        Bun venit pe site-ul Amaryllis (floraria-amaryllis.ro). Prin accesarea și utilizarea acestui site, sunteți de acord să respectați următorii termeni și condiții. Vă rugăm să îi citiți cu atenție înainte de a utiliza serviciile noastre.
                     </p>
                 </section>
 

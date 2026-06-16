@@ -2,6 +2,7 @@ import tailwindcss from '@tailwindcss/vite';
 import vue from '@vitejs/plugin-vue';
 import laravel from 'laravel-vite-plugin';
 import { defineConfig } from 'vite';
+import legacy from "@vitejs/plugin-legacy"
 
 export default defineConfig({
     plugins: [
@@ -18,5 +19,8 @@ export default defineConfig({
                 },
             },
         }),
+        legacy({
+            targets: ["defaults", "safari >= 13"]
+        })
     ],
 });
