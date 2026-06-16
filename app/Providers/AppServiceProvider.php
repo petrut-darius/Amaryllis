@@ -8,6 +8,7 @@ use App\Models\Bouquet;
 use App\Models\Eighteenth;
 use App\Models\FuneralArrangement;
 use App\Models\Thread;
+use App\Models\User;
 use App\Models\Wedding;
 use App\Observers\ArrangementObserver;
 use App\Observers\BaptismObserver;
@@ -17,6 +18,7 @@ use App\Observers\FuneralArrangementObserver;
 use App\Observers\ThreadObserver;
 use App\Observers\WeddingObserver;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\ServiceProvider;
 
@@ -47,5 +49,11 @@ class AppServiceProvider extends ServiceProvider
         Wedding::observe(WeddingObserver::class);
         Baptism::observe(BaptismObserver::class);
         Eighteenth::observe(EighteenthObserver::class);
+
+        Gate::define("send-newsletter-mails", function(User $user) {//laravelu stie sa bage useru authentificat ca $user, deaia nu trebuie sa il bag eu in SendEmailWidget
+            if($user->super_admin) return true;
+        
+            return false;
+        });
     }
 }

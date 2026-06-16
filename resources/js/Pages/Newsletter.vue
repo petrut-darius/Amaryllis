@@ -1,5 +1,5 @@
 <script setup>
-import { useForm, usePage, Head } from '@inertiajs/vue3';
+import { useForm, usePage, Head, Link } from '@inertiajs/vue3';
 import { computed, onMounted, onUnmounted } from 'vue';
 import Checkbox from '@/Components/Checkbox.vue';
 import InputError from '@/Components/InputError.vue';
@@ -100,7 +100,7 @@ onUnmounted(() => {
                             <span
                                 class="ms-3 text-[9px] uppercase tracking-[0.5em] text-brand-charcoal/40 group-hover:text-brand-ruby transition-all duration-500 font-bold"
                             >
-                                Agree with our terms
+                                Sunt de acord cu <Link :href="route('terms')" class="underline underline-offset-4">termenii și condițiile</Link>
                             </span>
                         </label>
                         <InputError :message="newsletterForm.errors.terms_accepted_at" />

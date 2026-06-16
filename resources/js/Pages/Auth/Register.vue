@@ -121,7 +121,7 @@ const submit = () => {
                     <span
                         class="ms-3 text-[9px] uppercase tracking-[0.4em] text-brand-charcoal/40 group-hover:text-brand-ruby transition-colors duration-300"
                     >
-                        Accept our terms
+                        Accept <Link :href="route('terms')" class="underline underline-offset-4">termenii și condițiile</Link>
                     </span>
                 </label>
 

@@ -42,12 +42,12 @@ class ContactController extends Controller
         })->get();
 
         foreach ($adminUsers as $user) {
-            Mail::to($user)->send(new AdminUserContacted($contact, $data));
+            Mail::to($user)->queue(new AdminUserContacted($contact, $data));
         }
 
         $user = Auth::user();
 
-        Mail::to($user)->send(new UserContacted);
+        Mail::to($user)->queue(new UserContacted);
 
         return redirect()->back();
     }

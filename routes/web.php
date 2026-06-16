@@ -37,6 +37,11 @@ Route::get('/newsletter/{token}', [SubscriberController::class, 'destroy'])->nam
 Route::get('/contact', [ContactController::class, 'create'])->name('contact.create'); // static
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
+//terms
+Route::get("/termeni-si-conditii", function() {
+    return Inertia::render("Terms");
+})->name("terms");
+
 // about us
 Route::get('/despre-noi', function () {
     return Inertia::render('About'); // static

@@ -36,7 +36,7 @@ class RegisteredUserController extends Controller
             'email' => 'required|string|lowercase|email|max:255|unique:'.User::class,
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'phone' => 'required|string|digits_between:10,12',
-            'terms_accepted_at' => 'boolean',
+            'terms_accepted_at' => 'accepted',
         ]);
 
         // dd($request);

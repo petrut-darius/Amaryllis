@@ -67,6 +67,9 @@ const currentYear = new Date().getFullYear();
 
         <div class="mt-8 pt-8 border-t border-brand-cream/10 flex flex-col sm:flex-row justify-between items-center space-y-6 sm:space-y-0 text-[9px] md:text-[10px] uppercase tracking-[0.4em] text-brand-cream/30">
             <p>&copy; {{ currentYear }} Amaryllis Floral Design.</p>
+            <div class="flex space-x-8">
+                <Link :href="route('terms')" class="hover:text-brand-gold transition-colors">Termeni și Condiții</Link>
+            </div>
         </div>
     </div>
 </template>

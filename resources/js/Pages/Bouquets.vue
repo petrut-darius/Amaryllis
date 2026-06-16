@@ -92,7 +92,7 @@ onUnmounted(() => {
                         />
                         
                         <!-- Desktop Overlay (Elegant Blur) -->
-                        <div class="hidden md:flex absolute inset-0 bg-brand-cream/80 flex-col hover:text-white items-center justify-center p-12 text-center opacity-0 group-hover:opacity-100 transition-all duration-250 backdrop-blur-md">
+                        <div class="hidden md:flex absolute inset-0 bg-brand-cream/80 flex-col hover:text-white items-center justify-center p-12 text-center opacity-0 group-hover:opacity-100 transition-all duration-750 backdrop-blur-md">
                             <div class="space-y-6 md:space-y-8 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-1000">
                                 <h3 class="text-2xl md:text-4xl font-serif text-brand-charcoal leading-tight italic">
                                     {{ bouquet.name }}
@@ -107,22 +107,24 @@ onUnmounted(() => {
                         </div>
 
                         <!-- Mobile Info Overlay (Toggled) -->
-                        <div 
-                            v-if="activeBouquetId === bouquet.id"
-                            class="md:hidden absolute inset-0 bg-brand-charcoal/90 flex flex-col items-center justify-center p-6 md:p-10 text-center animate-in fade-in duration-1000 backdrop-blur-sm"
-                        >
-                            <div class="space-y-6 md:space-y-8">
-                                <h3 class="text-xl md:text-3xl font-serif text-white italic">
-                                    {{ bouquet.name }}
-                                </h3>
-                                <p class="text-[11px] text-white/70 leading-loose font-light">
-                                    {{ bouquet.description }}
-                                </p>
-                                <div class="pt-6">
-                                    <Link :href="route('contact.create')" class="inline-block text-[10px] uppercase tracking-[0.4em] text-brand-gold border-b border-brand-gold/30 pb-2">Inquire Now</Link>
+                        <Transition name="fade">
+                            <div 
+                                v-if="activeBouquetId === bouquet.id"
+                                class="md:hidden absolute inset-0 bg-brand-charcoal/90 flex flex-col items-center justify-center p-6 md:p-10 text-center backdrop-blur-sm z-10"
+                            >
+                                <div class="space-y-6 md:space-y-8">
+                                    <h3 class="text-xl md:text-3xl font-serif text-white italic">
+                                        {{ bouquet.name }}
+                                    </h3>
+                                    <p class="text-[11px] text-white/70 leading-loose font-light">
+                                        {{ bouquet.description }}
+                                    </p>
+                                    <div class="pt-6">
+                                        <Link :href="route('contact.create')" class="inline-block text-[10px] uppercase tracking-[0.4em] text-brand-gold border-b border-brand-gold/30 pb-2">Inquire Now</Link>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </Transition>
 
                         <!-- Mobile Info Toggle Button (Plus Icon) -->
                         <div class="absolute bottom-6 right-6 md:hidden z-10">
@@ -162,11 +164,13 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-.animate-in {
-    animation: fadeIn 1.2s ease-out;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1.2s ease-out;
 }
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

@@ -27,7 +27,7 @@ class SubscriberController extends Controller
             $termsAcceptedAt = $data['terms_accepted_at'];
         }
 
-        Subscriber::firstOrCreate(
+        Subscriber::updateOrCreate(
             [
                 'email' => $data['email'],
             ],
