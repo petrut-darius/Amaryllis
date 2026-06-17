@@ -76,7 +76,8 @@ onUnmounted(() => {
 const heroScrollProgress = computed(() => {
     if (typeof window === 'undefined') return 0;
     
-    const vh = window.innerHeight;
+    // Use documentElement.clientHeight for more stable vh on mobile Safari
+    const vh = document.documentElement.clientHeight || window.innerHeight;
     const heroCenter = headerHeight.value + (vh * 0.5);
     const viewportCenter = vh / 2;
     const triggerPoint = heroCenter - viewportCenter;
@@ -92,7 +93,7 @@ const heroScrollProgress = computed(() => {
 
 const pinnedOffset = computed(() => {
     if (typeof window === 'undefined') return 0;
-    const vh = window.innerHeight;
+    const vh = document.documentElement.clientHeight || window.innerHeight;
     const heroCenter = headerHeight.value + (vh * 0.5);
     const viewportCenter = vh / 2;
     const triggerPoint = heroCenter - viewportCenter;
@@ -185,11 +186,11 @@ const structuredData = computed(() => {
         <div class="mt-4">
             <!-- Hero Section: Editorial & Grand -->
             <section 
-                class="relative min-h-[85vh] flex items-center justify-center -mx-4 sm:-mx-8 animate-fade-in"
-                :style="{ marginBottom: isMobile ? `${35 + heroScrollProgress * 10}vh` : `${35 + heroScrollProgress * 40}vh` }"
+                class="relative min-h-[85dvh] flex items-center justify-center -mx-4 sm:-mx-8 animate-fade-in"
+                :style="{ marginBottom: isMobile ? `${35 + heroScrollProgress * 10}dvh` : `${35 + heroScrollProgress * 40}dvh` }"
             >
                 <div 
-                    class="absolute inset-0 z-0 overflow-hidden"
+                    class="absolute inset-0 z-0 overflow-hidden transform-gpu"
                     :style="{ opacity: 1 - heroScrollProgress }"
                 >
                     <img 
@@ -202,9 +203,9 @@ const structuredData = computed(() => {
 
                 <div class="relative z-30 flex items-center justify-center w-full px-4 sm:px-6">
                     <div 
-                        class="flex flex-col items-center text-center will-change-transform"
+                        class="flex flex-col items-center text-center will-change-transform transform-gpu"
                         :style="{ 
-                            transform: `translateY(${isMobile ? pinnedOffset * 0.8 : pinnedOffset}px) scale(${1 + heroScrollProgress * 0.01})`,
+                            transform: `translate3d(0, ${isMobile ? pinnedOffset * 0.8 : pinnedOffset}px, 0) scale(${1 + heroScrollProgress * 0.01})`,
                             transition: 'transform 0.1s linear'
                         }"
                     >

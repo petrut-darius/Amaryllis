@@ -3,12 +3,21 @@ import { Link } from "@inertiajs/vue3";
 import { ref, watch } from "vue";
 
 const isOpen = ref(false);
+const scrollPosition = ref(0);
 
 watch(isOpen, (val) => {
     if (val) {
+        scrollPosition.value = window.scrollY;
         document.body.style.overflow = 'hidden';
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollPosition.value}px`;
+        document.body.style.width = '100%';
     } else {
         document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        window.scrollTo(0, scrollPosition.value);
     }
 });
 
@@ -84,7 +93,7 @@ const toggleMenu = () => {
         >
             <div 
                 v-if="isOpen"
-                class="md:hidden fixed inset-0 bg-brand-cream/98 backdrop-blur-3xl z-[200] flex flex-col items-center justify-center p-8 text-center overflow-y-auto"
+                class="md:hidden fixed inset-0 bg-brand-cream/98 safari-blur-3xl z-[200] flex flex-col items-center justify-center p-8 text-center overflow-y-auto"
             >
                 <!-- Close Button Area (Optional, since toggle is z-[110] but Teleport changes things) -->
                 <!-- We should move the toggle inside or keep it outside. 

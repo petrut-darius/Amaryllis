@@ -84,15 +84,15 @@ onUnmounted(() => {
                     class="group flex flex-col space-y-6 md:space-y-8"
                 >
                     <!-- Image Container -->
-                    <div class="relative aspect-[4/5] overflow-hidden bg-brand-cream shadow-2xl ring-1 ring-brand-charcoal/5">
+                    <div class="relative aspect-[4/5] overflow-hidden bg-brand-cream shadow-2xl ring-1 ring-brand-charcoal/5 transform-gpu">
                         <img 
                             :src="arrangement.images" 
                             :alt="arrangement.name" 
-                            class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110 grayscale-[0.3] group-hover:grayscale-0"
+                            class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110 grayscale-[0.3] group-hover:grayscale-0 will-change-transform"
                         />
                         
                         <!-- Desktop Overlay (Elegant Blur) -->
-                        <div class="hidden md:flex absolute inset-0 bg-brand-cream/80 flex-col hover:text-white items-center justify-center p-12 text-center opacity-0 group-hover:opacity-100 transition-all duration-750 backdrop-blur-md">
+                        <div class="hidden md:flex absolute inset-0 bg-brand-cream/80 flex-col hover:text-white items-center justify-center p-12 text-center opacity-0 group-hover:opacity-100 transition-all duration-750 safari-blur-md">
                             <div class="space-y-6 md:space-y-8 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-1000">
                                 <h3 class="text-2xl md:text-4xl font-serif text-brand-charcoal leading-tight italic">
                                     {{ arrangement.name }}
@@ -110,7 +110,7 @@ onUnmounted(() => {
                         <Transition name="fade">
                             <div 
                                 v-if="activeArrangementId === arrangement.id"
-                                class="md:hidden absolute inset-0 bg-brand-charcoal/90 flex flex-col items-center justify-center p-6 md:p-10 text-center backdrop-blur-sm z-10"
+                                class="md:hidden absolute inset-0 bg-brand-charcoal/90 flex flex-col items-center justify-center p-6 md:p-10 text-center safari-blur-sm z-10"
                             >
                                 <div class="space-y-6 md:space-y-8">
                                     <h3 class="text-xl md:text-3xl font-serif text-white italic">
@@ -130,7 +130,7 @@ onUnmounted(() => {
                         <div class="absolute bottom-6 right-6 md:hidden z-10">
                              <button 
                                 @click="toggleArrangement(arrangement.id)" 
-                                class="bg-brand-cream/90 backdrop-blur-md p-4 rounded-full shadow-2xl text-brand-charcoal transition-all duration-500 hover:scale-110"
+                                class="bg-brand-cream/90 safari-blur-md p-4 rounded-full shadow-2xl text-brand-charcoal transition-all duration-500 hover:scale-110"
                                 :class="{ 'rotate-45 !bg-brand-gold !text-brand-cream': activeArrangementId === arrangement.id }"
                             >
                                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

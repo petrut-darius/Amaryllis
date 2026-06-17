@@ -50,4 +50,6 @@ jobs:
         script: |
           cd /var/www/html/Amaryllis
           php artisan migrate --force
+          php artisan view:clear
+          php artisan optimize:clear
           php artisan optimize
