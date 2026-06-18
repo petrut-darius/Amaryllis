@@ -55,6 +55,15 @@ createInertiaApp({
 
         const app = createApp({ render: () => h(App, props) });
 
+        app.config.errorHandler = (err, instance, info) => {
+            debug({
+                type: 'vue.errorHandler',
+                message: err?.message,
+                stack: err?.stack,
+                info,
+            });
+        };
+
         app.use(plugin)
             .use(ZiggyVue)
             .mount(el);

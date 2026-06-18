@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { Head } from '@inertiajs/vue3';
-import { computed, onMounted, onUnmounted } from 'vue';
-import { GoogleMap, Marker } from 'vue3-google-map';
+import { computed, defineAsyncComponent, onMounted, onUnmounted } from 'vue';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 
 const props = defineProps({
@@ -32,6 +31,14 @@ onUnmounted(() => {
     const existing = document.head.querySelector('script#structured-data');
     if (existing) existing.remove();
 });
+
+const GoogleMap = defineAsyncComponent(() => 
+    import("vue3-google-map").then(m => m.GoogleMap)
+)
+
+const Marker = defineAsyncComponent(() => 
+    import("vue3-google-map").then(m => m.Marker)
+)
 
 const center = {lat: 46.53663, lng: 24.58163}
 const placeId = 'ChIJw7OIf5y3S0cRdMzs4tJBJKU'
@@ -106,7 +113,7 @@ function handleImageError(e: Event) {
                     </div>
                     <div class="bg-white shadow-sm ring-1 ring-brand-charcoal/5 space-y-6 rounded-sm overflow-hidden ">
                         <GoogleMap
-                            api-key="AIzaSyDdqmMvty7NdfoPF11JRcGOzIp9cESQuyo"
+                            :api-key="$page.props.googleMapsKey"
                             style="width: 100%; height: 500px"
                             :center="center"
                             :zoom="15"
@@ -118,7 +125,6 @@ function handleImageError(e: Event) {
                             :rotate-control="false"
                             :fullscreen-control="false"
                             :scroll-wheel="false"
-                            :gestureHandling="'none'"
                             >
                                 <Marker :options="{ position: center }" @click="openMaps()"/>
                         </GoogleMap>
