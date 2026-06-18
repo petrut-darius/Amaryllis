@@ -77,6 +77,8 @@ createInertiaApp({
 
         debug({ step: "Dupa mount" });
 
+        setTimeout(() => debug({ step: "500ms post-mount alive" }), 500);
+
         return app;
     },
 

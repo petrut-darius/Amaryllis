@@ -1,6 +1,6 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
-import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { ref, computed } from 'vue';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 
 const props = defineProps({
@@ -35,20 +35,6 @@ const structuredData = computed(() => {
         }))
     });
 });
-
-onMounted(() => {
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.id = "structured-data";
-    script.textContent = structuredData.value;
-    document.head.appendChild(script);
-});
-
-onUnmounted(() => {
-    const existing = document.head.querySelector('script#structured-data');
-    if (existing) existing.remove();
-});
-
 </script>
 
 <template>
@@ -62,6 +48,10 @@ onUnmounted(() => {
         <meta property="og:type" content="website" />
         <meta property="og:url" :content="route('threads')" />
         <meta property="og:image" content="/amaryllis_logo.png" />
+
+        <component :is="'script'" type="application/ld+json">
+            {{ structuredData }}
+        </component>
     </Head>
 
     <GuestLayout>

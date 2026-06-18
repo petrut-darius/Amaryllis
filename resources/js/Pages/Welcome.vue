@@ -56,21 +56,12 @@ onMounted(() => {
     scrollY.value = window.scrollY;
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', updateHeaderHeight);
-
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.id = "structured-data";
-    script.textContent = structuredData.value;
-    document.head.appendChild(script);
 });
 
 onUnmounted(() => {
     window.removeEventListener('scroll', handleScroll);
     window.removeEventListener('resize', updateHeaderHeight);
     if (rafId) cancelAnimationFrame(rafId);
-
-    const existing = document.head.querySelector('script#structured-data');
-    if (existing) existing.remove()
 });
 
 const heroScrollProgress = computed(() => {
@@ -180,6 +171,10 @@ const structuredData = computed(() => {
         <meta property="og:type" content="website" />
         <meta property="og:url" :content="route('home')" />
         <meta property="og:image" content="/amaryllis_logo.png" />
+
+        <component :is="'script'" type="application/ld+json">
+            {{ structuredData }}
+        </component>
     </Head>
 
     <GuestLayout>

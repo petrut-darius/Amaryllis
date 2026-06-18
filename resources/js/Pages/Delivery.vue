@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { Head } from '@inertiajs/vue3';
-import { computed, defineAsyncComponent, onMounted, onUnmounted } from 'vue';
+import { computed, defineAsyncComponent } from 'vue';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 
 const props = defineProps({
-    reviews: Array
+    reviews: Array,
+    googleMapsKey: String,
 })
 
 const structuredData = computed(() => {
@@ -17,19 +18,6 @@ const structuredData = computed(() => {
             "@id": "https://amaryllis-flori.ro/#organization"
         }
     });
-});
-
-onMounted(() => {
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.id = "structured-data";
-    script.textContent = structuredData.value;
-    document.head.appendChild(script);
-});
-
-onUnmounted(() => {
-    const existing = document.head.querySelector('script#structured-data');
-    if (existing) existing.remove();
 });
 
 const GoogleMap = defineAsyncComponent(() => 
@@ -74,6 +62,10 @@ function handleImageError(e: Event) {
         <meta property="og:type" content="website" />
         <meta property="og:url" :content="route('delivery')" />
         <meta property="og:image" content="/amaryllis_logo.png" />
+
+        <component :is="'script'" type="application/ld+json">
+            {{ structuredData }}
+        </component>
     </Head>
 
     <GuestLayout>
@@ -113,7 +105,7 @@ function handleImageError(e: Event) {
                     </div>
                     <div class="bg-white shadow-sm ring-1 ring-brand-charcoal/5 space-y-6 rounded-sm overflow-hidden ">
                         <GoogleMap
-                            :api-key="$page.props.googleMapsKey"
+                            :api-key="googleMapsKey"
                             style="width: 100%; height: 500px"
                             :center="center"
                             :zoom="15"
