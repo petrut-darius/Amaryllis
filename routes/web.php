@@ -11,7 +11,14 @@ use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\ThreadController;
 use App\Http\Controllers\WeddingsController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
+
+Route::post('/debug-safari', function (Request $request) {
+    Log::channel('safari')->info('Debug Safari', $request->all());
+    return response()->json(['status' => 'ok']);
+});
 
 Route::get('/', function () {
     return Inertia::render('Welcome'); // choose this over home
