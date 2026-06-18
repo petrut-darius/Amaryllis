@@ -147,7 +147,7 @@ Route::get('/livrari', function () {
     // dd($selectedReviews);
 
     return Inertia::render('Delivery', [
-        "googleMapsJey" => env("GOOGLE_MAPS_KEY "),
+        "googleMapsKey" => env("GOOGLE_MAPS_KEY"),
         'reviews' => $selectedReviews,
     ]); // static
 })->name('delivery');
