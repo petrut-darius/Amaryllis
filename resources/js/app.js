@@ -18,6 +18,16 @@ function debug(payload) {
 debug({ step: "Dupa importuri" });
 
 window.onerror = (message, source, line, column, error) => {
+    const msg = String(message || '');
+    if (
+        msg.includes('dynamically imported module') ||
+        msg.includes('Importing a module script failed') ||
+        msg.includes('Failed to fetch dynamically imported module')
+    ) {
+        debug({ type: 'auto-reload-error', message: msg });
+        window.location.reload();
+        return;
+    }
     debug({
         type: 'window.onerror',
         message,
@@ -29,6 +39,17 @@ window.onerror = (message, source, line, column, error) => {
 };
 
 window.onunhandledrejection = (event) => {
+    const reason = String(event.reason?.message || event.reason || '');
+    if (
+        reason.includes('dynamically imported module') ||
+        reason.includes('Importing a module script failed') ||
+        reason.includes('Failed to fetch dynamically imported module') ||
+        reason.includes('error loading dynamically imported module')
+    ) {
+        debug({ type: 'auto-reload-unhandledrejection', message: reason });
+        window.location.reload();
+        return;
+    }
     debug({
         type: 'unhandledrejection',
         reason: String(event.reason),

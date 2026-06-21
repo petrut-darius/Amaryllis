@@ -10,9 +10,11 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\ThreadController;
 use App\Http\Controllers\WeddingsController;
+use App\Mail\ValentinesDay;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Inertia\Inertia;
 
 Route::post('/debug-safari', function (Request $request) {
@@ -31,7 +33,10 @@ Route::get('/dashboard', function () {
 */
 
 // home
-Route::fallback(function () {
+Route::fallback(function (Request $request) {
+    if ($request->is('build/*') || $request->is('assets/*') || preg_match('/\.(?:js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|otf|map|json)$/i', $request->path())) {
+        abort(404);
+    }
     return Inertia::render('Welcome');
 });
 
@@ -147,7 +152,7 @@ Route::get('/livrari', function () {
     // dd($selectedReviews);
 
     return Inertia::render('Delivery', [
-        "googleMapsKey" => env("GOOGLE_MAPS_KEY"),
+        "googleMapsKey" => config("services.google.maps_key"),
         'reviews' => $selectedReviews,
     ]); // static
 })->name('delivery');
@@ -195,3 +200,7 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::get("/test-email", function() {
+    Mail::to("eminoviciidarius@gmail.com")->queue(new ValentinesDay());
+});
