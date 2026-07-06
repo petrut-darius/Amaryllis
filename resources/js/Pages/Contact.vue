@@ -75,7 +75,7 @@ const structuredData = computed(() => {
             <!-- Quick Contact Actions -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 animate-fade-in-up delay-150">
                 <a 
-                    href="https://wa.me/40743331147?text=Salut%20%ai%20%15%20%lei?" 
+                    href="https://wa.me/40745265516" 
                     target="_blank"
                     rel="noopener noreferrer"
                     class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm bg-brand-charcoal px-4 py-5 md:py-7 text-[10px] font-medium uppercase tracking-[0.4em] text-white transition-all duration-700 hover:shadow-xl hover:shadow-brand-ruby/10 active:scale-95"
@@ -90,7 +90,7 @@ const structuredData = computed(() => {
                 </a>
 
                 <a 
-                    href="mailto:eminoviciidarius@gmail.com"
+                    href="mailto:floraria.amaryllis.ms@gmail.com"
                     class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm bg-brand-charcoal px-4 py-5 md:py-7 text-[10px] font-medium uppercase tracking-[0.4em] text-white transition-all duration-700 hover:shadow-xl hover:shadow-brand-ruby/10 active:scale-95"
                 >
                     <div class="absolute inset-0 w-0 bg-brand-ruby transition-all duration-500 ease-out group-hover:w-full"></div>
@@ -113,7 +113,7 @@ const structuredData = computed(() => {
                 </Link>
 
                 <a 
-                    href="tel:+40745265516" 
+                    href="tel:+40745265516"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm bg-brand-charcoal px-4 py-5 md:py-7 text-[10px] font-medium uppercase tracking-[0.4em] text-white transition-all duration-700 hover:shadow-xl hover:shadow-brand-ruby/10 active:scale-95"
