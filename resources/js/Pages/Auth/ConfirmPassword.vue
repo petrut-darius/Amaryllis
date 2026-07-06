@@ -19,16 +19,15 @@ const submit = () => {
 
 <template>
     <AuthLayout>
-        <Head title="Confirm Password" />
+        <Head title="Confirmă parola" />
 
         <div class="mb-6 text-[11px] uppercase tracking-[0.2em] text-brand-charcoal/60 leading-relaxed">
-            This is a secure area of the application. Please confirm your
-            password before continuing.
+            Aceasta este o zonă securizată a aplicației. Te rugăm să îți confirmi parola înainte de a continua.
         </div>
 
         <form @submit.prevent="submit">
             <div>
-                <InputLabel for="password" value="Password" />
+                <InputLabel for="password" value="Parolă" />
                 <TextInput
                     id="password"
                     type="password"
@@ -47,7 +46,7 @@ const submit = () => {
                     :class="{ 'opacity-25': form.processing }"
                     :disabled="form.processing"
                 >
-                    Confirm
+                    Confirmă
                 </PrimaryButton>
             </div>
         </form>

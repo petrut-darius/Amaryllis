@@ -13,43 +13,43 @@ const currentYear = new Date().getFullYear();
                     <span class="font-serif text-3xl md:text-5xl tracking-[0.1em] md:tracking-[0.2em] uppercase text-brand-cream group-hover:text-brand-gold transition-all duration-1000">Amaryllis</span>
                 </Link>
                 <p class="text-[11px] md:text-[12px] leading-loose max-w-[320px] font-light italic text-brand-cream/40 px-4 lg:px-0">
-                    "We capture the untamed beauty of nature through artful floral design, crafting ephemeral moments into lasting memories."
+                    „Surprindem frumusețea sălbatică a naturii prin design floral artistic, transformând momentele efemere în amintiri de durată.”
                 </p>
                 
                 <!-- Script Accent -->
                 <div class="pt-2">
-                    <span class="font-script text-2xl text-brand-gold opacity-60">Established 2000</span>
+                    <span class="font-script text-2xl text-brand-gold opacity-60">Înființat în 2000</span>
                 </div>
             </div>
 
             <!-- Navigation Links -->
             <div class="lg:col-span-4 grid grid-cols-2 gap-8 w-full">
                 <div class="space-y-6 flex flex-col items-center lg:items-start">
-                    <h4 class="uppercase tracking-[0.5em] text-[10px] font-bold text-brand-cream/20">Portfolio</h4>
+                    <h4 class="uppercase tracking-[0.5em] text-[10px] font-bold text-brand-cream/20">Portofoliu</h4>
                     <ul class="text-[10px] md:text-[11px] space-y-4 md:space-y-4 uppercase tracking-[0.3em]">
-                        <li><Link :href="route('bouquets')" class="hover:text-brand-rose transition-colors">Bouquets</Link></li>
-                        <li><Link :href="route('weddings')" class="hover:text-brand-rose transition-colors">Weddings</Link></li>
-                        <li><Link :href="route('events')" class="hover:text-brand-rose transition-colors">Events</Link></li>
+                        <li><Link :href="route('bouquets')" class="hover:text-brand-rose transition-colors">Buchete</Link></li>
+                        <li><Link :href="route('weddings')" class="hover:text-brand-rose transition-colors">Nunți</Link></li>
+                        <li><Link :href="route('events')" class="hover:text-brand-rose transition-colors">Evenimente</Link></li>
                     </ul>
                 </div>
 
                 <div class="space-y-6 flex flex-col items-center lg:items-start">
                     <h4 class="uppercase tracking-[0.5em] text-[10px] font-bold text-brand-cream/20">Studio</h4>
                     <ul class="text-[10px] md:text-[11px] space-y-4 md:space-y-4 uppercase tracking-[0.3em]">
-                        <li><Link :href="route('about')" class="hover:text-brand-rose transition-colors">Our Story</Link></li>
-                        <li><Link :href="route('delivery')" class="hover:text-brand-rose transition-colors">Delivery</Link></li>
-                        <li><Link :href="route('contact.create')" class="hover:text-brand-rose transition-colors">Inquiry</Link></li>
+                        <li><Link :href="route('about')" class="hover:text-brand-rose transition-colors">Povestea Noastră</Link></li>
+                        <li><Link :href="route('delivery')" class="hover:text-brand-rose transition-colors">Livrare</Link></li>
+                        <li><Link :href="route('contact.create')" class="hover:text-brand-rose transition-colors">Solicitări</Link></li>
                     </ul>
                 </div>
             </div>
 
             <!-- Social/Connect -->
             <div class="lg:col-span-3 space-y-6 flex flex-col items-center lg:items-start w-full">
-                <h4 class="uppercase tracking-[0.5em] text-[10px] font-bold text-brand-cream/20">Connect</h4>
+                <h4 class="uppercase tracking-[0.5em] text-[10px] font-bold text-brand-cream/20">Contact</h4>
                 <div class="space-y-6 flex flex-col items-center lg:items-start">
                     <a href="mailto:hello@amaryllis.com" class="text-sm md:text-base font-serif italic hover:text-brand-gold transition-colors underline underline-offset-8 decoration-brand-gold/30">hello@amaryllis.com</a>
                     
-                    <a href="tel:+40745265516" class="text-sm md:text-base font-serif italic hover:text-brand-gold transition-colors underline underline-offset-8 decoration-brand-gold/30">Call us</a>
+                    <a href="tel:+40745265516" class="text-sm md:text-base font-serif italic hover:text-brand-gold transition-colors underline underline-offset-8 decoration-brand-gold/30">Sunați-ne</a>
 
                     <div class="flex space-x-10">
                         <a href="https://instagram.com" target="_blank" rel="noopener" class="hover:text-brand-rose transition-all duration-700 hover:scale-125">

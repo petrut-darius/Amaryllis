@@ -25,13 +25,13 @@ const submit = () => {
 
 <template>
     <AuthLayout>
-        <Head title="Register">
+        <Head title="Înregistrare">
             <meta name="robots" content="noindex, nofollow" />
         </Head>
 
         <form @submit.prevent="submit">
             <div>
-                <InputLabel for="name" value="Name" />
+                <InputLabel for="name" value="Nume" />
 
                 <TextInput
                     id="name"
@@ -62,7 +62,7 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <InputLabel for="phone" value="Phone" />
+                <InputLabel for="phone" value="Telefon" />
 
                 <TextInput
                     id="phone"
@@ -77,7 +77,7 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <InputLabel for="password" value="Password" />
+                <InputLabel for="password" value="Parolă" />
 
                 <TextInput
                     id="password"
@@ -94,7 +94,7 @@ const submit = () => {
             <div class="mt-4">
                 <InputLabel
                     for="password_confirmation"
-                    value="Confirm Password"
+                    value="Confirmă parola"
                 />
 
                 <TextInput
@@ -121,7 +121,7 @@ const submit = () => {
                     <span
                         class="ms-3 text-[9px] uppercase tracking-[0.4em] text-brand-charcoal/40 group-hover:text-brand-ruby transition-colors duration-300"
                     >
-                        Accept <Link :href="route('terms')" class="underline underline-offset-4">termenii și condițiile</Link>
+                        Sunt de acord cu <Link :href="route('terms')" class="underline underline-offset-4">termenii și condițiile</Link>
                     </span>
                 </label>
 
@@ -136,7 +136,7 @@ const submit = () => {
                     :href="route('login')"
                     class="text-[10px] uppercase tracking-[0.2em] text-brand-charcoal/40 hover:text-brand-ruby transition-colors duration-300 underline underline-offset-4"
                 >
-                    Already registered?
+                    Ai deja cont?
                 </Link>
 
                 <PrimaryButton
@@ -144,7 +144,7 @@ const submit = () => {
                     :class="{ 'opacity-25': form.processing }"
                     :disabled="form.processing"
                 >
-                    Register
+                    Înregistrare
                 </PrimaryButton>
             </div>
         </form>

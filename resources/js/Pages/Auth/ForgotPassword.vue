@@ -23,12 +23,10 @@ const submit = () => {
 
 <template>
     <AuthLayout>
-        <Head title="Forgot Password" />
+        <Head title="Ai uitat parola?" />
 
         <div class="mb-6 text-[11px] uppercase tracking-[0.2em] text-brand-charcoal/60 leading-relaxed">
-            Forgot your password? No problem. Just let us know your email
-            address and we will email you a password reset link that will allow
-            you to choose a new one.
+            Ai uitat parola? Nicio problemă. Transmite-ne adresa ta de email și îți vom trimite un link de resetare a parolei care îți va permite să îți alegi una nouă.
         </div>
 
         <div
@@ -60,7 +58,7 @@ const submit = () => {
                     :class="{ 'opacity-25': form.processing }"
                     :disabled="form.processing"
                 >
-                    Email Password Reset Link
+                    Trimite linkul de resetare
                 </PrimaryButton>
             </div>
         </form>

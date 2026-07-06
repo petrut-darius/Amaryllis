@@ -93,7 +93,7 @@ const form = useForm({
                 </div>
             </div>
             <div>
-                <InputLabel for="phone" value="Numar de telefon"/>
+                <InputLabel for="phone" value="Număr de telefon"/>
 
                 <TextInput 
                     id="phone"

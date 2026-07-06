@@ -5,8 +5,8 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 
 const categories = [
-    { name: 'Flowers', routeName: 'flowers', image: 'https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&q=80&w=800' },
-    { name: 'Events', routeName: 'events', image: 'https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&q=80&w=800' },
+    { name: 'Flori', routeName: 'flowers', image: 'https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&q=80&w=800' },
+    { name: 'Evenimente', routeName: 'events', image: 'https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&q=80&w=800' },
 ];
 
 const structuredData = computed(() => {
@@ -43,10 +43,10 @@ const structuredData = computed(() => {
         <div class="space-y-8 md:space-y-24 px-4 md:px-0">
             <!-- Header -->
             <div class="max-w-3xl mx-auto text-center space-y-4 md:space-y-8">
-                <span class="uppercase tracking-[0.4em] md:tracking-[0.5em] text-[8px] md:text-[10px] text-brand-ruby font-semibold block">Portfolio</span>
-                <h1 class="text-3xl md:text-7xl font-serif text-brand-charcoal">The Gallery</h1>
+                <span class="uppercase tracking-[0.4em] md:tracking-[0.5em] text-[8px] md:text-[10px] text-brand-ruby font-semibold block">Portofoliu</span>
+                <h1 class="text-3xl md:text-7xl font-serif text-brand-charcoal">Galerie</h1>
                 <p class="text-xs md:text-base text-brand-charcoal/50 leading-relaxed font-light">
-                    A visual journey through our floral landscapes. Each creation is a testament to the beauty of the natural world and our dedication to the art of arrangement.
+                    O călătorie vizuală prin peisajele noastre florale. Fiecare creație este o dovadă a frumuseții lumii naturale și a dedicării noastre pentru arta aranjamentelor.
                 </p>
                 <div class="w-12 h-px bg-brand-blush mx-auto"></div>
             </div>
@@ -66,10 +66,10 @@ const structuredData = computed(() => {
 
             <!-- Final CTA -->
             <section class="py-8 md:py-12 border-y border-brand-charcoal text-center space-y-8 md:space-y-10">
-                <h2 class="text-2xl md:text-5xl font-serif text-brand-charcoal px-4 md:px-0">Love what you see?</h2>
+                <h2 class="text-2xl md:text-5xl font-serif text-brand-charcoal px-4 md:px-0">Îți place ce vezi?</h2>
                 <div class="pt-2 md:pt-4">
                     <Link :href="route('contact.create')" >
-                        <PrimaryButton>Start Your Own Story</PrimaryButton>
+                        <PrimaryButton>Începe-ți propria poveste</PrimaryButton>
                     </Link>
                 </div>
             </section>

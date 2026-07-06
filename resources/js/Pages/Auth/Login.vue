@@ -31,7 +31,7 @@ const submit = () => {
 
 <template>
     <AuthLayout>
-        <Head title="Log in">
+        <Head title="Autentificare">
             <meta name="robots" content="noindex, nofollow" />
         </Head>
 
@@ -57,7 +57,7 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <InputLabel for="password" value="Password" />
+                <InputLabel for="password" value="Parolă" />
 
                 <TextInput
                     id="password"
@@ -75,7 +75,7 @@ const submit = () => {
                 <label class="flex items-center group cursor-pointer">
                     <Checkbox name="remember" v-model:checked="form.remember" />
                     <span class="ms-3 text-[10px] uppercase tracking-[0.2em] text-brand-charcoal/60 group-hover:text-brand-ruby transition-colors duration-300"
-                        >Remember me</span
+                        >Ține-mă minte</span
                     >
                 </label>
             </div>
@@ -86,7 +86,7 @@ const submit = () => {
                     :href="route('password.request')"
                     class="text-[10px] uppercase tracking-[0.2em] text-brand-charcoal/40 hover:text-brand-ruby transition-colors duration-300 underline underline-offset-4"
                 >
-                    Forgot your password?
+                    Ai uitat parola?
                 </Link>
 
                 <PrimaryButton
@@ -94,7 +94,7 @@ const submit = () => {
                     :class="{ 'opacity-25': form.processing }"
                     :disabled="form.processing"
                 >
-                    Log in
+                    Autentificare
                 </PrimaryButton>
             </div>
         </form>

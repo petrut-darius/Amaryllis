@@ -23,20 +23,17 @@ const verificationLinkSent = computed(
 
 <template>
     <AuthLayout>
-        <Head title="Email Verification" />
+        <Head title="Verificare email" />
 
         <div class="mb-6 text-[11px] uppercase tracking-[0.2em] text-brand-charcoal/60 leading-relaxed">
-            Thanks for signing up! Before getting started, could you verify your
-            email address by clicking on the link we just emailed to you? If you
-            didn't receive the email, we will gladly send you another.
+            Îți mulțumim pentru înregistrare! Înainte de a începe, ai putea să îți verifici adresa de email dând click pe link-ul pe care tocmai ți l-am trimis? Dacă nu ai primit emailul, îți vom trimite cu plăcere un altul.
         </div>
 
         <div
             class="mb-6 text-[10px] uppercase tracking-[0.2em] text-green-600 font-bold"
             v-if="verificationLinkSent"
         >
-            A new verification link has been sent to the email address you
-            provided during registration.
+            Un nou link de verificare a fost trimis către adresa de email furnizată în timpul înregistrării.
         </div>
 
         <form @submit.prevent="submit">
@@ -45,7 +42,7 @@ const verificationLinkSent = computed(
                     :class="{ 'opacity-25': form.processing }"
                     :disabled="form.processing"
                 >
-                    Resend Email
+                    Retrimite emailul
                 </PrimaryButton>
 
                 <Link
@@ -53,7 +50,7 @@ const verificationLinkSent = computed(
                     method="post"
                     as="button"
                     class="text-[10px] uppercase tracking-[0.2em] text-brand-charcoal/40 hover:text-brand-ruby transition-colors duration-300 underline underline-offset-4"
-                    >Log Out</Link
+                    >Deconectare</Link
                 >
             </div>
         </form>

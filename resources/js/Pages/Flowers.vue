@@ -6,28 +6,28 @@ import GuestLayout from '@/Layouts/GuestLayout.vue';
 
 const categories = [
     {
-        name: 'Bouquets',
+        name: 'Buchete',
         routeName: 'bouquets',
         image: 'https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&q=80&w=800',
-        description: 'Hand-crafted arrangements that capture the untamed beauty of nature.'
+        description: 'Compoziții realizate manual care surprind frumusețea sălbatică a naturii.'
     },
     {
-        name: 'Arrangements',
+        name: 'Aranjamente',
         routeName: 'arrangements',
         image: 'https://images.unsplash.com/photo-1519214605650-76a613ee3245?auto=format&fit=crop&q=80&w=800',
-        description: 'Sophisticated floral compositions for any space or occasion.'
+        description: 'Compoziții florale sofisticate pentru orice spațiu sau ocazie.'
     },
     {
-        name: 'Funeral Arrangements',
+        name: 'Aranjamente funerare',
         routeName: 'funeralArrangements',
         image: 'https://images.unsplash.com/photo-1516567727245-ad8c68f3ec93?auto=format&fit=crop&q=80&w=800',
-        description: 'Graceful and respectful tributes to honor your loved ones.'
+        description: 'Omagii pline de grație și respect pentru a-i onora pe cei dragi.'
     },
     {
-        name: 'Threads',
+        name: 'Flori la fir',
         routeName: 'threads',
         image: 'https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&q=80&w=800',
-        description: 'Single stems and delicate threads of natural elegance.'
+        description: 'Flori individuale și fire delicate de o eleganță naturală.'
     }
 ];
 
@@ -65,10 +65,10 @@ const structuredData = computed(() => {
         <div class="space-y-8 md:space-y-16 px-4 md:px-0">
             <!-- Header -->
             <div class="max-w-3xl mx-auto text-center space-y-4 md:space-y-8">
-                <span class="uppercase tracking-[0.4em] md:tracking-[0.5em] text-[8px] md:text-[10px] text-brand-ruby font-bold block">Collection</span>
-                <h1 class="text-3xl md:text-7xl font-serif text-brand-charcoal">The Flowers</h1>
+                <span class="uppercase tracking-[0.4em] md:tracking-[0.5em] text-[8px] md:text-[10px] text-brand-ruby font-bold block">Colecție</span>
+                <h1 class="text-3xl md:text-7xl font-serif text-brand-charcoal">Flori</h1>
                 <p class="text-xs md:text-base text-brand-charcoal/50 leading-relaxed font-light">
-                    Explore our diverse collection of floral artistry. From bountiful bouquets to delicate single stems, each category showcases our passion for botanical beauty.
+                    Explorează colecția noastră diversă de artă florală. De la buchete bogate până la fire individuale delicate, fiecare categorie reflectă pasiunea noastră pentru frumusețea botanică.
                 </p>
                 <div class="w-12 h-px bg-brand-blush mx-auto"></div>
             </div>
@@ -93,7 +93,7 @@ const structuredData = computed(() => {
                             <p class="text-[9px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-light opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100 hidden md:block">
                                 {{ category.description }}
                             </p>
-                            <span class="inline-block mt-2 md:mt-4 border border-white px-4 md:px-6 py-1.5 md:py-2 text-[8px] md:text-[9px] uppercase tracking-[0.2em] md:tracking-[0.3em] opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-700 delay-200">Explore</span>
+                            <span class="inline-block mt-2 md:mt-4 border border-white px-4 md:px-6 py-1.5 md:py-2 text-[8px] md:text-[9px] uppercase tracking-[0.2em] md:tracking-[0.3em] opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-700 delay-200">Explorează</span>
                         </div>
                     </div>
                 </Link>
@@ -102,11 +102,11 @@ const structuredData = computed(() => {
             <!-- Custom Inquiry CTA -->
             <section class="py-8 md:py-12 border-y border-brand-charcoal flex flex-col items-center text-center space-y-8 md:space-y-12">
                 <div class="space-y-4 md:space-y-6">
-                    <h2 class="text-2xl md:text-5xl font-serif text-brand-charcoal leading-tight max-w-2xl px-4 md:px-0">Find the perfect <br/> expression in bloom.</h2>
-                    <p class="text-brand-charcoal/40 text-[8px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.4em] font-medium">Custom floral designs for every moment</p>
+                    <h2 class="text-2xl md:text-5xl font-serif text-brand-charcoal leading-tight max-w-2xl px-4 md:px-0">Găsește expresia perfectă <br/> în flori.</h2>
+                    <p class="text-brand-charcoal/40 text-[8px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.4em] font-medium">Design floral personalizat pentru fiecare moment</p>
                 </div>
                 <Link :href="route('contact.create')">
-                    <PrimaryButton>Begin Your Inquiry</PrimaryButton>
+                    <PrimaryButton>Trimite o cerere</PrimaryButton>
                 </Link>
             </section>
         </div>

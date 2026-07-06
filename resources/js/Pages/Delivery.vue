@@ -72,10 +72,10 @@ function handleImageError(e: Event) {
         <div class="max-w-7xl mx-auto space-y-10 md:space-y-24 px-4 md:px-0 mb-16">
             <!-- Header -->
             <div class="max-w-3xl mx-auto text-center space-y-8 px-4">
-                <span class="uppercase tracking-[0.5em] text-[10px] text-brand-ruby font-bold block">Services</span>
-                <h1 class="text-3xl md:text-7xl font-serif text-brand-charcoal">Delivery Info</h1>
+                <span class="uppercase tracking-[0.5em] text-[10px] text-brand-ruby font-bold block">Servicii</span>
+                <h1 class="text-3xl md:text-7xl font-serif text-brand-charcoal">Informații Livrare</h1>
                 <p class="text-sm md:text-base text-brand-charcoal/50 leading-relaxed font-light">
-                    Transported with care from our studio to your door. We ensure every petal arrives in perfect condition, maintaining the freshness and integrity of our designs.
+                    Transportate cu grijă din atelierul nostru până la ușa ta. Ne asigurăm că fiecare petală ajunge în condiții perfecte, păstrând prospețimea și integritatea creațiilor noastre.
                 </p>
                 <div class="w-12 h-px bg-brand-blush mx-auto"></div>
             </div>
@@ -84,23 +84,23 @@ function handleImageError(e: Event) {
             <div class="flex flex-col gap-8 md:gap-12 lg:gap-24 items-start px-4 max-w-5xl mx-auto">
                 <div class="space-y-12 w-full order-2">
                     <div class="space-y-6">
-                        <h2 class="font-serif text-2xl md:text-5xl text-brand-charcoal">Local Delivery</h2>
+                        <h2 class="font-serif text-2xl md:text-5xl text-brand-charcoal">Livrare Locală</h2>
                         <p class="text-brand-charcoal/50 leading-relaxed font-light text-sm md:text-base italic">
-                            We offer personal delivery services throughout the city and surrounding areas. Each arrangement is secured and transported in a climate-controlled environment to preserve its beauty.
+                            Oferim servicii de livrare personală în tot orașul și în zonele limitrofe. Fiecare aranjament este asigurat și transportat într-un mediu cu temperatură controlată pentru a-și păstra frumusețea.
                         </p>
                     </div>
                     <ul class="text-[10px] text-brand-charcoal/40 space-y-6 uppercase tracking-[0.3em] font-medium border-l border-brand-ruby/30 pl-8">
-                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-brand-ruby"></span> Monday – Saturday: 09:00 – 19:00</li>
-                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-brand-ruby/50"></span> Sunday: Special request only</li>
-                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-brand-blush"></span> Same day: Order before 12:00</li>
+                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-brand-ruby"></span> Luni – Sâmbătă: 09:00 – 19:00</li>
+                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-brand-ruby/50"></span> Duminică: Doar la cerere specială</li>
+                        <li class="flex items-center gap-4"><span class="w-1.5 h-1.5 bg-brand-blush"></span> În aceeași zi: Comandă înainte de 12:00</li>
                     </ul>
                 </div>
 
                 <div class="space-y-12 w-full order-1">
                     <div class="space-y-6">
-                        <h2 class="font-serif text-2xl md:text-5xl text-brand-charcoal">Studio Pickup</h2>
+                        <h2 class="font-serif text-2xl md:text-5xl text-brand-charcoal">Ridicare din Studio</h2>
                         <p class="text-brand-charcoal/50 leading-relaxed font-light text-sm md:text-base italic">
-                            You are welcome to visit our studio to pick up your order. This is a great opportunity to see the latest seasonal blooms and meet our designers in person.
+                            Te așteptăm cu drag să ne vizitezi atelierul pentru a ridica comanda. Aceasta este o ocazie excelentă de a vedea cele mai recente flori de sezon și de a ne cunoaște personal.
                         </p>
                     </div>
                     <div class="bg-white shadow-sm ring-1 ring-brand-charcoal/5 space-y-6 rounded-sm overflow-hidden ">
@@ -127,17 +127,17 @@ function handleImageError(e: Event) {
             <!-- FAQ Section -->
             <section class="space-y-10 md:space-y-16 px-4">
                 <div class="text-center space-y-6">
-                    <h2 class="font-serif text-2xl md:text-5xl text-brand-charcoal">Common Questions</h2>
+                    <h2 class="font-serif text-2xl md:text-5xl text-brand-charcoal">Întrebări Frecvente</h2>
                     <div class="w-12 h-px bg-brand-ruby mx-auto"></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-24 max-w-5xl mx-auto">
                     <div class="space-y-6 group">
-                        <p class="font-semibold text-brand-charcoal uppercase tracking-[0.3em] text-[10px] group-hover:text-brand-ruby transition-colors duration-300">How will my flowers be packaged?</p>
-                        <p class="text-brand-charcoal/50 font-light leading-relaxed text-sm md:text-base">We use minimal, eco-friendly packaging that protects the blooms while highlighting their natural beauty. Each arrangement includes care instructions and flower food.</p>
+                        <p class="font-semibold text-brand-charcoal uppercase tracking-[0.3em] text-[10px] group-hover:text-brand-ruby transition-colors duration-300">Cum vor fi ambalate florile mele?</p>
+                        <p class="text-brand-charcoal/50 font-light leading-relaxed text-sm md:text-base">Folosim ambalaje minimaliste și ecologice care protejează florile, evidențiind în același timp frumusețea lor naturală. Fiecare aranjament include instrucțiuni de îngrijire și hrană pentru flori.</p>
                     </div>
                     <div class="space-y-6 group">
-                        <p class="font-semibold text-brand-charcoal uppercase tracking-[0.3em] text-[10px] group-hover:text-brand-ruby transition-colors duration-300">Can I request a specific delivery time?</p>
-                        <p class="text-brand-charcoal/50 font-light leading-relaxed text-sm md:text-base">While we cannot guarantee exact delivery times, we do our best to accommodate morning or afternoon preferences within our delivery windows.</p>
+                        <p class="font-semibold text-brand-charcoal uppercase tracking-[0.3em] text-[10px] group-hover:text-brand-ruby transition-colors duration-300">Pot solicita o oră specifică de livrare?</p>
+                        <p class="text-brand-charcoal/50 font-light leading-relaxed text-sm md:text-base">Deși nu putem garanta ore exacte de livrare, facem tot posibilul pentru a respecta preferințele de dimineață sau după-amiază în intervalele noastre de livrare.</p>
                     </div>
                 </div>
             </section>
@@ -145,8 +145,8 @@ function handleImageError(e: Event) {
             <!-- Testimonials Section -->
             <section class="space-y-10 md:space-y-16 px-4 py-12 bg-brand-cream/20 rounded-3xl">
                 <div class="text-center space-y-6">
-                    <span class="uppercase tracking-[0.5em] text-[10px] text-brand-ruby font-bold block">Testimonials</span>
-                    <h2 class="font-serif text-2xl md:text-5xl text-brand-charcoal">Kind Words</h2>
+                    <span class="uppercase tracking-[0.5em] text-[10px] text-brand-ruby font-bold block">Testimoniale</span>
+                    <h2 class="font-serif text-2xl md:text-5xl text-brand-charcoal">Gânduri Bune</h2>
                     <div class="w-12 h-px bg-brand-ruby mx-auto"></div>
                 </div>
 
@@ -189,7 +189,7 @@ function handleImageError(e: Event) {
 
                 <div class="text-center pt-8">
                     <a @click="openReviews()" class="inline-flex items-center gap-4 text-[10px] uppercase tracking-[0.4em] text-brand-ruby group">
-                        <span class="border-b border-brand-ruby/30 pb-2 group-hover:border-brand-ruby transition-all duration-300">Write your opinion</span>
+                        <span class="border-b border-brand-ruby/30 pb-2 group-hover:border-brand-ruby transition-all duration-300">Lasă o recenzie</span>
                         <svg class="w-4 h-4 -translate-y-1 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>

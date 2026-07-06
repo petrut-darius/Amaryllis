@@ -59,11 +59,11 @@ const structuredData = computed(() => {
             <!-- Header: Elegant & Focused -->
             <div class="max-w-4xl mx-auto text-center space-y-8 md:space-y-12">
                 <div class="space-y-6">
-                    <span class="uppercase tracking-[1em] text-[10px] text-brand-ruby font-bold block animate-fade-in">Botanical Simplicity</span>
-                    <h1 class="text-3xl md:text-8xl font-serif text-brand-charcoal animate-reveal">Threads</h1>
+                    <span class="uppercase tracking-[1em] text-[10px] text-brand-ruby font-bold block animate-fade-in">Simplitate Botanică</span>
+                    <h1 class="text-3xl md:text-8xl font-serif text-brand-charcoal animate-reveal">Flori la Fir</h1>
                 </div>
                 <p class="text-sm md:text-lg text-brand-charcoal/50 leading-relaxed font-light italic max-w-2xl mx-auto animate-fade-in-up delay-500">
-                    "Single stems and delicate threads of natural beauty. Celebrating the unique character and elegant form of individual blooms."
+                    "Flori individuale și fire delicate de o frumusețe naturală. Celebrăm caracterul unic și forma elegantă a fiecărei flori."
                 </p>
                 <div class="w-24 h-px bg-brand-gold/20 mx-auto animate-fade-in delay-700"></div>
             </div>
@@ -91,7 +91,7 @@ const structuredData = computed(() => {
                                     {{ thread.description }}
                                 </p>
                                 <div class="pt-6">
-                                    <Link :href="route('contact.create')" class="inline-block text-[10px] uppercase tracking-[0.4em] text-brand-gold border-b border-brand-gold/30 pb-2 hover:tracking-[0.6em] transition-all">Inquire Now</Link>
+                                    <Link :href="route('contact.create')" class="inline-block text-[10px] uppercase tracking-[0.4em] text-brand-gold border-b border-brand-gold/30 pb-2 hover:tracking-[0.6em] transition-all">Solicită detalii</Link>
                                 </div>
                             </div>
                         </div>
@@ -110,7 +110,7 @@ const structuredData = computed(() => {
                                         {{ thread.description }}
                                     </p>
                                     <div class="pt-6">
-                                        <Link :href="route('contact.create')" class="inline-block text-[10px] uppercase tracking-[0.4em] text-brand-gold border-b border-brand-gold/30 pb-2">Inquire Now</Link>
+                                        <Link :href="route('contact.create')" class="inline-block text-[10px] uppercase tracking-[0.4em] text-brand-gold border-b border-brand-gold/30 pb-2">Solicită detalii</Link>
                                     </div>
                                 </div>
                             </div>
@@ -135,7 +135,7 @@ const structuredData = computed(() => {
                         <div class="space-y-2">
                             <h3 class="text-xl md:text-2xl font-serif text-brand-charcoal group-hover:text-brand-gold transition-colors duration-700 italic">{{ thread.name }}</h3>
                             <span class="text-[10px] uppercase tracking-[0.4em] text-brand-charcoal/30 block">
-                                {{ thread.occasion || 'Seasonal' }}
+                                {{ thread.occasion || 'De sezon' }}
                             </span>
                         </div>
                         <span class="text-[11px] text-brand-charcoal/30 font-light italic font-script text-lg lowercase tracking-normal">
@@ -147,7 +147,7 @@ const structuredData = computed(() => {
             
             <!-- Empty State -->
             <div v-if="!threads.data || threads.data.length === 0" class="text-center py-20 md:py-32 border-t border-brand-charcoal">
-                <p class="text-brand-charcoal/20 font-serif italic text-xl md:text-3xl">The collection is currently being refreshed.</p>
+                <p class="text-brand-charcoal/20 font-serif italic text-xl md:text-3xl">Colecția este în curs de actualizare.</p>
             </div>
         </div>
     </GuestLayout>

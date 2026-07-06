@@ -4,11 +4,11 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 </script>
 
 <template>
-    <Head title="Dashboard" />
+    <Head title="Panou de Control" />
 
     <AuthenticatedLayout>
         <template #header>
-            Dashboard
+            Panou de control
         </template>
 
         <div class="py-12">
@@ -17,7 +17,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
                     class="overflow-hidden bg-white border border-gray-100 rounded-sm sm:px-6 lg:px-8"
                 >
                     <div class="p-6 text-gray-900 font-light">
-                        Welcome back! You are now logged into your Amaryllis account.
+                        Bine ai revenit! Te-ai autentificat cu succes în contul tău Amaryllis.
                     </div>
                 </div>
             </div>

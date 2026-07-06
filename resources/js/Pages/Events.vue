@@ -6,22 +6,22 @@ import GuestLayout from '@/Layouts/GuestLayout.vue';
 
 const categories = [
     {
-        name: 'Weddings',
+        name: 'Nunți',
         routeName: 'weddings',
         image: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800',
-        description: 'Creating timeless memories for your most special day.'
+        description: 'Creăm amintiri atemporale pentru cea mai specială zi a ta.'
     },
     {
-        name: 'Baptisms',
+        name: 'Botezuri',
         routeName: 'baptisms',
         image: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&q=80&w=800',
-        description: 'Elegant floral touches for new beginnings.'
+        description: 'Atingeri florale elegante pentru noile începuturi.'
     },
     {
-        name: 'Eighteenths',
+        name: 'Majorate',
         routeName: 'eighteenths',
         image: 'https://images.unsplash.com/photo-1530103043960-ef38714abb15?auto=format&fit=crop&q=80&w=800',
-        description: 'Vibrant arrangements for celebrating your milestones.'
+        description: 'Aranjamente vibrante pentru a sărbători momentele importante.'
     }
 ];
 
@@ -59,10 +59,10 @@ const structuredData = computed(() => {
         <div class="space-y-8 md:space-y-16 px-4 md:px-0">
             <!-- Header -->
             <div class="max-w-3xl mx-auto text-center space-y-4 md:space-y-8">
-                <span class="uppercase tracking-[0.4em] md:tracking-[0.5em] text-[8px] md:text-[10px] text-brand-ruby font-bold block">Occasions</span>
-                <h1 class="text-3xl md:text-7xl font-serif text-brand-charcoal">The Events</h1>
+                <span class="uppercase tracking-[0.4em] md:tracking-[0.5em] text-[8px] md:text-[10px] text-brand-ruby font-bold block">Ocazii</span>
+                <h1 class="text-3xl md:text-7xl font-serif text-brand-charcoal">Evenimente</h1>
                 <p class="text-xs md:text-base text-brand-charcoal/50 leading-relaxed font-light">
-                    Elevating every occasion with artistic floral design. We transform spaces and moments into unforgettable experiences through thoughtful composition and natural beauty.
+                    Elevăm orice ocazie prin design floral artistic. Transformăm spațiile și momentele în experiențe de neuitat prin compoziții atente și frumusețe naturală.
                 </p>
                 <div class="w-12 h-px bg-brand-blush mx-auto"></div>
             </div>
@@ -87,7 +87,7 @@ const structuredData = computed(() => {
                             <p class="text-[9px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] font-light opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100 hidden md:block">
                                 {{ category.description }}
                             </p>
-                            <span class="inline-block mt-2 md:mt-4 border border-white px-6 md:px-8 py-2 md:py-3 text-[8px] md:text-[9px] uppercase tracking-[0.2em] md:tracking-[0.3em] opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-700 delay-200">Explore</span>
+                            <span class="inline-block mt-2 md:mt-4 border border-white px-6 md:px-8 py-2 md:py-3 text-[8px] md:text-[9px] uppercase tracking-[0.2em] md:tracking-[0.3em] opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-700 delay-200">Explorează</span>
                         </div>
                     </div>
                 </Link>
@@ -96,11 +96,11 @@ const structuredData = computed(() => {
             <!-- Custom Inquiry CTA -->
             <section class="py-8 md:py-12 border-y border-brand-charcoal flex flex-col items-center text-center space-y-8 md:space-y-12">
                 <div class="space-y-4 md:space-y-6 px-4 md:px-0">
-                    <h2 class="text-2xl md:text-5xl font-serif text-brand-charcoal leading-tight max-w-2xl">Host an event that <br/> feels like a dream.</h2>
-                    <p class="text-brand-charcoal/40 text-[8px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.4em] font-medium">Custom floral installations & designs</p>
+                    <h2 class="text-2xl md:text-5xl font-serif text-brand-charcoal leading-tight max-w-2xl">Organizează un eveniment care <br/> pare un vis.</h2>
+                    <p class="text-brand-charcoal/40 text-[8px] md:text-[10px] uppercase tracking-[0.3em] md:tracking-[0.4em] font-medium">Instalații și design floral personalizat</p>
                 </div>
                 <Link :href="route('contact.create')">
-                    <PrimaryButton>Begin Your Inquiry</PrimaryButton>
+                    <PrimaryButton>Trimite o cerere</PrimaryButton>
                 </Link>
             </section>
         </div>

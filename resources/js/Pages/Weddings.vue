@@ -53,10 +53,10 @@ const structuredData = computed(() => {
         <div class="space-y-12 md:space-y-16 px-4 md:px-0">
             <!-- Header -->
             <div class="max-w-3xl mx-auto text-center space-y-6 md:space-y-8">
-                <span class="uppercase tracking-[0.4em] md:tracking-[0.5em] text-[8px] md:text-[10px] text-brand-ruby font-bold block">Portfolio</span>
-                <h1 class="text-3xl md:text-7xl font-serif text-brand-charcoal">The Weddings</h1>
+                <span class="uppercase tracking-[0.4em] md:tracking-[0.5em] text-[8px] md:text-[10px] text-brand-ruby font-bold block">Portofoliu</span>
+                <h1 class="text-3xl md:text-7xl font-serif text-brand-charcoal">Nunți</h1>
                 <p class="text-xs md:text-base text-brand-charcoal/50 leading-relaxed font-light italic">
-                    Love stories told through unique floral design. We curate every detail to reflect your personal journey, creating an atmosphere that is as unique as your bond.
+                    Povești de dragoste spuse prin design floral unic. Ne ocupăm de fiecare detaliu pentru a reflecta călătoria voastră personală, creând o atmosferă pe atât de unică pe cât este legătura voastră.
                 </p>
                 <div class="w-12 h-px bg-brand-blush mx-auto"></div>
             </div>
@@ -96,17 +96,17 @@ const structuredData = computed(() => {
 
             <!-- Final CTA -->
             <section class="py-12 md:py-20 border-y border-brand-charcoal text-center space-y-8 md:space-y-10">
-                <h2 class="text-2xl md:text-5xl font-serif text-brand-charcoal px-4 md:px-0">Planning your own special day?</h2>
+                <h2 class="text-2xl md:text-5xl font-serif text-brand-charcoal px-4 md:px-0">Îți planifici propria zi specială?</h2>
                 <div class="pt-2 md:pt-4">
                     <Link :href="route('contact.create')">
-                        <PrimaryButton>Start an Inquiry</PrimaryButton>
+                        <PrimaryButton>Trimite o cerere</PrimaryButton>
                     </Link>
                 </div>
             </section>
 
             <!-- Empty State -->
             <div v-if="!weddings.data || weddings.data.length === 0" class="text-center py-40 bg-white/50 border border-brand-charcoal rounded-sm">
-                <p class="text-brand-charcoal/30 font-serif italic text-xl">Our portfolio is currently being curated.</p>
+                <p class="text-brand-charcoal/30 font-serif italic text-xl">Portofoliul nostru este în curs de actualizare.</p>
             </div>
         </div>
     </GuestLayout>

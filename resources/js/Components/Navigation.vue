@@ -22,12 +22,12 @@ watch(isOpen, (val) => {
 });
 
 const primaryLinks = [
-    { name: "Gallery", route: "gallery"},
-    { name: "Flowers", route: "flowers" },
-    { name: "Events", route: "events" },
-    { name: "About Us", route: "about" },
+    { name: "Galerie", route: "gallery"},
+    { name: "Flori", route: "flowers" },
+    { name: "Evenimente", route: "events" },
+    { name: "Despre Noi", route: "about" },
     { name: "Contact", route: "contact.create" },
-    { name: "Delivery", route: "delivery"}
+    { name: "Livrare", route: "delivery"}
 ];
 
 const isActive = (routeName) => {
@@ -58,13 +58,13 @@ const toggleMenu = () => {
         <!-- Auth Links (Subtle & Elegant) -->
         <div class="flex items-center space-x-8 text-[8px] uppercase tracking-[0.3em] text-brand-charcoal/20">
             <template v-if="$page.props.auth.user">
-                <Link :href="route('profile.edit')" class="hover:text-brand-charcoal transition-colors hover:tracking-[0.4em]">Account</Link>
-                <Link :href="route('logout')" method="post" as="button" class="hover:text-brand-charcoal transition-colors hover:tracking-[0.4em] bg-transparent border-none p-0 cursor-pointer">Logout</Link>
+                <Link :href="route('profile.edit')" class="hover:text-brand-charcoal transition-colors hover:tracking-[0.4em]">Cont</Link>
+                <Link :href="route('logout')" method="post" as="button" class="hover:text-brand-charcoal transition-colors hover:tracking-[0.4em] bg-transparent border-none p-0 cursor-pointer">Deconectare</Link>
             </template>
             <template v-else>
-                <Link :href="route('login')" class="hover:text-brand-charcoal transition-colors hover:tracking-[0.4em]">Login</Link>
+                <Link :href="route('login')" class="hover:text-brand-charcoal transition-colors hover:tracking-[0.4em]">Autentificare</Link>
                 <span class="opacity-30">/</span>
-                <Link :href="route('register')" class="hover:text-brand-charcoal transition-colors hover:tracking-[0.4em]">Register</Link>
+                <Link :href="route('register')" class="hover:text-brand-charcoal transition-colors hover:tracking-[0.4em]">Înregistrare</Link>
             </template>
         </div>
     </nav>
@@ -126,12 +126,12 @@ const toggleMenu = () => {
                 
                 <div class="space-y-4 pt-8 border-t border-brand-charcoal w-full max-w-[200px]">
                     <template v-if="$page.props.auth.user">
-                        <Link :href="route('profile.edit')" @click="isOpen = false" class="block w-full text-center text-[11px] uppercase tracking-[0.5em] text-brand-charcoal/40 hover:text-brand-gold transition-colors">Account</Link>
-                        <Link :href="route('logout')" method="post" as="button" @click="isOpen = false" class="block w-full text-center text-[11px] uppercase tracking-[0.5em] text-brand-charcoal/40 hover:text-brand-gold transition-colors bg-transparent border-none p-0">Logout</Link>
+                        <Link :href="route('profile.edit')" @click="isOpen = false" class="block w-full text-center text-[11px] uppercase tracking-[0.5em] text-brand-charcoal/40 hover:text-brand-gold transition-colors">Cont</Link>
+                        <Link :href="route('logout')" method="post" as="button" @click="isOpen = false" class="block w-full text-center text-[11px] uppercase tracking-[0.5em] text-brand-charcoal/40 hover:text-brand-gold transition-colors bg-transparent border-none p-0">Deconectare</Link>
                     </template>
                     <template v-else>
-                        <Link :href="route('login')" @click="isOpen = false" class="block w-full text-center text-[11px] uppercase tracking-[0.5em] text-brand-charcoal/40 hover:text-brand-gold transition-colors">Login</Link>
-                        <Link :href="route('register')" @click="isOpen = false" class="block w-full text-center text-[11px] uppercase tracking-[0.5em] text-brand-charcoal/40 hover:text-brand-gold transition-colors">Register</Link>
+                        <Link :href="route('login')" @click="isOpen = false" class="block w-full text-center text-[11px] uppercase tracking-[0.5em] text-brand-charcoal/40 hover:text-brand-gold transition-colors">Autentificare</Link>
+                        <Link :href="route('register')" @click="isOpen = false" class="block w-full text-center text-[11px] uppercase tracking-[0.5em] text-brand-charcoal/40 hover:text-brand-gold transition-colors">Înregistrare</Link>
                     </template>
                 </div>
 

@@ -217,13 +217,13 @@ const structuredData = computed(() => {
                         <!-- Buttons Container -->
                         <div class="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up delay-500 mb-2">
                             <Link :href="route('contact.create')">
-                                <PrimaryButton>Start an Inquiry</PrimaryButton>
+                                <PrimaryButton>Trimite o cerere</PrimaryButton>
                             </Link>
                             <Link 
                                 :href="route('bouquets')" 
                                 class="text-[10px] uppercase tracking-[0.4em] text-brand-ruby transition-all border-b border-white/20 pb-2 hover:border-brand-ruby hover:tracking-[0.5em] drop-shadow-lg"
                             >
-                                View the Collection
+                                Vezi colecția
                             </Link>
                         </div>
                     </div>
@@ -240,17 +240,17 @@ const structuredData = computed(() => {
                         <!-- Overlapping Text -->
                         <div class="absolute -bottom-8 -right-4 lg:-bottom-12 lg:-right-16 bg-brand-cream p-6 lg:p-12 shadow-xl max-w-[280px] md:max-w-md animate-fade-in-up delay-700">
                             <h2 class="text-2xl md:text-5xl font-serif text-brand-charcoal leading-tight">
-                                A language spoken in <span class="italic font-normal text-brand-gold font-script text-3xl md:text-4xl lowercase tracking-normal">petals</span>.
+                                Un limbaj vorbit în <span class="italic font-normal text-brand-gold font-script text-3xl md:text-4xl lowercase tracking-normal">petale</span>.
                             </h2>
                         </div>
                     </div>
                     <div class="lg:col-span-5 space-y-8 pt-16 lg:pt-0 lg:pl-12">
                         <p class="text-sm md:text-base text-brand-charcoal/60 leading-relaxed font-light italic">
-                            "We believe flowers are more than decoration—they are a medium for emotion, a way to capture the fleeting beauty of a moment and hold it close to our hearts forever."
+                            „Credem că florile sunt mai mult decât simple decorațiuni — ele sunt un mesager al emoțiilor, o modalitate de a surprinde frumusețea trecătoare a unui moment și de a o păstra aproape de inimă pentru totdeauna.”
                         </p>
                         <div class="pt-4">
                             <Link :href="route('about')" class="inline-block group">
-                                <span class="text-[10px] uppercase tracking-[0.4em] text-brand-charcoal/40 group-hover:text-brand-charcoal transition-all group-hover:tracking-[0.5em]">Our Full Story</span>
+                                <span class="text-[10px] uppercase tracking-[0.4em] text-brand-charcoal/40 group-hover:text-brand-charcoal transition-all group-hover:tracking-[0.5em]">Întreaga noastră poveste</span>
                                 <div class="h-px bg-brand-gold w-0 group-hover:w-full transition-all duration-700 mt-2"></div>
                             </Link>
                         </div>
@@ -262,15 +262,15 @@ const structuredData = computed(() => {
             <!-- Final CTA: Bold Editorial -->
             <section class="py-12 md:py-20 text-center space-y-12 md:space-y-16">
                 <div class="space-y-8 md:space-y-12 px-4 md:px-0">
-                    <h2 class="text-4xl md:text-[10rem] font-serif text-brand-charcoal leading-none tracking-tighter">Ready to <span class="italic font-normal text-brand-ruby font-script text-5xl md:text-[12rem] tracking-normal">Bloom?</span></h2>
-                    <p class="text-brand-charcoal/40 uppercase tracking-[0.6em] md:tracking-[0.8em] text-[10px] md:text-[12px]">Let's collaborate on your next moment.</p>
+                    <h2 class="text-4xl md:text-[10rem] font-serif text-brand-charcoal leading-none tracking-tighter">Ești gata să <span class="italic font-normal text-brand-ruby font-script text-5xl md:text-[12rem] tracking-normal">înflorești?</span></h2>
+                    <p class="text-brand-charcoal/40 uppercase tracking-[0.6em] md:tracking-[0.8em] text-[10px] md:text-[12px]">Hai să colaborăm pentru următorul tău moment special.</p>
                 </div>
                 <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
                     <Link :href="route('contact.create')">
-                        <PrimaryButton>Start Your Inquiry</PrimaryButton>
+                        <PrimaryButton>Trimite o cerere</PrimaryButton>
                     </Link>
                     <Link :href="route('gallery')" class="text-[10px] md:text-[12px] uppercase tracking-[0.4em] md:tracking-[0.5em] hover:text-brand-gold transition-all border-b border-brand-charcoal/10 pb-2 hover:tracking-[0.6em] md:hover:tracking-[0.7em]">
-                        View Portfolio
+                        Vezi portofoliul
                     </Link>
                 </div>
             </section>

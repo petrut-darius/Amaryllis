@@ -40,11 +40,11 @@ const structuredData = computed(() => {
 <template>
     <Head>
         <title>Aranjamente Florale | Amaryllis Târgu Mureș</title>
-        <meta name="description" content="Compoziții florale sofisticate designed to elevate any space. Aranjamente deosebite pentru cadouri, decor interior sau momente speciale, create cu atenție la detalii.">
+        <meta name="description" content="Compoziții florale sofisticate concepute pentru a înnobila orice spațiu. Aranjamente deosebite pentru cadouri, decor interior sau momente speciale, create cu atenție la detalii.">
         <link rel="canonical" :href="route('arrangements')" />
 
         <meta property="og:title" content="Aranjamente Florale | Amaryllis Târgu Mureș" />
-        <meta property="og:description" content="Compoziții florale sofisticate designed to elevate any space." />
+        <meta property="og:description" content="Compoziții florale sofisticate concepute pentru a înnobila orice spațiu." />
         <meta property="og:type" content="website" />
         <meta property="og:url" :content="route('arrangements')" />
         <meta property="og:image" content="/amaryllis_logo.png" />
@@ -59,11 +59,11 @@ const structuredData = computed(() => {
             <!-- Header: Elegant & Focused -->
             <div class="max-w-4xl mx-auto text-center space-y-8 md:space-y-12">
                 <div class="space-y-6">
-                    <span class="uppercase tracking-[1em] text-[10px] text-brand-ruby font-bold block animate-fade-in">Floral Artistry</span>
-                    <h1 class="text-3xl md:text-8xl font-serif text-brand-charcoal animate-reveal">Arrangements</h1>
+                    <span class="uppercase tracking-[1em] text-[10px] text-brand-ruby font-bold block animate-fade-in">Artă Florală</span>
+                    <h1 class="text-3xl md:text-8xl font-serif text-brand-charcoal animate-reveal">Aranjamente</h1>
                 </div>
                 <p class="text-sm md:text-lg text-brand-charcoal/50 leading-relaxed font-light italic max-w-2xl mx-auto animate-fade-in-up delay-500">
-                    "Sophisticated floral compositions designed to elevate any space. Each arrangement is a thoughtful balance of color, form, and texture."
+                    „Compoziții florale sofisticate concepute pentru a înnobila orice spațiu. Fiecare aranjament este un echilibru atent între culoare, formă și textură.”
                 </p>
                 <div class="w-24 h-px bg-brand-gold/20 mx-auto animate-fade-in delay-700"></div>
             </div>
@@ -91,7 +91,7 @@ const structuredData = computed(() => {
                                     {{ arrangement.description }}
                                 </p>
                                 <div class="pt-6">
-                                    <Link :href="route('contact.create')" class="inline-block text-[10px] uppercase tracking-[0.4em] text-brand-gold border-b border-brand-gold/30 pb-2 hover:tracking-[0.6em] transition-all">Inquire Now</Link>
+                                    <Link :href="route('contact.create')" class="inline-block text-[10px] uppercase tracking-[0.4em] text-brand-gold border-b border-brand-gold/30 pb-2 hover:tracking-[0.6em] transition-all">Solicită detalii</Link>
                                 </div>
                             </div>
                         </div>
@@ -110,7 +110,7 @@ const structuredData = computed(() => {
                                         {{ arrangement.description }}
                                     </p>
                                     <div class="pt-6">
-                                        <Link :href="route('contact.create')" class="inline-block text-[10px] uppercase tracking-[0.4em] text-brand-gold border-b border-brand-gold/30 pb-2">Inquire Now</Link>
+                                        <Link :href="route('contact.create')" class="inline-block text-[10px] uppercase tracking-[0.4em] text-brand-gold border-b border-brand-gold/30 pb-2">Solicită detalii</Link>
                                     </div>
                                 </div>
                             </div>
@@ -135,7 +135,7 @@ const structuredData = computed(() => {
                         <div class="space-y-2">
                             <h3 class="text-xl md:text-2xl font-serif text-brand-charcoal group-hover:text-brand-gold transition-colors duration-700 italic">{{ arrangement.name }}</h3>
                             <span class="text-[10px] uppercase tracking-[0.4em] text-brand-charcoal/30 block">
-                                {{ arrangement.occasion || 'Seasonal' }}
+                                {{ arrangement.occasion || 'De sezon' }}
                             </span>
                         </div>
                         <span class="text-[11px] text-brand-charcoal/30 font-light italic font-script text-lg lowercase tracking-normal">
@@ -147,7 +147,7 @@ const structuredData = computed(() => {
             
             <!-- Empty State -->
             <div v-if="!arrangements.data || arrangements.data.length === 0" class="text-center py-20 md:py-32 border-t border-brand-charcoal">
-                <p class="text-brand-charcoal/20 font-serif italic text-xl md:text-3xl">The collection is currently being refreshed.</p>
+                <p class="text-brand-charcoal/20 font-serif italic text-xl md:text-3xl">Colecția este în curs de actualizare.</p>
             </div>
         </div>
     </GuestLayout>

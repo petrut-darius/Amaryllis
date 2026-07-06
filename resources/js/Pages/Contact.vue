@@ -64,10 +64,10 @@ const structuredData = computed(() => {
         <div class="max-w-4xl mx-auto space-y-12 md:space-y-24 px-4 md:px-0">
             <!-- Header -->
             <div class="text-center space-y-8 animate-fade-in-up">
-                <span class="uppercase tracking-[0.8em] text-[10px] text-brand-ruby font-bold block">Get in Touch</span>
-                <h1 class="text-3xl md:text-8xl font-serif text-brand-charcoal">The Inquiry</h1>
+                <span class="uppercase tracking-[0.8em] text-[10px] text-brand-ruby font-bold block">Contactează-ne</span>
+                <h1 class="text-3xl md:text-8xl font-serif text-brand-charcoal">Solicitare</h1>
                 <p class="text-sm md:text-base text-brand-charcoal/60 leading-relaxed font-light max-w-2xl mx-auto italic">
-                    We'd love to hear about your vision. Whether you're planning a wedding, a private event, or just want to say hello, please fill out the form below and we'll be in touch soon.
+                    „Ne-am dori foarte mult să ne povestești despre viziunea ta. Fie că planifici o nuntă, un eveniment privat sau pur și simplu vrei să ne saluți, te rugăm să completezi formularul de mai jos și te vom contacta în cel mai scurt timp.”
                 </p>
                 <div class="w-16 h-px bg-brand-ruby mx-auto"></div>
             </div>
@@ -107,7 +107,7 @@ const structuredData = computed(() => {
                 >
                     <span class="relative z-10 flex items-center gap-3">
                         <i class="fa-solid fa-truck-fast text-base"></i>
-                        Delivery
+                        Livrare
                     </span>
                     <div class="absolute inset-0 border border-brand-charcoal/10 group-hover:border-brand-charcoal/30 transition-colors duration-500"></div>
                 </Link>
@@ -121,7 +121,7 @@ const structuredData = computed(() => {
                     <div class="absolute inset-0 w-0 bg-brand-ruby transition-all duration-500 ease-out group-hover:w-full"></div>
                     <span class="relative z-10 flex items-center gap-3">
                         <i class="fa-solid fa-phone text-base"></i>
-                        Call
+                        Sună
                     </span>
                     <div class="absolute inset-0 border border-brand-ruby/20 group-hover:border-brand-ruby/40 transition-colors duration-500"></div>
                 </a>
@@ -131,44 +131,44 @@ const structuredData = computed(() => {
             <form @submit.prevent="submitContactForm" class="space-y-16 animate-fade-in-up delay-300">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8 md:gap-x-12 md:gap-y-12 bg-white/50 p-6 md:p-12 rounded-sm shadow-sm ring-1 ring-brand-charcoal/5">
                     <div class="space-y-4 group">
-                        <InputLabel for="name" value="Name" class="text-[9px] uppercase tracking-[0.5em] text-black group-focus-within:text-brand-ruby transition-all duration-500 font-bold" />
-                        <TextInput v-model="contactForm.name" id="name" type="text" class="w-full border-0 border-b-2 border-brand-charcoal/20 focus:border-brand-ruby focus:ring-0 bg-transparent px-0 py-4 text-base font-light text-black placeholder:text-brand-charcoal/10 transition-all duration-700 outline-none" placeholder="Your full name" />
+                        <InputLabel for="name" value="Nume" class="text-[9px] uppercase tracking-[0.5em] text-black group-focus-within:text-brand-ruby transition-all duration-500 font-bold" />
+                        <TextInput v-model="contactForm.name" id="name" type="text" class="w-full border-0 border-b-2 border-brand-charcoal/20 focus:border-brand-ruby focus:ring-0 bg-transparent px-0 py-4 text-base font-light text-black placeholder:text-brand-charcoal/10 transition-all duration-700 outline-none" placeholder="Numele tău complet" />
                         <InputError :message="contactForm.errors.name" />
                     </div>
 
                     <div class="space-y-4 group">
                         <InputLabel for="email" value="Email" class="text-[9px] uppercase tracking-[0.5em] text-black group-focus-within:text-brand-ruby transition-all duration-500 font-bold" />
-                        <TextInput v-model="contactForm.email" id="email" type="email" class="w-full border-0 border-b-2 border-brand-charcoal/20 focus:border-brand-ruby focus:ring-0 bg-transparent px-0 py-4 text-base font-light text-black placeholder:text-brand-charcoal/10 transition-all duration-700 outline-none" placeholder="Email address" />
+                        <TextInput v-model="contactForm.email" id="email" type="email" class="w-full border-0 border-b-2 border-brand-charcoal/20 focus:border-brand-ruby focus:ring-0 bg-transparent px-0 py-4 text-base font-light text-black placeholder:text-brand-charcoal/10 transition-all duration-700 outline-none" placeholder="Adresa de email" />
                         <InputError :message="contactForm.errors.email" />
                     </div>
 
                     <div class="space-y-4 group">
-                        <InputLabel for="phone" value="Phone" class="text-[9px] uppercase tracking-[0.5em] text-black group-focus-within:text-brand-ruby transition-all duration-500 font-bold" />
-                        <TextInput v-model="contactForm.phone" id="phone" type="tel" class="w-full border-0 border-b-2 border-brand-charcoal/20 focus:border-brand-ruby focus:ring-0 bg-transparent px-0 py-4 text-base font-light text-black placeholder:text-brand-charcoal/10 transition-all duration-700 outline-none" placeholder="Phone number" />
+                        <InputLabel for="phone" value="Telefon" class="text-[9px] uppercase tracking-[0.5em] text-black group-focus-within:text-brand-ruby transition-all duration-500 font-bold" />
+                        <TextInput v-model="contactForm.phone" id="phone" type="tel" class="w-full border-0 border-b-2 border-brand-charcoal/20 focus:border-brand-ruby focus:ring-0 bg-transparent px-0 py-4 text-base font-light text-black placeholder:text-brand-charcoal/10 transition-all duration-700 outline-none" placeholder="Numărul de telefon" />
                         <InputError :message="contactForm.errors.phone" />
                     </div>
 
                     <div class="space-y-4 group">
-                        <InputLabel for="eventDate" value="Date" class="text-[9px] uppercase tracking-[0.5em] text-black group-focus-within:text-brand-ruby transition-all duration-500 font-bold" />
-                        <TextInput v-model="contactForm.eventDate" id="eventDate" type="text" class="w-full border-0 border-b-2 border-brand-charcoal/20 focus:border-brand-ruby focus:ring-0 bg-transparent px-0 py-4 text-base font-light text-black placeholder:text-brand-charcoal/10 transition-all duration-700 outline-none" placeholder="e.g. June 2026" />
+                        <InputLabel for="eventDate" value="Data" class="text-[9px] uppercase tracking-[0.5em] text-black group-focus-within:text-brand-ruby transition-all duration-500 font-bold" />
+                        <TextInput v-model="contactForm.eventDate" id="eventDate" type="text" class="w-full border-0 border-b-2 border-brand-charcoal/20 focus:border-brand-ruby focus:ring-0 bg-transparent px-0 py-4 text-base font-light text-black placeholder:text-brand-charcoal/10 transition-all duration-700 outline-none" placeholder="ex. Iunie 2026" />
                         <InputError :message="contactForm.errors.eventDate" />
                     </div>
 
                     <div class="md:col-span-2 space-y-4 group">
-                        <InputLabel for="subject" value="Regarding" class="text-[9px] uppercase tracking-[0.5em] text-black group-focus-within:text-brand-ruby transition-all duration-500 font-bold" />
-                        <TextInput v-model="contactForm.subject" id="subject" type="text" class="w-full border-0 border-b-2 border-brand-charcoal/20 focus:border-brand-ruby focus:ring-0 bg-transparent px-0 py-4 text-base font-light text-black placeholder:text-brand-charcoal/10 transition-all duration-700 outline-none" placeholder="What are you enquiring about?" />
+                        <InputLabel for="subject" value="Subiect" class="text-[9px] uppercase tracking-[0.5em] text-black group-focus-within:text-brand-ruby transition-all duration-500 font-bold" />
+                        <TextInput v-model="contactForm.subject" id="subject" type="text" class="w-full border-0 border-b-2 border-brand-charcoal/20 focus:border-brand-ruby focus:ring-0 bg-transparent px-0 py-4 text-base font-light text-black placeholder:text-brand-charcoal/10 transition-all duration-700 outline-none" placeholder="Despre ce dorești să ne întrebi?" />
                         <InputError :message="contactForm.errors.subject" />
                     </div>
 
                     <div class="md:col-span-2 space-y-4 group">
-                        <InputLabel for="vision" value="Vision" class="text-[9px] uppercase tracking-[0.5em] text-black group-focus-within:text-brand-ruby transition-all duration-500 font-bold" />
-                        <textarea v-model="contactForm.vision" id="vision" rows="3" class="w-full border-0 border-b-2 border-brand-charcoal/20 focus:border-brand-ruby focus:ring-0 bg-transparent px-0 py-6 text-base font-light text-black placeholder:text-brand-charcoal/10 resize-none transition-all duration-700 outline-none" placeholder="Tell us about your event vision and color palette..."></textarea>
+                        <InputLabel for="vision" value="Viziune" class="text-[9px] uppercase tracking-[0.5em] text-black group-focus-within:text-brand-ruby transition-all duration-500 font-bold" />
+                        <textarea v-model="contactForm.vision" id="vision" rows="3" class="w-full border-0 border-b-2 border-brand-charcoal/20 focus:border-brand-ruby focus:ring-0 bg-transparent px-0 py-6 text-base font-light text-black placeholder:text-brand-charcoal/10 resize-none transition-all duration-700 outline-none" placeholder="Povestește-ne despre viziunea ta asupra evenimentului și paleta de culori..."></textarea>
                         <InputError :message="contactForm.errors.vision" />
                     </div>
 
                     <div class="md:col-span-2 space-y-4 group">
-                        <InputLabel for="message" value="Message" class="text-[9px] uppercase tracking-[0.5em] text-black group-focus-within:text-brand-ruby transition-all duration-500 font-bold" />
-                        <textarea v-model="contactForm.message" id="message" rows="5" class="w-full border-0 border-b-2 border-brand-charcoal/20 focus:border-brand-ruby focus:ring-0 bg-transparent px-0 py-6 text-base font-light text-black placeholder:text-brand-charcoal/10 resize-none transition-all duration-700 outline-none" placeholder="How can we best help you?"></textarea>
+                        <InputLabel for="message" value="Mesaj" class="text-[9px] uppercase tracking-[0.5em] text-black group-focus-within:text-brand-ruby transition-all duration-500 font-bold" />
+                        <textarea v-model="contactForm.message" id="message" rows="5" class="w-full border-0 border-b-2 border-brand-charcoal/20 focus:border-brand-ruby focus:ring-0 bg-transparent px-0 py-6 text-base font-light text-black placeholder:text-brand-charcoal/10 resize-none transition-all duration-700 outline-none" placeholder="Cum te putem ajuta mai bine?"></textarea>
                         <InputError :message="contactForm.errors.message" />
                     </div>
                 </div>
@@ -179,7 +179,7 @@ const structuredData = computed(() => {
                         class="!px-12 !py-4 md:!px-20 md:!py-6"
                         :disabled="contactForm.processing"
                     >
-                        Send Inquiry
+                        Trimite Solicitarea
                     </PrimaryButton>
                 </div>
             </form>
