@@ -10,30 +10,31 @@ import GuestLayout from '@/Layouts/GuestLayout.vue';
 
 const page = usePage();
 
-const user = page.props.auth.user
+const user = page.props.auth.user;
 
 const newsletterForm = useForm({
-    name: user?.name ?? "",
-    email: user?.email ?? "",
+    name: user?.name ?? '',
+    email: user?.email ?? '',
     terms_accepted_at: user?.terms_accepted_at ?? false,
-})
+});
 
 const submitNewsletterForm = () => {
-    newsletterForm.post(route("newsletter.store"), {
+    newsletterForm.post(route('newsletter.store'), {
         forceFormData: true,
         onSuccess: () => newsletterForm.reset(),
-    })
-}
+    });
+};
 
 const structuredData = computed(() => {
     return JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "name": "Newsletter | Amaryllis",
-        "description": "Abonează-te pentru noutăți și inspirație florală de la Amaryllis.",
-        "publisher": {
-            "@id": "https://amaryllis-flori.ro/#organization"
-        }
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: 'Newsletter | Amaryllis',
+        description:
+            'Abonează-te pentru noutăți și inspirație florală de la Amaryllis.',
+        publisher: {
+            '@id': 'https://amaryllis-flori.ro/#organization',
+        },
     });
 });
 </script>
@@ -41,11 +42,20 @@ const structuredData = computed(() => {
 <template>
     <Head>
         <title>Newsletter | Amaryllis Târgu Mureș</title>
-        <meta name="description" content="Abonează-te la newsletter-ul Amaryllis pentru a primi noutăți despre colecțiile noastre de sezon, workshop-uri și inspirație botanică direct în inbox.">
+        <meta
+            name="description"
+            content="Abonează-te la newsletter-ul Amaryllis pentru a primi noutăți despre colecțiile noastre de sezon, workshop-uri și inspirație botanică direct în inbox."
+        />
         <link rel="canonical" :href="route('newsletter.create')" />
 
-        <meta property="og:title" content="Newsletter | Amaryllis Târgu Mureș" />
-        <meta property="og:description" content="Abonează-te la newsletter-ul Amaryllis pentru inspirație botanică." />
+        <meta
+            property="og:title"
+            content="Newsletter | Amaryllis Târgu Mureș"
+        />
+        <meta
+            property="og:description"
+            content="Abonează-te la newsletter-ul Amaryllis pentru inspirație botanică."
+        />
         <meta property="og:type" content="website" />
         <meta property="og:url" :content="route('newsletter.create')" />
         <meta property="og:image" content="/amaryllis_logo.png" />
@@ -56,50 +66,94 @@ const structuredData = computed(() => {
     </Head>
 
     <GuestLayout>
-        <div class="max-w-4xl mx-auto space-y-12 md:space-y-40 px-4 md:px-0">
+        <div class="mx-auto max-w-4xl space-y-12 px-4 md:space-y-40 md:px-0">
             <!-- Header -->
-            <div class="text-center space-y-8 animate-fade-in-up">
-                <span class="uppercase tracking-[0.8em] text-[10px] text-brand-ruby font-bold block">Fii la curent</span>
-                <h1 class="text-3xl md:text-8xl font-serif text-brand-charcoal">Newsletter</h1>
-                <p class="text-sm md:text-base text-brand-charcoal/60 leading-relaxed font-light max-w-2xl mx-auto italic">
-                    Alătură-te comunității noastre florale. Fii printre primii care primesc noutăți despre colecțiile de sezon, workshop-uri exclusive și inspirație botanică, trimise direct în inbox.
+            <div class="animate-fade-in-up space-y-8 text-center">
+                <span
+                    class="block text-[10px] font-bold tracking-[0.8em] text-brand-ruby uppercase"
+                    >Fii la curent</span
+                >
+                <h1 class="font-serif text-3xl text-brand-charcoal md:text-8xl">
+                    Newsletter
+                </h1>
+                <p
+                    class="mx-auto max-w-2xl text-sm leading-relaxed font-light text-brand-charcoal/60 italic md:text-base"
+                >
+                    Alătură-te comunității noastre florale. Fii printre primii
+                    care primesc noutăți despre colecțiile de sezon,
+                    workshop-uri exclusive și inspirație botanică, trimise
+                    direct în inbox.
                 </p>
-                <div class="w-16 h-px bg-brand-ruby mx-auto"></div>
+                <div class="mx-auto h-px w-16 bg-brand-ruby"></div>
             </div>
 
             <!-- Form -->
-            <form @submit.prevent="submitNewsletterForm" class="space-y-24 animate-fade-in-up delay-300">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10 md:gap-x-12 md:gap-y-16 bg-white/50 p-6 md:p-16 rounded-sm shadow-sm ring-1 ring-brand-charcoal/5">
-                    <div class="space-y-4 group">
-                        <InputLabel for="name" value="Nume" class="text-[9px] uppercase tracking-[0.5em] text-brand-charcoal/40 group-focus-within:text-brand-ruby transition-all duration-500 font-bold" />
-                        <TextInput v-model="newsletterForm.name" id="name" type="text" class="w-full border-0 border-b-2 border-brand-charcoal/20 focus:border-brand-ruby focus:ring-0 bg-transparent px-0 py-4 text-base font-light placeholder:text-brand-charcoal/10 transition-all duration-700 outline-none" placeholder="Numele tău complet" />
+            <form
+                @submit.prevent="submitNewsletterForm"
+                class="animate-fade-in-up space-y-24 delay-300"
+            >
+                <div
+                    class="grid grid-cols-1 gap-x-8 gap-y-10 rounded-sm bg-white/50 p-6 shadow-sm ring-1 ring-brand-charcoal/5 md:grid-cols-2 md:gap-x-12 md:gap-y-16 md:p-16"
+                >
+                    <div class="group space-y-4">
+                        <InputLabel
+                            for="name"
+                            value="Nume"
+                            class="text-[9px] font-bold tracking-[0.5em] text-brand-charcoal/40 uppercase transition-all duration-500 group-focus-within:text-brand-ruby"
+                        />
+                        <TextInput
+                            v-model="newsletterForm.name"
+                            id="name"
+                            type="text"
+                            class="w-full border-0 border-b-2 border-brand-charcoal/20 bg-transparent px-0 py-4 text-base font-light transition-all duration-700 outline-none placeholder:text-brand-charcoal/10 focus:border-brand-ruby focus:ring-0"
+                            placeholder="Numele tău complet"
+                        />
                         <InputError :message="newsletterForm.errors.name" />
                     </div>
 
-                    <div class="space-y-4 group">
-                        <InputLabel for="email" value="Email" class="text-[9px] uppercase tracking-[0.5em] text-brand-charcoal/40 group-focus-within:text-brand-ruby transition-all duration-500 font-bold" />
-                        <TextInput v-model="newsletterForm.email" id="email" type="email" class="w-full border-0 border-b-2 border-brand-charcoal/20 focus:border-brand-ruby focus:ring-0 bg-transparent px-0 py-4 text-base font-light placeholder:text-brand-charcoal/10 transition-all duration-700 outline-none" placeholder="Adresa de email" />
+                    <div class="group space-y-4">
+                        <InputLabel
+                            for="email"
+                            value="Email"
+                            class="text-[9px] font-bold tracking-[0.5em] text-brand-charcoal/40 uppercase transition-all duration-500 group-focus-within:text-brand-ruby"
+                        />
+                        <TextInput
+                            v-model="newsletterForm.email"
+                            id="email"
+                            type="email"
+                            class="w-full border-0 border-b-2 border-brand-charcoal/20 bg-transparent px-0 py-4 text-base font-light transition-all duration-700 outline-none placeholder:text-brand-charcoal/10 focus:border-brand-ruby focus:ring-0"
+                            placeholder="Adresa de email"
+                        />
                         <InputError :message="newsletterForm.errors.email" />
                     </div>
-                
-                    <div class="space-y-4 group">
-                        <label class="flex items-center group cursor-pointer">
+
+                    <div class="group space-y-4">
+                        <label class="group flex cursor-pointer items-center">
                             <Checkbox
                                 name="terms_accepted_at"
-                                v-model:checked="newsletterForm.terms_accepted_at"
+                                v-model:checked="
+                                    newsletterForm.terms_accepted_at
+                                "
                             />
                             <span
-                                class="ms-3 text-[9px] uppercase tracking-[0.5em] text-brand-charcoal/40 group-hover:text-brand-ruby transition-all duration-500 font-bold"
+                                class="ms-3 text-[9px] font-bold tracking-[0.5em] text-brand-charcoal/40 uppercase transition-all duration-500 group-hover:text-brand-ruby"
                             >
-                                Sunt de acord cu <Link :href="route('terms')" class="underline underline-offset-4">termenii și condițiile</Link>
+                                Sunt de acord cu
+                                <Link
+                                    :href="route('terms')"
+                                    class="underline underline-offset-4"
+                                    >termenii și condițiile</Link
+                                >
                             </span>
                         </label>
-                        <InputError :message="newsletterForm.errors.terms_accepted_at" />
+                        <InputError
+                            :message="newsletterForm.errors.terms_accepted_at"
+                        />
                     </div>
                 </div>
 
-                <div class="text-center pt-16">
-                    <PrimaryButton 
+                <div class="pt-16 text-center">
+                    <PrimaryButton
                         type="submit"
                         class="!px-12 !py-4 md:!px-20 md:!py-6"
                         :disabled="newsletterForm.processing"
@@ -128,5 +182,7 @@ const structuredData = computed(() => {
     animation: fade-in-up 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
-.delay-300 { animation-delay: 0.3s; }
+.delay-300 {
+    animation-delay: 0.3s;
+}
 </style>

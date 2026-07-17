@@ -5,7 +5,7 @@ import GuestLayout from '@/Layouts/GuestLayout.vue';
 
 const props = defineProps({
     funeralArrangements: Object,
-})
+});
 
 const activeFuneralId = ref(null);
 
@@ -15,24 +15,27 @@ const toggleFuneral = (id) => {
 
 const structuredData = computed(() => {
     return JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        "name": "Aranjamente Funerare",
-        "description": "Omagii florale realizate cu respect și delicatețe în Târgu Mureș.",
-        "numberOfItems": props.funeralArrangements?.data?.length || 0,
-        "itemListElement": (props.funeralArrangements?.data || []).map((item, index) => ({
-            "@type": "ListItem",
-            "position": index + 1,
-            "item": {
-                "@type": "Product",
-                "name": item.name,
-                "description": item.description,
-                "image": item.images,
-                "brand": {
-                    "@id": "https://amaryllis-flori.ro/#organization"
-                }
-            }
-        }))
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        name: 'Aranjamente Funerare',
+        description:
+            'Omagii florale realizate cu respect și delicatețe în Târgu Mureș.',
+        numberOfItems: props.funeralArrangements?.data?.length || 0,
+        itemListElement: (props.funeralArrangements?.data || []).map(
+            (item, index) => ({
+                '@type': 'ListItem',
+                position: index + 1,
+                item: {
+                    '@type': 'Product',
+                    name: item.name,
+                    description: item.description,
+                    image: item.images,
+                    brand: {
+                        '@id': 'https://amaryllis-flori.ro/#organization',
+                    },
+                },
+            }),
+        ),
     });
 });
 </script>
@@ -40,11 +43,20 @@ const structuredData = computed(() => {
 <template>
     <Head>
         <title>Aranjamente Funerare | Amaryllis Târgu Mureș</title>
-        <meta name="description" content="Omagii florale realizate cu respect și delicatețe. Coroane, jerbe și aranjamente funerare deosebite, create pentru a onora memoria celor dragi.">
+        <meta
+            name="description"
+            content="Omagii florale realizate cu respect și delicatețe. Coroane, jerbe și aranjamente funerare deosebite, create pentru a onora memoria celor dragi."
+        />
         <link rel="canonical" :href="route('funeralArrangements')" />
 
-        <meta property="og:title" content="Aranjamente Funerare | Amaryllis Târgu Mureș" />
-        <meta property="og:description" content="Omagii florale realizate cu respect și delicatețe." />
+        <meta
+            property="og:title"
+            content="Aranjamente Funerare | Amaryllis Târgu Mureș"
+        />
+        <meta
+            property="og:description"
+            content="Omagii florale realizate cu respect și delicatețe."
+        />
         <meta property="og:type" content="website" />
         <meta property="og:url" :content="route('funeralArrangements')" />
         <meta property="og:image" content="/amaryllis_logo.png" />
@@ -55,99 +67,166 @@ const structuredData = computed(() => {
     </Head>
 
     <GuestLayout>
-        <div class="space-y-10 md:space-y-32 px-4 md:px-0">
+        <div class="space-y-8 px-4 md:space-y-12 md:px-0">
             <!-- Header: Elegant & Focused -->
-            <div class="max-w-4xl mx-auto text-center space-y-8 md:space-y-12">
-                <div class="space-y-6">
-                    <span class="uppercase tracking-[1em] text-[10px] text-brand-ruby font-bold block animate-fade-in">Omagii funerare</span>
-                    <h1 class="text-3xl md:text-8xl font-serif text-brand-charcoal animate-reveal">Aranjamente Funerare</h1>
+            <div class="mx-auto max-w-4xl space-y-4 text-center md:space-y-6">
+                <div class="space-y-3">
+                    <span
+                        class="animate-fade-in block text-xs font-extrabold tracking-[0.3em] text-brand-ruby uppercase md:text-sm"
+                        >Omagii funerare</span
+                    >
+                    <h1
+                        class="animate-reveal font-serif text-3xl text-brand-charcoal md:text-8xl"
+                    >
+                        Aranjamente Funerare
+                    </h1>
                 </div>
-                <p class="text-sm md:text-lg text-brand-charcoal/50 leading-relaxed font-light italic max-w-2xl mx-auto animate-fade-in-up delay-500">
-                    "Omagii florale pline de grație și respect, create pentru a onora și celebra viața cuiva drag. Fiecare lucrare este realizată cu atenție și sensibilitate."
+                <p
+                    class="animate-fade-in-up mx-auto max-w-2xl text-base leading-relaxed font-semibold text-brand-charcoal/85 italic delay-500 md:text-lg"
+                >
+                    "Omagii florale pline de grație și respect, create pentru a
+                    onora și celebra viața cuiva drag. Fiecare lucrare este
+                    realizată cu atenție și sensibilitate."
                 </p>
-                <div class="w-24 h-px bg-brand-gold/20 mx-auto animate-fade-in delay-700"></div>
+                <div
+                    class="animate-fade-in mx-auto h-px w-24 bg-brand-gold/30 delay-700"
+                ></div>
             </div>
 
             <!-- Grid: Editorial Presentation -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 md:gap-x-16 md:gap-y-32 animate-fade-in-up delay-700">
-                <div v-for="arrangement in funeralArrangements.data" :key="arrangement.id" 
-                    class="group flex flex-col space-y-6 md:space-y-8"
+            <div
+                class="animate-fade-in-up grid grid-cols-1 gap-x-8 gap-y-8 delay-700 md:grid-cols-2 md:gap-x-12 md:gap-y-12 lg:grid-cols-3"
+            >
+                <div
+                    v-for="arrangement in funeralArrangements.data"
+                    :key="arrangement.id"
+                    class="group flex flex-col space-y-4 md:space-y-6"
                 >
                     <!-- Image Container -->
-                    <div class="relative aspect-[4/5] overflow-hidden bg-brand-cream shadow-2xl ring-1 ring-brand-charcoal/5 transform-gpu">
-                        <img 
-                            :src="arrangement.images" 
-                            :alt="arrangement.name" 
-                            class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110 grayscale-[0.3] group-hover:grayscale-0 will-change-transform"
+                    <div
+                        class="relative aspect-[4/5] transform-gpu overflow-hidden bg-brand-cream shadow-2xl ring-1 ring-brand-charcoal/5"
+                    >
+                        <img
+                            :src="arrangement.images"
+                            :alt="arrangement.name"
+                            class="h-full w-full object-cover grayscale-[0.3] transition-transform duration-[2s] will-change-transform group-hover:scale-110 group-hover:grayscale-0"
                         />
-                        
+
                         <!-- Desktop Overlay (Elegant Blur) -->
-                        <div class="hidden md:flex absolute inset-0 bg-brand-cream/80 flex-col hover:text-white items-center justify-center p-12 text-center opacity-0 group-hover:opacity-100 transition-all duration-750 safari-blur-md">
-                            <div class="space-y-6 md:space-y-8 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-1000">
-                                <h3 class="text-2xl md:text-4xl font-serif text-brand-charcoal leading-tight italic">
+                        <div
+                            class="safari-blur-md absolute inset-0 hidden flex-col items-center justify-center bg-brand-cream/80 p-12 text-center opacity-0 transition-all duration-750 group-hover:opacity-100 hover:text-white md:flex"
+                        >
+                            <div
+                                class="translate-y-8 transform space-y-6 transition-transform duration-1000 group-hover:translate-y-0 md:space-y-8"
+                            >
+                                <h3
+                                    class="font-serif text-2xl leading-tight text-brand-charcoal italic md:text-4xl"
+                                >
                                     {{ arrangement.name }}
                                 </h3>
-                                <p class="text-[12px] text-brand-charcoal/60 leading-loose font-light line-clamp-4 px-4">
+                                <p
+                                    class="line-clamp-4 px-4 text-sm leading-relaxed font-normal text-brand-charcoal/85"
+                                >
                                     {{ arrangement.description }}
                                 </p>
                                 <div class="pt-6">
-                                    <Link :href="route('contact.create')" class="inline-block text-[10px] uppercase tracking-[0.4em] text-brand-gold border-b border-brand-gold/30 pb-2 hover:tracking-[0.6em] transition-all">Solicită detalii</Link>
+                                    <Link
+                                        :href="route('contact.create')"
+                                        class="inline-block border-b-2 border-brand-ruby/20 pb-1 text-xs font-bold tracking-[0.25em] text-brand-ruby uppercase transition-all hover:border-brand-gold hover:tracking-[0.3em] hover:text-brand-gold"
+                                        >Solicită detalii</Link
+                                    >
                                 </div>
                             </div>
                         </div>
 
                         <!-- Mobile Info Overlay (Toggled) -->
                         <Transition name="fade">
-                            <div 
+                            <div
                                 v-if="activeFuneralId === arrangement.id"
-                                class="md:hidden absolute inset-0 bg-brand-charcoal/90 flex flex-col items-center justify-center p-6 md:p-10 text-center safari-blur-sm z-10"
+                                class="safari-blur-sm absolute inset-0 z-10 flex flex-col items-center justify-center bg-brand-charcoal/90 p-6 text-center md:hidden md:p-10"
                             >
                                 <div class="space-y-6 md:space-y-8">
-                                    <h3 class="text-xl md:text-3xl font-serif text-white italic">
+                                    <h3
+                                        class="font-serif text-xl text-white italic md:text-3xl"
+                                    >
                                         {{ arrangement.name }}
                                     </h3>
-                                    <p class="text-[11px] text-white/70 leading-loose font-light">
+                                    <p
+                                        class="text-[11px] leading-loose font-light text-white/70"
+                                    >
                                         {{ arrangement.description }}
                                     </p>
                                     <div class="pt-6">
-                                        <Link :href="route('contact.create')" class="inline-block text-[10px] uppercase tracking-[0.4em] text-brand-gold border-b border-brand-gold/30 pb-2">Solicită detalii</Link>
+                                        <Link
+                                            :href="route('contact.create')"
+                                            class="inline-block border-b border-brand-gold/30 pb-2 text-[10px] tracking-[0.4em] text-brand-gold uppercase"
+                                            >Solicită detalii</Link
+                                        >
                                     </div>
                                 </div>
                             </div>
                         </Transition>
 
                         <!-- Mobile Info Toggle Button (Plus Icon) -->
-                        <div class="absolute bottom-6 right-6 md:hidden z-10">
-                             <button 
-                                @click="toggleFuneral(arrangement.id)" 
-                                class="bg-brand-cream/90 safari-blur-md p-4 rounded-full shadow-2xl text-brand-charcoal transition-all duration-500 hover:scale-110"
-                                :class="{ 'rotate-45 !bg-brand-gold !text-brand-cream': activeFuneralId === arrangement.id }"
+                        <div class="absolute right-6 bottom-6 z-10 md:hidden">
+                            <button
+                                @click="toggleFuneral(arrangement.id)"
+                                class="safari-blur-md rounded-full bg-brand-cream/90 p-4 text-brand-charcoal shadow-2xl transition-all duration-500 hover:scale-110"
+                                :class="{
+                                    'rotate-45 !bg-brand-gold !text-brand-cream':
+                                        activeFuneralId === arrangement.id,
+                                }"
                             >
-                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                     <path d="M12 4v16m8-8H4" stroke-width="1.5" stroke-linecap="round"/>
-                                 </svg>
-                             </button>
+                                <svg
+                                    class="h-6 w-6"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        d="M12 4v16m8-8H4"
+                                        stroke-width="1.5"
+                                        stroke-linecap="round"
+                                    />
+                                </svg>
+                            </button>
                         </div>
                     </div>
 
                     <!-- Label: Clean Typography -->
-                    <div class="flex justify-between items-baseline pt-4 px-1">
+                    <div class="flex items-baseline justify-between px-1 pt-4">
                         <div class="space-y-2">
-                            <h3 class="text-xl md:text-2xl font-serif text-brand-charcoal group-hover:text-brand-gold transition-colors duration-700 italic">{{ arrangement.name }}</h3>
-                            <span class="text-[10px] uppercase tracking-[0.4em] text-brand-charcoal/30 block">
+                            <h3
+                                class="font-serif text-xl text-brand-charcoal italic transition-colors duration-700 group-hover:text-brand-gold md:text-2xl"
+                            >
+                                {{ arrangement.name }}
+                            </h3>
+                            <span
+                                class="block text-xs font-semibold tracking-[0.2em] text-brand-charcoal/60 uppercase"
+                            >
                                 {{ arrangement.occasion || 'Funerar' }}
                             </span>
                         </div>
-                        <span class="text-[11px] text-brand-charcoal/30 font-light italic font-script text-lg lowercase tracking-normal">
-                             {{ arrangement.color }}
+                        <span class="text-sm font-semibold text-brand-ruby/70">
+                            {{ arrangement.color }}
                         </span>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Empty State -->
-            <div v-if="!funeralArrangements.data || funeralArrangements.data.length === 0" class="text-center py-20 md:py-32 border-t border-brand-charcoal">
-                <p class="text-brand-charcoal/20 font-serif italic text-xl md:text-3xl">Colecția este în curs de actualizare.</p>
+            <div
+                v-if="
+                    !funeralArrangements.data ||
+                    funeralArrangements.data.length === 0
+                "
+                class="border-t border-brand-charcoal py-10 text-center md:py-16"
+            >
+                <p
+                    class="font-serif text-xl text-brand-charcoal/20 italic md:text-3xl"
+                >
+                    Colecția este în curs de actualizare.
+                </p>
             </div>
         </div>
     </GuestLayout>
@@ -156,11 +235,11 @@ const structuredData = computed(() => {
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 1.2s ease-out;
+    transition: opacity 1.2s ease-out;
 }
 
 .fade-enter-from,
 .fade-leave-to {
-  opacity: 0;
+    opacity: 0;
 }
 </style>

@@ -72,9 +72,10 @@ const submit = () => {
             </div>
 
             <div class="mt-4 block">
-                <label class="flex items-center group cursor-pointer">
+                <label class="group flex cursor-pointer items-center">
                     <Checkbox name="remember" v-model:checked="form.remember" />
-                    <span class="ms-3 text-[10px] uppercase tracking-[0.2em] text-brand-charcoal/60 group-hover:text-brand-ruby transition-colors duration-300"
+                    <span
+                        class="ms-3 text-[10px] tracking-[0.2em] text-brand-charcoal/60 uppercase transition-colors duration-300 group-hover:text-brand-ruby"
                         >Ține-mă minte</span
                     >
                 </label>
@@ -84,7 +85,7 @@ const submit = () => {
                 <Link
                     v-if="canResetPassword"
                     :href="route('password.request')"
-                    class="text-[10px] uppercase tracking-[0.2em] text-brand-charcoal/40 hover:text-brand-ruby transition-colors duration-300 underline underline-offset-4"
+                    class="text-[10px] tracking-[0.2em] text-brand-charcoal/40 uppercase underline underline-offset-4 transition-colors duration-300 hover:text-brand-ruby"
                 >
                     Ai uitat parola?
                 </Link>

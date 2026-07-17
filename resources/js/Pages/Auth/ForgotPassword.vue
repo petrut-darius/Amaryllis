@@ -25,13 +25,17 @@ const submit = () => {
     <AuthLayout>
         <Head title="Ai uitat parola?" />
 
-        <div class="mb-6 text-[11px] uppercase tracking-[0.2em] text-brand-charcoal/60 leading-relaxed">
-            Ai uitat parola? Nicio problemă. Transmite-ne adresa ta de email și îți vom trimite un link de resetare a parolei care îți va permite să îți alegi una nouă.
+        <div
+            class="mb-6 text-[11px] leading-relaxed tracking-[0.2em] text-brand-charcoal/60 uppercase"
+        >
+            Ai uitat parola? Nicio problemă. Transmite-ne adresa ta de email și
+            îți vom trimite un link de resetare a parolei care îți va permite să
+            îți alegi una nouă.
         </div>
 
         <div
             v-if="status"
-            class="mb-6 text-[10px] uppercase tracking-[0.2em] text-green-600 font-bold"
+            class="mb-6 text-[10px] font-bold tracking-[0.2em] text-green-600 uppercase"
         >
             {{ status }}
         </div>

@@ -10,7 +10,7 @@ import AuthLayout from '@/Layouts/AuthLayout.vue';
 const form = useForm({
     name: '',
     email: '',
-    phone: "", 
+    phone: '',
     password: '',
     password_confirmation: '',
     terms_accepted_at: false,
@@ -113,15 +113,20 @@ const submit = () => {
             </div>
 
             <div class="mt-4 block">
-                <label class="flex items-center group cursor-pointer">
+                <label class="group flex cursor-pointer items-center">
                     <Checkbox
                         name="terms_accepted_at"
                         v-model:checked="form.terms_accepted_at"
                     />
                     <span
-                        class="ms-3 text-[9px] uppercase tracking-[0.4em] text-brand-charcoal/40 group-hover:text-brand-ruby transition-colors duration-300"
+                        class="ms-3 text-[9px] tracking-[0.4em] text-brand-charcoal/40 uppercase transition-colors duration-300 group-hover:text-brand-ruby"
                     >
-                        Sunt de acord cu <Link :href="route('terms')" class="underline underline-offset-4">termenii și condițiile</Link>
+                        Sunt de acord cu
+                        <Link
+                            :href="route('terms')"
+                            class="underline underline-offset-4"
+                            >termenii și condițiile</Link
+                        >
                     </span>
                 </label>
 
@@ -134,7 +139,7 @@ const submit = () => {
             <div class="mt-8 flex items-center justify-between">
                 <Link
                     :href="route('login')"
-                    class="text-[10px] uppercase tracking-[0.2em] text-brand-charcoal/40 hover:text-brand-ruby transition-colors duration-300 underline underline-offset-4"
+                    class="text-[10px] tracking-[0.2em] text-brand-charcoal/40 uppercase underline underline-offset-4 transition-colors duration-300 hover:text-brand-ruby"
                 >
                     Ai deja cont?
                 </Link>

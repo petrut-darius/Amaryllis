@@ -21,8 +21,11 @@ const submit = () => {
     <AuthLayout>
         <Head title="Confirmă parola" />
 
-        <div class="mb-6 text-[11px] uppercase tracking-[0.2em] text-brand-charcoal/60 leading-relaxed">
-            Aceasta este o zonă securizată a aplicației. Te rugăm să îți confirmi parola înainte de a continua.
+        <div
+            class="mb-6 text-[11px] leading-relaxed tracking-[0.2em] text-brand-charcoal/60 uppercase"
+        >
+            Aceasta este o zonă securizată a aplicației. Te rugăm să îți
+            confirmi parola înainte de a continua.
         </div>
 
         <form @submit.prevent="submit">

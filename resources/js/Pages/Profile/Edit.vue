@@ -18,12 +18,10 @@ defineProps({
     <Head title="Profil" />
 
     <AuthenticatedLayout>
-        <template #header>
-            Setări Profil
-        </template>
+        <template #header> Setări Profil </template>
 
         <div class="space-y-12">
-            <div class="bg-white p-6 border border-gray-100 rounded-sm sm:p-10">
+            <div class="rounded-sm border border-gray-100 bg-white p-6 sm:p-10">
                 <UpdateProfileInformationForm
                     :must-verify-email="mustVerifyEmail"
                     :status="status"
@@ -31,7 +29,7 @@ defineProps({
                 />
             </div>
 
-            <div class="bg-white p-6 border border-gray-100 rounded-sm sm:p-10">
+            <div class="rounded-sm border border-gray-100 bg-white p-6 sm:p-10">
                 <UpdatePasswordForm class="max-w-xl" />
             </div>
         </div>

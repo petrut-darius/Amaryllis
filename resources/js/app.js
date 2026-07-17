@@ -6,16 +6,16 @@ import { createApp, h } from 'vue';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy';
 
 function debug(payload) {
-    fetch("/debug-safari", {
-        method: "POST",
+    fetch('/debug-safari', {
+        method: 'POST',
         headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
         },
         body: JSON.stringify(payload),
     }).catch(() => {});
 }
 
-debug({ step: "Dupa importuri" });
+debug({ step: 'Dupa importuri' });
 
 window.onerror = (message, source, line, column, error) => {
     const msg = String(message || '');
@@ -63,14 +63,14 @@ router.on('error', (event) => {
     debug({
         type: 'inertia.error',
         error: String(event.detail.error),
-    })
-})
+    });
+});
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
 
     resolve: (name) => {
-        debug({ step: "In resolve", page: name });
+        debug({ step: 'In resolve', page: name });
 
         return resolvePageComponent(
             `./Pages/${name}.vue`,
@@ -79,7 +79,7 @@ createInertiaApp({
     },
 
     setup({ el, App, props, plugin }) {
-        debug({ step: "Setup start" });
+        debug({ step: 'Setup start' });
 
         const app = createApp({ render: () => h(App, props) });
 
@@ -92,13 +92,11 @@ createInertiaApp({
             });
         };
 
-        app.use(plugin)
-            .use(ZiggyVue)
-            .mount(el);
+        app.use(plugin).use(ZiggyVue).mount(el);
 
-        debug({ step: "Dupa mount" });
+        debug({ step: 'Dupa mount' });
 
-        setTimeout(() => debug({ step: "500ms post-mount alive" }), 500);
+        setTimeout(() => debug({ step: '500ms post-mount alive' }), 500);
 
         return app;
     },

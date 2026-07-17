@@ -26,12 +26,11 @@ const form = useForm({
 <template>
     <section>
         <header>
-            <h2 class="text-2xl font-serif text-gray-900">
-                Informații Profil
-            </h2>
+            <h2 class="font-serif text-2xl text-gray-900">Informații Profil</h2>
 
-            <p class="mt-2 text-sm text-gray-500 font-light">
-                Actualizați informațiile de profil și adresa de email a contului dumneavoastră.
+            <p class="mt-2 text-sm font-light text-gray-500">
+                Actualizați informațiile de profil și adresa de email a contului
+                dumneavoastră.
             </p>
         </header>
 
@@ -79,9 +78,10 @@ const form = useForm({
                         :href="route('verification.send')"
                         method="post"
                         as="button"
-                        class="rounded-sm text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500 transition duration-150"
+                        class="rounded-sm text-sm text-gray-600 underline transition duration-150 hover:text-gray-900 focus:ring-2 focus:ring-gray-500 focus:outline-none"
                     >
-                        Faceți clic aici pentru a retrimite emailul de verificare.
+                        Faceți clic aici pentru a retrimite emailul de
+                        verificare.
                     </Link>
                 </p>
 
@@ -89,13 +89,14 @@ const form = useForm({
                     v-show="status === 'verification-link-sent'"
                     class="mt-2 text-sm font-medium text-green-600"
                 >
-                    Un nou link de verificare a fost trimis la adresa dumneavoastră de email.
+                    Un nou link de verificare a fost trimis la adresa
+                    dumneavoastră de email.
                 </div>
             </div>
             <div>
-                <InputLabel for="phone" value="Număr de telefon"/>
+                <InputLabel for="phone" value="Număr de telefon" />
 
-                <TextInput 
+                <TextInput
                     id="phone"
                     type="tel"
                     class="mt-1 block w-full"
@@ -108,7 +109,9 @@ const form = useForm({
             </div>
 
             <div class="flex items-center gap-4">
-                <PrimaryButton :disabled="form.processing">Salvează Modificările</PrimaryButton>
+                <PrimaryButton :disabled="form.processing"
+                    >Salvează Modificările</PrimaryButton
+                >
 
                 <Transition
                     enter-active-class="transition ease-in-out"
@@ -118,7 +121,7 @@ const form = useForm({
                 >
                     <p
                         v-if="form.recentlySuccessful"
-                        class="text-xs uppercase tracking-widest text-gray-400 font-bold"
+                        class="text-xs font-bold tracking-widest text-gray-400 uppercase"
                     >
                         Salvat
                     </p>

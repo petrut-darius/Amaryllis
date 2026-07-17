@@ -1,78 +1,79 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @import '@fortawesome/fontawesome-free/css/all.min.css';
 
 @theme {
-  --font-serif: "Playfair Display", serif;
-  --font-sans: "Inter", sans-serif;
-  --font-script: "Georgia", serif; /* Placeholder for a script font if not loaded */
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+    --font-script:
+        'Georgia', serif; /* Placeholder for a script font if not loaded */
 
-  --color-brand-dusty-blue: #C0E1D2;
-  --color-brand-cream: #FFFFFF;
-  --color-brand-linen: #FAF9F6;
-  --color-brand-charcoal: #2D3436;
-  --color-brand-sage: #E5EEE4;
-  --color-brand-blush: #DC9B9B;
-  --color-brand-gold: #D4AF37;
-  --color-brand-mint: #E0F2F1;
-  --color-brand-rose: #FCE4EC;
-  --color-brand-lavender: #F3E5F5;
-  --color-brand-warm-gray: #7F8C8D;
-  --color-brand-ruby: #7A1F3D;
+    --color-brand-dusty-blue: #c0e1d2;
+    --color-brand-cream: #ffffff;
+    --color-brand-linen: #faf9f6;
+    --color-brand-charcoal: #2d3436;
+    --color-brand-sage: #e5eee4;
+    --color-brand-blush: #dc9b9b;
+    --color-brand-gold: #d4af37;
+    --color-brand-mint: #e0f2f1;
+    --color-brand-rose: #fce4ec;
+    --color-brand-lavender: #f3e5f5;
+    --color-brand-warm-gray: #7f8c8d;
+    --color-brand-ruby: #7a1f3d;
 
-  --font-size-5xl: clamp(2.5rem, 5vw, 3rem);
-  --font-size-6xl: clamp(3rem, 6vw, 4rem);
-  --font-size-7xl: clamp(3.5rem, 7vw, 5rem);
-  --font-size-8xl: clamp(4rem, 8vw, 6rem);
-  --font-size-9xl: clamp(5rem, 10vw, 8rem);
+    --font-size-5xl: clamp(2.5rem, 5vw, 3rem);
+    --font-size-6xl: clamp(3rem, 6vw, 4rem);
+    --font-size-7xl: clamp(3.5rem, 7vw, 5rem);
+    --font-size-8xl: clamp(4rem, 8vw, 6rem);
+    --font-size-9xl: clamp(5rem, 10vw, 8rem);
 }
 
 @layer base {
-  html {
-    @apply antialiased;
-    font-size: clamp(14px, 1.2vw, 18px);
-  }
+    html {
+        @apply antialiased;
+        font-size: clamp(16px, 1.3vw, 20px);
+    }
 
-  h1 {
-    font-size: clamp(2.5rem, 8vw, 8rem);
-  }
+    h1 {
+        font-size: clamp(2.5rem, 8vw, 8rem);
+    }
 
-  h2 {
-    font-size: clamp(2rem, 6vw, 5rem);
-  }
+    h2 {
+        font-size: clamp(2rem, 6vw, 5rem);
+    }
 
-  h3 {
-    font-size: clamp(1.5rem, 4vw, 3rem);
-  }
+    h3 {
+        font-size: clamp(1.5rem, 4vw, 3rem);
+    }
 }
 
 @layer utilities {
-  .text-fluid-lg {
-    font-size: clamp(1.125rem, 2vw, 1.5rem);
-  }
-  
-  .text-fluid-xl {
-    font-size: clamp(1.25rem, 3vw, 2rem);
-  }
+    .text-fluid-lg {
+        font-size: clamp(1.125rem, 2vw, 1.5rem);
+    }
 
-  .safari-blur-sm {
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-  }
+    .text-fluid-xl {
+        font-size: clamp(1.25rem, 3vw, 2rem);
+    }
 
-  .safari-blur {
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-  }
+    .safari-blur-sm {
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+    }
 
-  .safari-blur-md {
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-  }
+    .safari-blur {
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+    }
 
-  .safari-blur-3xl {
-    backdrop-filter: blur(64px);
-    -webkit-backdrop-filter: blur(64px);
-  }
+    .safari-blur-md {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+
+    .safari-blur-3xl {
+        backdrop-filter: blur(64px);
+        -webkit-backdrop-filter: blur(64px);
+    }
 }
 
 @source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";

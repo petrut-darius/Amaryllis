@@ -8,13 +8,16 @@ import Navigation from '@/Components/Navigation.vue';
 <template>
     <div class="min-h-screen bg-brand-cream text-brand-charcoal">
         <header class="border-b border-brand-ruby/10">
-            <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col items-center py-6">
                     <!-- Logo -->
                     <div class="mb-6">
                         <Link href="/">
                             <ApplicationLogo size="normal" class="md:hidden" />
-                            <ApplicationLogo size="large" class="hidden md:flex" />
+                            <ApplicationLogo
+                                size="large"
+                                class="hidden md:flex"
+                            />
                         </Link>
                     </div>
 
@@ -25,15 +28,20 @@ import Navigation from '@/Components/Navigation.vue';
         </header>
 
         <!-- Page Heading -->
-        <div class="bg-gray-50 border-b border-gray-100 py-4" v-if="$slots.header">
-            <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-[11px] uppercase tracking-[0.3em] font-medium text-gray-500">
+        <div
+            class="border-b border-gray-100 bg-gray-50 py-4"
+            v-if="$slots.header"
+        >
+            <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
+                <div
+                    class="text-[11px] font-medium tracking-[0.3em] text-gray-500 uppercase"
+                >
                     <slot name="header" />
                 </div>
             </div>
         </div>
 
-        <main class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <main class="mx-auto max-w-screen-2xl px-4 py-12 sm:px-6 lg:px-8">
             <slot />
         </main>
 

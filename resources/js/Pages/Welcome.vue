@@ -181,8 +181,8 @@ const structuredData = computed(() => {
         <div class="mt-4">
             <!-- Hero Section: Editorial & Grand -->
             <section 
-                class="relative min-h-[85dvh] flex items-center justify-center -mx-4 sm:-mx-8 animate-fade-in"
-                :style="{ marginBottom: isMobile ? `${35 + heroScrollProgress * 10}dvh` : `${35 + heroScrollProgress * 40}dvh` }"
+                class="relative min-h-[75dvh] flex items-center justify-center -mx-4 sm:-mx-8 animate-fade-in"
+                :style="{ marginBottom: isMobile ? `${15 + heroScrollProgress * 10}dvh` : `${15 + heroScrollProgress * 45}dvh` }"
             >
                 <div 
                     class="absolute inset-0 z-0 overflow-hidden transform-gpu"
@@ -221,7 +221,7 @@ const structuredData = computed(() => {
                             </Link>
                             <Link 
                                 :href="route('bouquets')" 
-                                class="text-[10px] uppercase tracking-[0.4em] text-brand-ruby transition-all border-b border-white/20 pb-2 hover:border-brand-ruby hover:tracking-[0.5em] drop-shadow-lg"
+                                class="text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-brand-ruby transition-all border-b-2 border-brand-ruby/30 pb-2 hover:border-brand-ruby hover:text-brand-gold hover:tracking-[0.35em] drop-shadow-md"
                             >
                                 Vezi colecția
                             </Link>
@@ -229,8 +229,7 @@ const structuredData = computed(() => {
                     </div>
                 </div>
             </section>
-
-            <!-- Philosophy Section: Asymmetrical Editorial -->
+                           <!-- Philosophy Section: Asymmetrical Editorial -->
             <section class="px-4 sm:px-6 max-w-7xl mx-auto">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                     <div class="lg:col-span-7 relative group">
@@ -238,38 +237,38 @@ const structuredData = computed(() => {
                             <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&q=80&w=1200" alt="Philosophy" class="w-full h-full object-cover grayscale-[0.3]" />
                         </div>
                         <!-- Overlapping Text -->
-                        <div class="absolute -bottom-8 -right-4 lg:-bottom-12 lg:-right-16 bg-brand-cream p-6 lg:p-12 shadow-xl max-w-[280px] md:max-w-md animate-fade-in-up delay-700">
+                        <div class="absolute -bottom-8 -right-4 lg:-bottom-12 lg:-right-16 bg-white p-6 lg:p-12 shadow-xl max-w-[280px] md:max-w-md animate-fade-in-up delay-700">
                             <h2 class="text-2xl md:text-5xl font-serif text-brand-charcoal leading-tight">
                                 Un limbaj vorbit în <span class="italic font-normal text-brand-gold font-script text-3xl md:text-4xl lowercase tracking-normal">petale</span>.
                             </h2>
                         </div>
                     </div>
-                    <div class="lg:col-span-5 space-y-8 pt-16 lg:pt-0 lg:pl-12">
-                        <p class="text-sm md:text-base text-brand-charcoal/60 leading-relaxed font-light italic">
-                            „Credem că florile sunt mai mult decât simple decorațiuni — ele sunt un mesager al emoțiilor, o modalitate de a surprinde frumusețea trecătoare a unui moment și de a o păstra aproape de inimă pentru totdeauna.”
+                    <div class="lg:col-span-5 space-y-6 pt-12 lg:pt-0 lg:pl-12">
+                        <p class="text-base md:text-lg text-brand-charcoal/85 leading-relaxed font-semibold italic">
+                            „Credem că florile sunt mai mult decât simple decorațiuni ele sunt un mesager al emoțiilor, o modalitate de a surprinde frumusețea trecătoare a unui moment și de a o păstra aproape de inimă pentru totdeauna.”
                         </p>
                         <div class="pt-4">
                             <Link :href="route('about')" class="inline-block group">
-                                <span class="text-[10px] uppercase tracking-[0.4em] text-brand-charcoal/40 group-hover:text-brand-charcoal transition-all group-hover:tracking-[0.5em]">Întreaga noastră poveste</span>
-                                <div class="h-px bg-brand-gold w-0 group-hover:w-full transition-all duration-700 mt-2"></div>
+                                <span class="text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-brand-ruby group-hover:text-brand-gold transition-all duration-300 group-hover:tracking-[0.3em]">Întreaga noastră poveste</span>
+                                <div class="h-[2px] bg-brand-gold w-0 group-hover:w-full transition-all duration-500 mt-2"></div>
                             </Link>
                         </div>
                     </div>
                 </div>
             </section>
-
+ 
             
             <!-- Final CTA: Bold Editorial -->
-            <section class="py-12 md:py-20 text-center space-y-12 md:space-y-16">
-                <div class="space-y-8 md:space-y-12 px-4 md:px-0">
+            <section class="py-8 md:py-12 text-center space-y-8 md:space-y-10">
+                <div class="space-y-4 md:space-y-6 px-4 md:px-0">
                     <h2 class="text-4xl md:text-[10rem] font-serif text-brand-charcoal leading-none tracking-tighter">Ești gata să <span class="italic font-normal text-brand-ruby font-script text-5xl md:text-[12rem] tracking-normal">înflorești?</span></h2>
-                    <p class="text-brand-charcoal/40 uppercase tracking-[0.6em] md:tracking-[0.8em] text-[10px] md:text-[12px]">Hai să colaborăm pentru următorul tău moment special.</p>
+                    <p class="text-brand-ruby font-bold uppercase tracking-[0.3em] md:tracking-[0.4em] text-xs md:text-sm">Hai să colaborăm pentru următorul tău moment special.</p>
                 </div>
-                <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
+                <div class="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8">
                     <Link :href="route('contact.create')">
                         <PrimaryButton>Trimite o cerere</PrimaryButton>
                     </Link>
-                    <Link :href="route('gallery')" class="text-[10px] md:text-[12px] uppercase tracking-[0.4em] md:tracking-[0.5em] hover:text-brand-gold transition-all border-b border-brand-charcoal/10 pb-2 hover:tracking-[0.6em] md:hover:tracking-[0.7em]">
+                    <Link :href="route('gallery')" class="text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-brand-charcoal/80 hover:text-brand-gold transition-all border-b-2 border-brand-ruby/20 pb-2 hover:border-brand-gold hover:tracking-[0.3em]">
                         Vezi portofoliul
                     </Link>
                 </div>

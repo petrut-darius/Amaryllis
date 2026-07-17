@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Link } from "@inertiajs/vue3";
-import { ref, watch } from "vue";
+import { Link } from '@inertiajs/vue3';
+import { ref, watch } from 'vue';
 
 const isOpen = ref(false);
 const scrollPosition = ref(0);
@@ -22,12 +22,12 @@ watch(isOpen, (val) => {
 });
 
 const primaryLinks = [
-    { name: "Galerie", route: "gallery"},
-    { name: "Flori", route: "flowers" },
-    { name: "Evenimente", route: "events" },
-    { name: "Despre Noi", route: "about" },
-    { name: "Contact", route: "contact.create" },
-    { name: "Livrare", route: "delivery"}
+    { name: 'Galerie', route: 'gallery' },
+    { name: 'Flori', route: 'flowers' },
+    { name: 'Evenimente', route: 'events' },
+    { name: 'Despre Noi', route: 'about' },
+    { name: 'Contact', route: 'contact.create' },
+    { name: 'Livrare', route: 'delivery' },
 ];
 
 const isActive = (routeName) => {
@@ -41,44 +41,85 @@ const toggleMenu = () => {
 
 <template>
     <!-- Desktop Navigation -->
-    <nav class="hidden md:flex flex-col items-center space-y-4 w-full">
-        <div class="flex items-center justify-center space-x-8 lg:space-x-12 uppercase tracking-[0.4em] text-[9px] md:text-[10px] font-semibold text-brand-charcoal/40">
-            <Link 
-                v-for="link in primaryLinks" 
-                :key="link.name" 
+    <nav class="hidden w-full flex-col items-center space-y-3 md:flex">
+        <div
+            class="flex items-center justify-center space-x-8 text-[12px] font-bold tracking-[0.2em] text-brand-charcoal/70 uppercase md:text-[13px] lg:space-x-12"
+        >
+            <Link
+                v-for="link in primaryLinks"
+                :key="link.name"
                 :href="route(link.route)"
-                class="hover:text-brand-charcoal transition-all duration-700 relative group py-2"
-                :class="{ 'text-brand-charcoal !tracking-[0.5em]': isActive(link.route) }"
+                class="group relative py-2 transition-all duration-500 hover:text-brand-ruby"
+                :class="{
+                    'font-black !tracking-[0.25em] text-brand-ruby': isActive(
+                        link.route,
+                    ),
+                }"
             >
                 {{ link.name }}
-                <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1.5px] bg-brand-ruby/60 transition-all duration-700 cubic-bezier(0.4, 0, 0.2, 1) group-hover:w-full" :class="{ 'w-full !bg-brand-ruby': isActive(link.route) }"></span>
+                <span
+                    class="cubic-bezier(0.4, 0, 0.2, 1) absolute bottom-0 left-1/2 h-[2px] w-0 -translate-x-1/2 bg-brand-ruby transition-all duration-500 group-hover:w-full"
+                    :class="{ 'w-full !bg-brand-ruby': isActive(link.route) }"
+                ></span>
             </Link>
         </div>
 
         <!-- Auth Links (Subtle & Elegant) -->
-        <div class="flex items-center space-x-8 text-[8px] uppercase tracking-[0.3em] text-brand-charcoal/20">
+        <div
+            class="flex items-center space-x-8 text-[11px] font-semibold tracking-[0.15em] text-brand-charcoal/40 uppercase"
+        >
             <template v-if="$page.props.auth.user">
-                <Link :href="route('profile.edit')" class="hover:text-brand-charcoal transition-colors hover:tracking-[0.4em]">Cont</Link>
-                <Link :href="route('logout')" method="post" as="button" class="hover:text-brand-charcoal transition-colors hover:tracking-[0.4em] bg-transparent border-none p-0 cursor-pointer">Deconectare</Link>
+                <Link
+                    :href="route('profile.edit')"
+                    class="transition-colors hover:tracking-[0.2em] hover:text-brand-ruby"
+                    >Cont</Link
+                >
+                <Link
+                    :href="route('logout')"
+                    method="post"
+                    as="button"
+                    class="cursor-pointer border-none bg-transparent p-0 transition-colors hover:tracking-[0.2em] hover:text-brand-ruby"
+                    >Deconectare</Link
+                >
             </template>
             <template v-else>
-                <Link :href="route('login')" class="hover:text-brand-charcoal transition-colors hover:tracking-[0.4em]">Autentificare</Link>
+                <Link
+                    :href="route('login')"
+                    class="transition-colors hover:tracking-[0.2em] hover:text-brand-ruby"
+                    >Autentificare</Link
+                >
                 <span class="opacity-30">/</span>
-                <Link :href="route('register')" class="hover:text-brand-charcoal transition-colors hover:tracking-[0.4em]">Înregistrare</Link>
+                <Link
+                    :href="route('register')"
+                    class="transition-colors hover:tracking-[0.2em] hover:text-brand-ruby"
+                    >Înregistrare</Link
+                >
             </template>
         </div>
     </nav>
 
-
     <!-- Mobile Navigation Toggle -->
-    <button 
+    <button
         @click="toggleMenu"
-        class="md:hidden flex flex-col space-y-1.5 focus:outline-none z-[110] relative p-2 -mr-2"
+        class="relative z-[110] -mr-2 flex flex-col space-y-1.5 p-2 focus:outline-none md:hidden"
         aria-label="Toggle navigation menu"
     >
-        <span :class="{ 'rotate-45 translate-y-[8px] !bg-brand-charcoal': isOpen }" class="block w-6 h-0.5 bg-brand-charcoal/70 transition-all duration-500"></span>
-        <span :class="{ 'opacity-0': isOpen }" class="block w-6 h-0.5 bg-brand-charcoal/70 transition-all duration-500"></span>
-        <span :class="{ '-rotate-45 -translate-y-[8px] !bg-brand-charcoal': isOpen }" class="block w-6 h-0.5 bg-brand-charcoal/70 transition-all duration-500"></span>
+        <span
+            :class="{
+                'translate-y-[8px] rotate-45 !bg-brand-charcoal': isOpen,
+            }"
+            class="block h-0.5 w-6 bg-brand-charcoal/70 transition-all duration-500"
+        ></span>
+        <span
+            :class="{ 'opacity-0': isOpen }"
+            class="block h-0.5 w-6 bg-brand-charcoal/70 transition-all duration-500"
+        ></span>
+        <span
+            :class="{
+                '-translate-y-[8px] -rotate-45 !bg-brand-charcoal': isOpen,
+            }"
+            class="block h-0.5 w-6 bg-brand-charcoal/70 transition-all duration-500"
+        ></span>
     </button>
 
     <!-- Mobile Navigation Menu -->
@@ -91,58 +132,93 @@ const toggleMenu = () => {
             leave-from-class="opacity-100 scale-100"
             leave-to-class="opacity-0 scale-95"
         >
-            <div 
+            <div
                 v-if="isOpen"
-                class="md:hidden fixed inset-0 bg-brand-cream/98 safari-blur-3xl z-[200] flex flex-col items-center justify-center p-8 text-center overflow-y-auto"
+                class="safari-blur-3xl fixed inset-0 z-[200] flex flex-col items-center justify-center overflow-y-auto bg-brand-cream/98 p-8 text-center md:hidden"
             >
                 <!-- Close Button Area (Optional, since toggle is z-[110] but Teleport changes things) -->
                 <!-- We should move the toggle inside or keep it outside. 
                      Actually, if we Teleport the menu, the toggle (relative/z-110) might be UNDER it.
                      Let's move the toggle logic into the teleported div for mobile if needed, 
                      OR teleport the toggle button too. Better yet, just ensure the menu has a high z-index and handle the toggle visibility. -->
-                
-                <button 
+
+                <button
                     @click="toggleMenu"
-                    class="absolute top-8 right-8 flex flex-col space-y-1.5 focus:outline-none z-[210] p-2"
+                    class="absolute top-8 right-8 z-[210] flex flex-col space-y-1.5 p-2 focus:outline-none"
                     aria-label="Close navigation menu"
                 >
-                    <span class="block w-6 h-0.5 bg-brand-charcoal rotate-45 translate-y-[8px] transition-all duration-500"></span>
-                    <span class="block w-6 h-0.5 bg-brand-charcoal opacity-0 transition-all duration-500"></span>
-                    <span class="block w-6 h-0.5 bg-brand-charcoal -rotate-45 -translate-y-[8px] transition-all duration-500"></span>
+                    <span
+                        class="block h-0.5 w-6 translate-y-[8px] rotate-45 bg-brand-charcoal transition-all duration-500"
+                    ></span>
+                    <span
+                        class="block h-0.5 w-6 bg-brand-charcoal opacity-0 transition-all duration-500"
+                    ></span>
+                    <span
+                        class="block h-0.5 w-6 -translate-y-[8px] -rotate-45 bg-brand-charcoal transition-all duration-500"
+                    ></span>
                 </button>
 
-                <nav class="flex flex-col items-center space-y-6 mb-8">
-                    <Link 
+                <nav class="mb-8 flex flex-col items-center space-y-6">
+                    <Link
                         v-for="link in primaryLinks"
                         :key="link.name"
                         :href="route(link.route)"
                         @click="isOpen = false"
-                        class="text-3xl font-serif text-brand-charcoal/30 hover:text-brand-charcoal transition-all duration-500 tracking-tight"
-                        :class="{ 'text-brand-charcoal italic !opacity-100': isActive(link.route) }"
+                        class="font-serif text-3xl tracking-normal text-brand-charcoal/60 transition-all duration-500 hover:text-brand-ruby"
+                        :class="{
+                            'font-bold text-brand-ruby italic !opacity-100':
+                                isActive(link.route),
+                        }"
                     >
                         {{ link.name }}
                     </Link>
                 </nav>
-                
-                <div class="space-y-4 pt-8 border-t border-brand-charcoal w-full max-w-[200px]">
+
+                <div
+                    class="w-full max-w-[200px] space-y-4 border-t border-brand-charcoal/20 pt-6"
+                >
                     <template v-if="$page.props.auth.user">
-                        <Link :href="route('profile.edit')" @click="isOpen = false" class="block w-full text-center text-[11px] uppercase tracking-[0.5em] text-brand-charcoal/40 hover:text-brand-gold transition-colors">Cont</Link>
-                        <Link :href="route('logout')" method="post" as="button" @click="isOpen = false" class="block w-full text-center text-[11px] uppercase tracking-[0.5em] text-brand-charcoal/40 hover:text-brand-gold transition-colors bg-transparent border-none p-0">Deconectare</Link>
+                        <Link
+                            :href="route('profile.edit')"
+                            @click="isOpen = false"
+                            class="block w-full text-center text-xs font-semibold tracking-[0.2em] text-brand-charcoal/70 uppercase transition-colors hover:text-brand-ruby"
+                            >Cont</Link
+                        >
+                        <Link
+                            :href="route('logout')"
+                            method="post"
+                            as="button"
+                            @click="isOpen = false"
+                            class="block w-full border-none bg-transparent p-0 text-center text-xs font-semibold tracking-[0.2em] text-brand-charcoal/70 uppercase transition-colors hover:text-brand-ruby"
+                            >Deconectare</Link
+                        >
                     </template>
                     <template v-else>
-                        <Link :href="route('login')" @click="isOpen = false" class="block w-full text-center text-[11px] uppercase tracking-[0.5em] text-brand-charcoal/40 hover:text-brand-gold transition-colors">Autentificare</Link>
-                        <Link :href="route('register')" @click="isOpen = false" class="block w-full text-center text-[11px] uppercase tracking-[0.5em] text-brand-charcoal/40 hover:text-brand-gold transition-colors">Înregistrare</Link>
+                        <Link
+                            :href="route('login')"
+                            @click="isOpen = false"
+                            class="block w-full text-center text-xs font-semibold tracking-[0.2em] text-brand-charcoal/70 uppercase transition-colors hover:text-brand-ruby"
+                            >Autentificare</Link
+                        >
+                        <Link
+                            :href="route('register')"
+                            @click="isOpen = false"
+                            class="block w-full text-center text-xs font-semibold tracking-[0.2em] text-brand-charcoal/70 uppercase transition-colors hover:text-brand-ruby"
+                            >Înregistrare</Link
+                        >
                     </template>
                 </div>
 
                 <!-- Decorative Footer in Menu -->
-                <div class="mt-12 text-center">
-                    <span class="font-script text-2xl text-brand-gold/60 lowercase">amaryllis floral design</span>
+                <div class="mt-8 text-center">
+                    <span
+                        class="font-script text-2xl font-bold text-brand-ruby lowercase"
+                        >amaryllis floral design</span
+                    >
                 </div>
             </div>
         </Transition>
     </Teleport>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

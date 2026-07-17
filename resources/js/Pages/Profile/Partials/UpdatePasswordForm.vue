@@ -37,12 +37,13 @@ const updatePassword = () => {
 <template>
     <section>
         <header>
-            <h2 class="text-2xl font-serif text-gray-900">
+            <h2 class="font-serif text-2xl text-gray-900">
                 Actualizare Parolă
             </h2>
 
-            <p class="mt-2 text-sm text-gray-500 font-light">
-                Asigurați-vă că folosiți o parolă lungă și aleatorie pentru a vă menține contul în siguranță.
+            <p class="mt-2 text-sm font-light text-gray-500">
+                Asigurați-vă că folosiți o parolă lungă și aleatorie pentru a vă
+                menține contul în siguranță.
             </p>
         </header>
 
@@ -101,7 +102,9 @@ const updatePassword = () => {
             </div>
 
             <div class="flex items-center gap-4">
-                <PrimaryButton :disabled="form.processing">Actualizare Parolă</PrimaryButton>
+                <PrimaryButton :disabled="form.processing"
+                    >Actualizare Parolă</PrimaryButton
+                >
 
                 <Transition
                     enter-active-class="transition ease-in-out"
@@ -111,7 +114,7 @@ const updatePassword = () => {
                 >
                     <p
                         v-if="form.recentlySuccessful"
-                        class="text-xs uppercase tracking-widest text-gray-400 font-bold"
+                        class="text-xs font-bold tracking-widest text-gray-400 uppercase"
                     >
                         Actualizat
                     </p>
