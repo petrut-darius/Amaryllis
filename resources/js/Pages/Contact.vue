@@ -109,8 +109,7 @@ const structuredData = computed(() => {
                         class="relative z-10 flex items-center gap-3 transition-colors duration-500 group-hover:text-brand-charcoal"
                     >
                         <i class="fa-brands fa-whatsapp text-base"></i>
-                        <span class="hidden md:inline">WhatsApp</span>
-                        <span class="md:hidden">WA</span>
+                        WhatsApp
                     </span>
                     <div
                         class="absolute inset-0 border border-brand-gold/30 transition-colors duration-500 group-hover:border-brand-gold/60"
@@ -187,7 +186,7 @@ const structuredData = computed(() => {
                             v-model="contactForm.name"
                             id="name"
                             type="text"
-                            class="w-full border-0 border-b-2 border-brand-charcoal/20 bg-transparent px-0 py-3 text-base font-semibold text-brand-charcoal transition-all duration-700 outline-none placeholder:text-brand-charcoal/30 focus:border-brand-ruby focus:ring-0 md:text-lg"
+                            class="w-full bg-transparent px-0 py-3 text-base font-semibold text-brand-charcoal transition-all duration-700 outline-none placeholder:text-brand-gol focus:border-brand-ruby focus:ring-0 md:text-lg"
                             placeholder="Numele tău complet"
                         />
                         <InputError :message="contactForm.errors.name" />
@@ -203,7 +202,7 @@ const structuredData = computed(() => {
                             v-model="contactForm.email"
                             id="email"
                             type="email"
-                            class="w-full border-0 border-b-2 border-brand-charcoal/20 bg-transparent px-0 py-3 text-base font-semibold text-brand-charcoal transition-all duration-700 outline-none placeholder:text-brand-charcoal/30 focus:border-brand-ruby focus:ring-0 md:text-lg"
+                            class="w-full bg-transparent px-0 py-3 text-base font-semibold text-brand-charcoal transition-all duration-700 outline-none placeholder:text-brand-charcoal/30 focus:border-brand-ruby focus:ring-0 md:text-lg"
                             placeholder="Adresa de email"
                         />
                         <InputError :message="contactForm.errors.email" />
@@ -219,7 +218,7 @@ const structuredData = computed(() => {
                             v-model="contactForm.phone"
                             id="phone"
                             type="tel"
-                            class="w-full border-0 border-b-2 border-brand-charcoal/20 bg-transparent px-0 py-3 text-base font-semibold text-brand-charcoal transition-all duration-700 outline-none placeholder:text-brand-charcoal/30 focus:border-brand-ruby focus:ring-0 md:text-lg"
+                            class="w-full bg-transparent px-0 py-3 text-base font-semibold text-brand-charcoal transition-all duration-700 outline-none placeholder:text-brand-charcoal/30 focus:border-brand-ruby focus:ring-0 md:text-lg"
                             placeholder="Numărul de telefon"
                         />
                         <InputError :message="contactForm.errors.phone" />
@@ -235,7 +234,7 @@ const structuredData = computed(() => {
                             v-model="contactForm.eventDate"
                             id="eventDate"
                             type="text"
-                            class="w-full border-0 border-b-2 border-brand-charcoal/20 bg-transparent px-0 py-3 text-base font-semibold text-brand-charcoal transition-all duration-700 outline-none placeholder:text-brand-charcoal/30 focus:border-brand-ruby focus:ring-0 md:text-lg"
+                            class="w-full bg-transparent px-0 py-3 text-base font-semibold text-brand-charcoal transition-all duration-700 outline-none placeholder:text-brand-charcoal/30 focus:border-brand-ruby focus:ring-0 md:text-lg"
                             placeholder="ex. Iunie 2026"
                         />
                         <InputError :message="contactForm.errors.eventDate" />
@@ -251,7 +250,7 @@ const structuredData = computed(() => {
                             v-model="contactForm.subject"
                             id="subject"
                             type="text"
-                            class="w-full border-0 border-b-2 border-brand-charcoal/20 bg-transparent px-0 py-3 text-base font-semibold text-brand-charcoal transition-all duration-700 outline-none placeholder:text-brand-charcoal/30 focus:border-brand-ruby focus:ring-0 md:text-lg"
+                            class="w-full bg-transparent px-0 py-3 text-base font-semibold text-brand-charcoal transition-all duration-700 outline-none placeholder:text-brand-charcoal/30 focus:border-brand-ruby focus:ring-0 md:text-lg"
                             placeholder="Despre ce dorești să ne întrebi?"
                         />
                         <InputError :message="contactForm.errors.subject" />

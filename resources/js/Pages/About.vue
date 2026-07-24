@@ -36,23 +36,22 @@ const structuredData = computed(() => {
         </component>
     </Head>
       <GuestLayout>
-        <div class="space-y-10 md:space-y-20 pt-4 md:pt-6">
+        <div class="space-y-6 md:space-y-10 pt-4 md:pt-6">
             <!-- Story Section: Large Scale Editorial -->
             <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
                 <div class="lg:col-span-6 space-y-6 md:space-y-8 order-2 lg:order-1 px-4 md:px-0">
-                    <div class="space-y-3 md:space-y-4">
-                        <span class="uppercase tracking-[0.3em] md:tracking-[0.4em] text-xs md:text-sm text-brand-ruby font-extrabold block animate-fade-in">Începuturile</span>
-                        <h1 class="text-3xl md:text-8xl font-serif text-brand-charcoal leading-[1.1] md:leading-[1] animate-reveal">
+                    <div class="text-center max-w-3xl mx-auto">
+                        <h1 class="text-3xl md:text-6xl font-serif text-brand-charcoal leading-[1.1] md:leading-[1] animate-reveal">
                             Fondată din <br/>
-                            <span class="italic font-normal text-brand-gold font-script text-3xl md:text-9xl lowercase tracking-normal">pasiune pentru frumos</span>
+                            <span class="italic font-normal text-brand-gold font-script text-3xl md:text-6xl lowercase tracking-normal">pasiune pentru frumos</span>
                         </h1>
                     </div>
                     <div class="space-y-4 md:space-y-6 text-brand-charcoal/85 leading-relaxed text-base md:text-lg font-normal animate-fade-in-up delay-500 max-w-xl">
                         <p>
-                            Totul a început acum aproape 25 de ani, din pasiunea pentru organizarea de evenimente. De la nunți elegante și botezuri intime, până la majorate și decoruri create cu atenție la fiecare detaliu, fondatoarea Amaryllis a fost printre primele persoane din Târgu Mureș care au adus rafinamentul huselor de brocard și conceptul de decor premium.
+                            Totul a început acum aproape 25 de ani, din pasiunea pentru organizarea de evenimente. De la nunți și botezuri până la majorate, fondatoarea Amaryllis a fost printre primele persoane din Târgu Mureș care au introdus decorurile premium și husele de brocard.
                         </p>
                         <p>
-                            În timp, experiența acumulată a dus firesc către lumea florilor acel element care transformă orice moment într-o amintire. În 2015, am preluat florăria care există încă din 2003 și am început să construim ceea ce astăzi înseamnă Amaryllis: un loc în care eleganța, autenticitatea și emoția se întâlnesc.
+                            Experiența a dus firesc către lumea florilor, iar în 2015 am preluat florăria înființată în 2003. Astăzi, Amaryllis este locul în care eleganța, autenticitatea și emoția dau viață fiecărui moment.
                         </p>
                     </div>
                     <div class="pt-2 md:pt-4 animate-fade-in delay-700">
@@ -66,9 +65,8 @@ const structuredData = computed(() => {
             </section>
 
             <!-- Philosophy Section: Asymmetrical Split -->
-            <section class="space-y-6 md:space-y-10 px-4 md:px-0">
-                <div class="text-center space-y-3 md:space-y-4 max-w-3xl mx-auto">
-                    <p class="text-xs md:text-sm uppercase tracking-[0.3em] md:tracking-[0.4em] text-brand-ruby font-extrabold">Viziunea Noastră</p>
+            <section class="space-y-10 md:space-y-16 px-4 md:px-0">
+                <div class="text-center max-w-3xl mx-auto">
                     <h2 class="text-2xl md:text-7xl font-serif text-brand-charcoal">O abordare <span class="italic font-normal font-script text-2xl md:text-8xl text-brand-gold lowercase tracking-normal">autentică</span></h2>
                 </div>
                 
@@ -81,10 +79,7 @@ const structuredData = computed(() => {
                         <div class="space-y-3 md:space-y-4 max-w-md">
                             <h3 class="font-serif italic text-xl md:text-5xl text-brand-charcoal">Design Intuitiv</h3>
                             <p class="text-brand-charcoal/80 leading-relaxed font-normal text-sm md:text-base">
-                                Credem că florile nu sunt doar un cadou. Sunt emoție, intenție și modul prin care oamenii transmit ceea ce uneori nu poate fi spus în cuvinte. Fiecare creație este realizată cu atenție, adaptată stilului și poveștii fiecărui client.
-                            </p>
-                            <p class="text-brand-charcoal/80 leading-relaxed font-normal text-sm md:text-base">
-                                Această flexibilitate și atenție la detalii definesc stilul Amaryllis autentic, fresh și elegant, capabil să devină exact ceea ce momentul are nevoie pentru a rămâne în suflet.
+                                La Amaryllis, credem că florile transmit emoții și spun povești dincolo de cuvinte. Fiecare creație este realizată cu grijă și adaptată fiecărui client, într-un stil autentic, fresh și elegant, care transformă orice moment într-o amintire de neuitat.    
                             </p>
                         </div>
                     </div>
@@ -93,13 +88,10 @@ const structuredData = computed(() => {
                         <div class="relative aspect-video md:aspect-[4/3] overflow-hidden bg-brand-rose/10 shadow-xl md:shadow-2xl animate-reveal delay-500">
                             <img src="https://images.unsplash.com/photo-1453904300235-0f2f60b15b5d?auto=format&fit=crop&q=80&w=1000" alt="Evoluție" class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-transform duration-[2s] group-hover:scale-110" />
                         </div>
-                        <div class="space-y-3 md:space-y-4 max-w-md ml-auto md:text-right">
+                        <div class="space-y-3 md:space-y-4 max-w-md md:ml-auto">
                             <h3 class="font-serif italic text-xl md:text-5xl text-brand-charcoal">Evoluție Constantă</h3>
                             <p class="text-brand-charcoal/80 leading-relaxed font-normal text-sm md:text-base">
-                                De la „florăria de la poalele podului Mureș” de pe strada Tisei, astăzi ne continuăm povestea într-un nou spațiu în zona Tudor, pe strada 1 Decembrie 1918, cu aceeași pasiune și o viziune modernă.
-                            </p>
-                            <p class="text-brand-charcoal/80 leading-relaxed font-normal text-sm md:text-base">
-                                Ne dorim să ridicăm standardul experienței florale în Târgu Mureș și să construim un brand local în care oamenii aleg să revină pentru calitate, profesionalism și emoția pe care o simt de fiecare dată când ne trec pragul.
+                                De la florăria de pe strada Tisei, ne continuăm astăzi povestea într-un nou spațiu, pe strada 1 Decembrie 1918, păstrând aceeași pasiune și o viziune modernă. Ne dorim să oferim o experiență florală deosebită și să fim un brand local ales pentru calitate, profesionalism și emoția fiecărei vizite.    
                             </p>
                         </div>
                     </div>

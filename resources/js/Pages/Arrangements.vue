@@ -84,12 +84,11 @@ const structuredData = computed(() => {
                 <p
                     class="animate-fade-in-up mx-auto max-w-2xl text-base leading-relaxed font-semibold text-brand-charcoal/85 italic delay-500 md:text-lg"
                 >
-                    „Compoziții florale sofisticate concepute pentru a înnobila
-                    orice spațiu. Fiecare aranjament este un echilibru atent
-                    între culoare, formă și textură.”
+                    „Compoziții florale sofisticate ce îmbină echilibrat
+                    culoarea, forma și textura pentru a înnobila orice spațiu.”
                 </p>
                 <div
-                    class="animate-fade-in mx-auto h-px w-24 bg-brand-gold/30 delay-700"
+                    class="animate-fade-in mx-auto h-px w-24 bg-brand-ruby delay-700"
                 ></div>
             </div>
 

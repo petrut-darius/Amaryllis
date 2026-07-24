@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { Head } from '@inertiajs/vue3';
-import { computed, onMounted } from 'vue';
+import { Head, usePage } from '@inertiajs/vue3';
+import { computed, onMounted, ref } from 'vue';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
+
+const page = usePage();
 
 const props = defineProps({
     reviews: Array,
@@ -38,7 +40,11 @@ function handleImageError(e: Event) {
     target.classList.add('grayscale');
 }
 
+const show = ref(false);
+
 onMounted(() => {
+    console.log(show.value);
+
     if (props.googleMapsKey && !document.getElementById('google-maps-script')) {
         const script = document.createElement('script');
         script.id = 'google-maps-script';
@@ -95,7 +101,7 @@ onMounted(() => {
                     Ne asigurăm că fiecare petală ajunge în condiții perfecte,
                     păstrând prospețimea și integritatea creațiilor noastre.
                 </p>
-                <div class="mx-auto h-[2px] w-12 bg-brand-gold/60"></div>
+                <div class="mx-auto h-[2px] w-12 bg-brand-ruby"></div>
             </div>
 
             <!-- Content Grid -->
@@ -123,15 +129,11 @@ onMounted(() => {
                     >
                         <li class="flex items-center gap-4">
                             <span class="h-1.5 w-1.5 bg-brand-ruby"></span> Luni
-                            – Sâmbătă: 09:00 – 19:00
+                            – Sâmbătă: 09:00 – 20:00
                         </li>
                         <li class="flex items-center gap-4">
-                            <span class="h-1.5 w-1.5 bg-brand-gold"></span>
-                            Duminică: Doar la cerere specială
-                        </li>
-                        <li class="flex items-center gap-4">
-                            <span class="h-1.5 w-1.5 bg-brand-ruby/50"></span>
-                            În aceeași zi: Comandă înainte de 12:00
+                            <span class="h-1.5 w-1.5 bg-brand-ruby"></span>
+                            Duminică: 09:00 – 18:00
                         </li>
                     </ul>
                 </div>
@@ -180,41 +182,67 @@ onMounted(() => {
                     >
                         Întrebări Frecvente
                     </h2>
-                    <div class="mx-auto h-[2px] w-12 bg-brand-ruby/60"></div>
+                    <div class="mx-auto h-[2px] w-12 bg-brand-ruby"></div>
                 </div>
-                <div
-                    class="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-2 md:gap-8"
-                >
-                    <div class="group space-y-4">
-                        <p
-                            class="text-xs font-bold tracking-[0.15em] text-brand-charcoal uppercase transition-colors duration-300 group-hover:text-brand-ruby md:text-sm"
-                        >
-                            Cum vor fi ambalate florile mele?
-                        </p>
-                        <p
-                            class="text-sm leading-relaxed font-normal text-brand-charcoal/80 md:text-base"
-                        >
-                            Folosim ambalaje minimaliste și ecologice care
-                            protejează florile, evidențiind în același timp
-                            frumusețea lor naturală. Fiecare aranjament include
-                            instrucțiuni de îngrijire și hrană pentru flori.
-                        </p>
+
+                <!-- FAQ Items Grid with Top-to-Bottom Enter / Bottom-to-Top Leave -->
+                <Transition name="faq-toggle">
+                    <div
+                        v-show="show"
+                        class="faq-container mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-2 md:gap-8"
+                    >
+                        <div class="group space-y-4">
+                            <p
+                                class="text-xs font-bold tracking-[0.15em] text-brand-ruby md:text-brand-charcoal uppercase transition-colors duration-300 group-hover:md:text-brand-ruby md:text-sm"
+                            >
+                                Cum vor fi ambalate florile mele?
+                            </p>
+                            <p
+                                class="text-sm leading-relaxed font-normal text-brand-charcoal/80 md:text-base"
+                            >
+                                Folosim ambalaje minimaliste și ecologice care
+                                protejează florile, evidențiind în același timp
+                                frumusețea lor naturală. Fiecare aranjament include
+                                instrucțiuni de îngrijire și hrană pentru flori.
+                            </p>
+                        </div>
+                        <div class="group space-y-4">
+                            <p
+                                class="text-xs font-bold tracking-[0.15em] text-brand-ruby md:text-brand-charcoal uppercase transition-colors duration-300 group-hover:text-brand-ruby md:text-sm"
+                            >
+                                Pot solicita o oră specifică de livrare?
+                            </p>
+                            <p
+                                class="text-sm leading-relaxed font-normal text-brand-charcoal/80 md:text-base"
+                            >
+                                Deși nu putem garanta ore exacte de livrare, facem
+                                tot posibilul pentru a respecta preferințele de
+                                dimineață sau după-amiază în intervalele noastre de
+                                livrare.
+                            </p>
+                        </div>
                     </div>
-                    <div class="group space-y-4">
-                        <p
-                            class="text-xs font-bold tracking-[0.15em] text-brand-charcoal uppercase transition-colors duration-300 group-hover:text-brand-ruby md:text-sm"
+                </Transition>
+
+                <!-- Mobile Toggle Button (Zero Layout Shift) -->
+                <div class="flex justify-center md:hidden">
+                    <button
+                        @click="show = !show"
+                        type="button"
+                        class="group relative inline-flex items-center gap-2.5 rounded-full border border-brand-ruby/30 bg-white/90 px-6 py-2.5 text-xs font-bold tracking-[0.2em] text-brand-ruby uppercase shadow-sm backdrop-blur-sm transition-all duration-300 hover:border-brand-ruby hover:bg-brand-ruby hover:text-white hover:shadow-md hover:shadow-brand-ruby/20 active:scale-95 focus:outline-none"
+                    >
+                        <span>{{ show ? 'Show less' : 'Show more' }}</span>
+                        <svg
+                            class="h-4 w-4 transition-transform duration-500 ease-out"
+                            :class="show ? 'rotate-180' : 'rotate-0'"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2.5"
                         >
-                            Pot solicita o oră specifică de livrare?
-                        </p>
-                        <p
-                            class="text-sm leading-relaxed font-normal text-brand-charcoal/80 md:text-base"
-                        >
-                            Deși nu putem garanta ore exacte de livrare, facem
-                            tot posibilul pentru a respecta preferințele de
-                            dimineață sau după-amiază în intervalele noastre de
-                            livrare.
-                        </p>
-                    </div>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
                 </div>
             </section>
 
@@ -343,3 +371,57 @@ onMounted(() => {
         </div>
     </GuestLayout>
 </template>
+
+<style scoped>
+@media (max-width: 767px) {
+    /* Mobile FAQ transition: Pure Fade-in top-to-bottom on enter, Pure Fade-out bottom-to-top on leave */
+    .faq-toggle-enter-active {
+        transition: clip-path 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+                    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+                    max-height 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+        max-height: 400px;
+        overflow: hidden;
+    }
+
+    .faq-toggle-leave-active {
+        transition: clip-path 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+                    opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+                    max-height 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+        max-height: 400px;
+        overflow: hidden;
+    }
+
+    .faq-toggle-enter-from {
+        opacity: 0;
+        clip-path: inset(0 0 100% 0);
+        max-height: 0;
+    }
+
+    .faq-toggle-enter-to {
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+        max-height: 400px;
+    }
+
+    .faq-toggle-leave-from {
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+        max-height: 400px;
+    }
+
+    .faq-toggle-leave-to {
+        opacity: 0;
+        clip-path: inset(0 0 100% 0);
+        max-height: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .faq-container {
+        display: grid !important;
+        max-height: none !important;
+        opacity: 1 !important;
+        clip-path: none !important;
+    }
+}
+</style>

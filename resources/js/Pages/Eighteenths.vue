@@ -72,11 +72,9 @@ const structuredData = computed(() => {
                 <p
                     class="mx-auto max-w-2xl text-sm leading-relaxed font-semibold text-brand-charcoal/85 md:text-lg"
                 >
-                    Energie și culoare pentru cele mai vibrante momente din
-                    viață. Celebrăm trecerea în viața de adult cu artă florală
-                    contemporană, pe cât de îndrăzneață, pe atât de frumoasă.
+                    Energie și culoare pentru momente memorabile. Celebrăm începutul vieții de adult prin artă florală contemporană, îndrăzneață și elegantă.
                 </p>
-                <div class="mx-auto h-[2px] w-12 bg-brand-gold/60"></div>
+                <div class="mx-auto h-[2px] w-12 bg-brand-ruby"></div>
             </div>
 
             <!-- Eighteenths List -->

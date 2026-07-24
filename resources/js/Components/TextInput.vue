@@ -46,7 +46,7 @@ defineExpose({ focus: () => input.value?.focus() });
                         : 'password'
                     : attrs.type || 'text'
             "
-            class="w-full border-0 border-b border-brand-charcoal/10 bg-transparent py-4 pl-0 text-sm font-light text-brand-charcoal transition-all duration-300 outline-none placeholder:text-brand-charcoal/20 focus:border-brand-ruby focus:ring-0"
+            class="w-full border-0 border-b-2 border-brand-charcoal/20 bg-transparent py-4 pl-0 text-sm font-light text-brand-charcoal transition-all duration-300 outline-none placeholder:text-brand-charcoal/20 focus:border-brand-ruby focus:ring-0"
             :class="isPassword ? 'pr-10' : 'pr-0'"
             v-model="model"
             ref="input"

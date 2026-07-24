@@ -82,13 +82,12 @@ const structuredData = computed(() => {
                 <p
                     class="animate-fade-in-up mx-auto max-w-2xl text-base leading-relaxed font-semibold text-brand-charcoal/85 italic delay-500 md:text-lg"
                 >
-                    „Buchete realizate manual care surprind frumusețea sălbatică
-                    a naturii. Fiecare creație este o compoziție unică de flori
-                    de sezon, selectate cu atenție pentru culoare, textură și
+                    „Buchete realizate manual, compoziții unice din flori de
+                    sezon selectate cu atenție pentru culoare, textură și
                     parfum.”
                 </p>
                 <div
-                    class="animate-fade-in mx-auto h-px w-24 bg-brand-gold/30 delay-700"
+                    class="animate-fade-in mx-auto h-px w-24 bg-brand-ruby delay-700"
                 ></div>
             </div>
 

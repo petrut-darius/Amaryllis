@@ -89,12 +89,10 @@ const structuredData = computed(() => {
                 <p
                     class="mx-auto max-w-2xl text-sm leading-relaxed font-semibold text-brand-charcoal/85 md:text-lg"
                 >
-                    Explorează colecția noastră diversă de artă florală. De la
-                    buchete bogate până la fire individuale delicate, fiecare
-                    categorie reflectă pasiunea noastră pentru frumusețea
-                    botanică.
+                    Explorează colecția noastră de la buchete bogate la fire
+                    delicate, reflectând pasiunea noastră botanică.
                 </p>
-                <div class="mx-auto h-[2px] w-12 bg-brand-gold/60"></div>
+                <div class="mx-auto h-[2px] w-12 bg-brand-ruby"></div>
             </div>
 
             <!-- Categories Grid -->
@@ -152,11 +150,6 @@ const structuredData = computed(() => {
                         Găsește expresia perfectă <br />
                         în flori.
                     </h2>
-                    <p
-                        class="text-xs font-extrabold tracking-[0.25em] text-brand-ruby uppercase md:text-sm"
-                    >
-                        Design floral personalizat pentru fiecare moment
-                    </p>
                 </div>
                 <Link :href="route('contact.create')">
                     <PrimaryButton>Trimite o cerere</PrimaryButton>

@@ -29,7 +29,7 @@ import Navigation from '@/Components/Navigation.vue';
 
         <!-- Header & Navigation Area -->
         <header
-            class="safari-blur sticky top-0 z-50 transform-gpu border-b border-brand-charcoal bg-brand-linen/60 px-4 py-2 transition-all duration-500 sm:px-6 md:px-8 md:py-4"
+            class="safari-blur sticky top-0 z-50 transform-gpu border-b border-brand-charcoal bg-brand-linen/60 px-4 py-2 transition-all duration-500 sm:px-6 md:px-8 md:py-4 sm:m-0"
         >
             <div class="mx-auto max-w-7xl">
                 <div

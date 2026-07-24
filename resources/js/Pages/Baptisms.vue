@@ -73,11 +73,10 @@ const structuredData = computed(() => {
                 <p
                     class="mx-auto max-w-2xl text-sm leading-relaxed font-semibold text-brand-charcoal/85 md:text-lg"
                 >
-                    Eleganță și delicatețe pentru primele momente speciale din
-                    viață. Creăm aranjamente florale suave și delicate care
-                    celebrează noile începuturi cu grație și frumusețe.
+                    Eleganță și delicatețe pentru primele momente speciale,
+                    celebrând noile începuturi prin aranjamente florale suave.
                 </p>
-                <div class="mx-auto h-[2px] w-12 bg-brand-gold/60"></div>
+                <div class="mx-auto h-[2px] w-12 bg-brand-ruby"></div>
             </div>
 
             <!-- Baptisms List -->

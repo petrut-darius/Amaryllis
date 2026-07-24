@@ -239,7 +239,7 @@ const structuredData = computed(() => {
                         <!-- Overlapping Text -->
                         <div class="absolute -bottom-8 -right-4 lg:-bottom-12 lg:-right-16 bg-white p-6 lg:p-12 shadow-xl max-w-[280px] md:max-w-md animate-fade-in-up delay-700">
                             <h2 class="text-2xl md:text-5xl font-serif text-brand-charcoal leading-tight">
-                                Un limbaj vorbit în <span class="italic font-normal text-brand-gold font-script text-3xl md:text-4xl lowercase tracking-normal">petale</span>.
+                                Transformam spatii in <span class="italic font-normal text-brand-gold font-script text-3xl md:text-4xl lowercase tracking-normal">amintiri.</span>.
                             </h2>
                         </div>
                     </div>
@@ -247,28 +247,21 @@ const structuredData = computed(() => {
                         <p class="text-base md:text-lg text-brand-charcoal/85 leading-relaxed font-semibold italic">
                             „Credem că florile sunt mai mult decât simple decorațiuni ele sunt un mesager al emoțiilor, o modalitate de a surprinde frumusețea trecătoare a unui moment și de a o păstra aproape de inimă pentru totdeauna.”
                         </p>
-                        <div class="pt-4">
-                            <Link :href="route('about')" class="inline-block group">
-                                <span class="text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-brand-ruby group-hover:text-brand-gold transition-all duration-300 group-hover:tracking-[0.3em]">Întreaga noastră poveste</span>
-                                <div class="h-[2px] bg-brand-gold w-0 group-hover:w-full transition-all duration-500 mt-2"></div>
-                            </Link>
-                        </div>
                     </div>
                 </div>
             </section>
  
             
             <!-- Final CTA: Bold Editorial -->
-            <section class="py-8 md:py-12 text-center space-y-8 md:space-y-10">
-                <div class="space-y-4 md:space-y-6 px-4 md:px-0">
+            <section class="my-8 md:my-12 text-center space-y-8 md:space-y-10">
+                <div class="space-y-4 md:space-y-6 px-0 mt-20 md:mt-10">
                     <h2 class="text-4xl md:text-[10rem] font-serif text-brand-charcoal leading-none tracking-tighter">Ești gata să <span class="italic font-normal text-brand-ruby font-script text-5xl md:text-[12rem] tracking-normal">înflorești?</span></h2>
-                    <p class="text-brand-ruby font-bold uppercase tracking-[0.3em] md:tracking-[0.4em] text-xs md:text-sm">Hai să colaborăm pentru următorul tău moment special.</p>
                 </div>
                 <div class="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8">
                     <Link :href="route('contact.create')">
                         <PrimaryButton>Trimite o cerere</PrimaryButton>
                     </Link>
-                    <Link :href="route('gallery')" class="text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-brand-charcoal/80 hover:text-brand-gold transition-all border-b-2 border-brand-ruby/20 pb-2 hover:border-brand-gold hover:tracking-[0.3em]">
+                    <Link :href="route('gallery')" class="text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-brand-charcoal/80 hover:text-brand-gold transition-all border-b-2 border-brand-ruby/20 pb-2 hover:border-brand-ruby hover:tracking-[0.3em]">
                         Vezi portofoliul
                     </Link>
                 </div>

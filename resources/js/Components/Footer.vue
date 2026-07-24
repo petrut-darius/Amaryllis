@@ -39,7 +39,7 @@ const currentYear = new Date().getFullYear();
             <!-- Navigation Links -->
             <div class="grid w-full grid-cols-2 gap-8 lg:col-span-4">
                 <div
-                    class="flex flex-col items-center space-y-6 lg:items-start"
+                    class="flex flex-col items-start space-y-6 ml-4"
                 >
                     <h4
                         class="text-[10px] font-bold tracking-[0.5em] text-brand-cream/20 uppercase"
@@ -74,7 +74,7 @@ const currentYear = new Date().getFullYear();
                 </div>
 
                 <div
-                    class="flex flex-col items-center space-y-6 lg:items-start"
+                    class="flex flex-col items-start space-y-6"
                 >
                     <h4
                         class="text-[10px] font-bold tracking-[0.5em] text-brand-cream/20 uppercase"

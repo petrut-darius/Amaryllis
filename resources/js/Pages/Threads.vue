@@ -82,12 +82,11 @@ const structuredData = computed(() => {
                 <p
                     class="animate-fade-in-up mx-auto max-w-2xl text-base leading-relaxed font-semibold text-brand-charcoal/85 italic delay-500 md:text-lg"
                 >
-                    "Flori individuale și fire delicate de o frumusețe naturală.
-                    Celebrăm caracterul unic și forma elegantă a fiecărei
-                    flori."
+                    „Flori individuale și fire delicate ce celebrează caracterul
+                    unic și forma elegantă a fiecărei flori.”
                 </p>
                 <div
-                    class="animate-fade-in mx-auto h-px w-24 bg-brand-gold/30 delay-700"
+                    class="animate-fade-in mx-auto h-px w-24 bg-brand-ruby delay-700"
                 ></div>
             </div>
 

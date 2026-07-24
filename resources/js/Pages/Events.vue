@@ -81,11 +81,10 @@ const structuredData = computed(() => {
                 <p
                     class="mx-auto max-w-2xl text-sm leading-relaxed font-semibold text-brand-charcoal/85 md:text-lg"
                 >
-                    Elevăm orice ocazie prin design floral artistic. Transformăm
-                    spațiile și momentele în experiențe de neuitat prin
-                    compoziții atente și frumusețe naturală.
+                    Elevăm orice ocazie prin design floral artistic, transformând
+                    spațiile și momentele în experiențe de neuitat.
                 </p>
-                <div class="mx-auto h-[2px] w-12 bg-brand-gold/60"></div>
+                <div class="mx-auto h-[2px] w-12 bg-brand-ruby"></div>
             </div>
 
             <!-- Categories Grid -->
@@ -143,11 +142,6 @@ const structuredData = computed(() => {
                         Organizează un eveniment care <br />
                         pare un vis.
                     </h2>
-                    <p
-                        class="text-xs font-extrabold tracking-[0.25em] text-brand-ruby uppercase md:text-sm"
-                    >
-                        Instalații și design floral personalizat
-                    </p>
                 </div>
                 <Link :href="route('contact.create')">
                     <PrimaryButton>Trimite o cerere</PrimaryButton>

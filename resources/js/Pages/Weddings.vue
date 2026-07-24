@@ -72,12 +72,10 @@ const structuredData = computed(() => {
                 <p
                     class="mx-auto max-w-2xl text-sm leading-relaxed font-semibold text-brand-charcoal/85 md:text-lg"
                 >
-                    Povești de dragoste spuse prin design floral unic. Ne ocupăm
-                    de fiecare detaliu pentru a reflecta călătoria voastră
-                    personală, creând o atmosferă pe atât de unică pe cât este
-                    legătura voastră.
+                    Povești de dragoste spuse prin design floral unic, adaptat
+                    în detaliu călătoriei voastre personale.
                 </p>
-                <div class="mx-auto h-[2px] w-12 bg-brand-gold/60"></div>
+                <div class="mx-auto h-[2px] w-12 bg-brand-ruby"></div>
             </div>
 
             <!-- Weddings List -->

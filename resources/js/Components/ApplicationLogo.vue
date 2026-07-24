@@ -9,7 +9,7 @@ defineProps({
 <template>
     <div class="group flex cursor-pointer flex-col items-center">
         <div
-            class="font-serif tracking-[0.3em] text-brand-charcoal uppercase transition-all duration-700 group-hover:text-brand-ruby"
+            class="font-serif tracking-[0.3em] text-brand-ruby uppercase transition-all duration-700"
             :class="{
                 'text-2xl': size === 'normal',
                 'text-4xl md:text-6xl': size === 'large',
@@ -19,10 +19,10 @@ defineProps({
             Amaryllis
         </div>
         <div
-            class="mt-2 font-sans font-light tracking-[0.8em] text-brand-charcoal/30 uppercase"
+            class="mt-2 font-sans tracking-[0.8em] uppercase"
             :class="{
                 'text-[8px]': size === 'normal',
-                'text-[10px]': size === 'large',
+                'text-[12px]': size === 'large',
                 'text-[7px]': size === 'small',
             }"
         >

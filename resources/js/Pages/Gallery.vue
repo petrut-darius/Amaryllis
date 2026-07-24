@@ -70,11 +70,10 @@ const structuredData = computed(() => {
                 <p
                     class="text-xs leading-relaxed font-light text-brand-charcoal/50 md:text-base"
                 >
-                    O călătorie vizuală prin peisajele noastre florale. Fiecare
-                    creație este o dovadă a frumuseții lumii naturale și a
-                    dedicării noastre pentru arta aranjamentelor.
+                    O călătorie vizuală prin peisajele florale și creațiile
+                    noastre dedicate artei aranjamentelor.
                 </p>
-                <div class="mx-auto h-px w-12 bg-brand-blush"></div>
+                <div class="mx-auto h-px w-12 bg-brand-ruby"></div>
             </div>
 
             <!-- Category Links -->

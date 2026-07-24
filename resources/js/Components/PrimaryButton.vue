@@ -4,19 +4,19 @@
     >
         <!-- Hover Background Fill -->
         <div
-            class="absolute inset-0 w-0 bg-brand-gold transition-all duration-500 ease-out group-hover:w-full"
+            class="absolute inset-0 w-0 bg-white transition-all duration-500 ease-out group-hover:w-full"
         ></div>
 
         <!-- Button Text -->
         <span
-            class="relative z-10 transition-colors duration-500 group-hover:text-brand-charcoal"
+            class="relative z-10 transition-colors duration-500 group-hover:text-brand-ruby"
         >
             <slot />
         </span>
 
         <!-- Subtle Border Shine -->
         <div
-            class="absolute inset-0 border border-brand-gold/30 transition-colors duration-500 group-hover:border-brand-gold/60"
+            class="absolute inset-0 border border-brand-gold/30 transition-colors duration-500 group-hover:border-white/60"
         ></div>
     </button>
 </template>
