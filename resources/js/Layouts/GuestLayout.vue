@@ -57,6 +57,42 @@ import Navigation from '@/Components/Navigation.vue';
             class="mx-auto max-w-7xl px-4 pt-4 pb-6 sm:px-6 md:px-8 md:pt-6 md:pb-10 lg:pb-10"
         >
             <slot />
+       
+            <div
+                class="pointer-events-none fixed inset-x-0 bottom-4 z-50 flex justify-center px-4 sm:bottom-6 md:bottom-8"
+            >
+                <a
+                    href="tel:+40745265516"
+                    class="group pointer-events-auto relative flex max-w-full items-center justify-between gap-3 overflow-hidden rounded-full border border-brand-ruby/20 bg-white px-4 py-2.5 shadow-xl shadow-brand-ruby/30 transition-all duration-500 hover:scale-[1.02] hover:border-brand-ruby/50 hover:shadow-2xl hover:shadow-brand-ruby/50 active:scale-95 sm:gap-6 sm:px-6 sm:py-3 md:px-8 md:py-3.5"
+                    aria-label="Call us: Floraria Amaryllis"
+                >
+                    <div
+                        class="absolute inset-0 w-0 bg-brand-ruby/5 transition-all duration-500 ease-out group-hover:w-full"
+                    ></div>
+
+                    <div class="relative z-10 flex items-center gap-1.5 sm:gap-2.5">
+                        <span
+                            class="text-[11px] font-bold tracking-[0.15em] text-black uppercase sm:text-xs md:text-sm sm:tracking-[0.2em]"
+                        >
+                            Call us!
+                        </span>
+                        <span class="text-black/30 font-light text-xs sm:text-sm">·</span>
+                        <span
+                            class="font-serif text-xs font-medium tracking-normal text-black italic sm:text-sm md:text-base"
+                        >
+                            Floraria Amaryllis
+                        </span>
+                    </div>
+
+                    <div
+                        class="relative z-10 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-ruby text-white shadow-sm transition-all duration-500 group-hover:scale-110 sm:h-8 sm:w-8 md:h-9 md:w-9"
+                    >
+                        <i
+                            class="fa-solid fa-phone-flip text-[11px] transition-transform duration-500 group-hover:rotate-12 sm:text-xs md:text-sm"
+                        ></i>
+                    </div>
+                </a>
+            </div>
         </main>
 
         <!-- Footer -->

@@ -19,12 +19,10 @@ class SubscriberController extends Controller
     {
         $data = $request->validated();
 
-        // dd($data);
-
         if (Auth::check()) {
             $termsAcceptedAt = Auth::user()->terms_accepted_at;
         } else {
-            $termsAcceptedAt = $data['terms_accepted_at'];
+            $termsAcceptedAt = (bool) $data["terms_accepted_at"];
         }
 
         Subscriber::updateOrCreate(

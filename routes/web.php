@@ -10,11 +10,10 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\ThreadController;
 use App\Http\Controllers\WeddingsController;
-use App\Mail\ValentinesDay;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\App;
 use Inertia\Inertia;
 
 Route::post('/debug-safari', function (Request $request) {
@@ -199,4 +198,4 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
 });
 
-require __DIR__.'/auth.php';
+Route::get( '/err/{status?}', fn( int | null $status = null ) => App::abort( $status ?? 418 ) );

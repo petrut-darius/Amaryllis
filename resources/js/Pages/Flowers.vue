@@ -43,7 +43,7 @@ const structuredData = computed(() => {
         description:
             'Explorați colecțiile noastre de buchete, aranjamente și flori la fir.',
         publisher: {
-            '@id': 'https://amaryllis-flori.ro/#organization',
+            '@id': 'https://floraria-amaryllis.ro/#organization',
         },
     });
 });

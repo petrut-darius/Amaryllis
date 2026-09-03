@@ -84,6 +84,9 @@ createInertiaApp({
         const app = createApp({ render: () => h(App, props) });
 
         app.config.errorHandler = (err, instance, info) => {
+            console.error(err);
+            window.reportError?.(err, {info});
+
             debug({
                 type: 'vue.errorHandler',
                 message: err?.message,
@@ -91,6 +94,10 @@ createInertiaApp({
                 info,
             });
         };
+
+        window.addEventListener('unhandledrejection', (event) => {
+        window.reportError?.(event.reason, { type: 'unhandledrejection' })
+        })
 
         app.use(plugin).use(ZiggyVue).mount(el);
 
@@ -102,6 +109,8 @@ createInertiaApp({
     },
 
     progress: {
+        delay: 250,
         color: '#4B5563',
+        showSpinner: true,
     },
 });

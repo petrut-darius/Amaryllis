@@ -24,7 +24,7 @@ const structuredData = computed(() => {
         name: 'Portofoliu & Galerie Amaryllis',
         description: 'Explorați colecțiile noastre de flori și evenimente.',
         publisher: {
-            '@id': 'https://amaryllis-flori.ro/#organization',
+            '@id': 'https://floraria-amaryllis.ro/#organization',
         },
     });
 });

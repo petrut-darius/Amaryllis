@@ -25,7 +25,7 @@ const structuredData = computed(() => {
                 description: item.description,
                 image: item.images?.[0]?.path,
                 author: {
-                    '@id': 'https://amaryllis-flori.ro/#organization',
+                    '@id': 'https://floraria-amaryllis.ro/#organization',
                 },
             },
         })),
@@ -82,7 +82,7 @@ const structuredData = computed(() => {
             <!-- Baptisms List -->
             <div class="space-y-12 md:space-y-20">
                 <section
-                    v-for="(baptism, idx) in baptisms.data"
+                    v-for="(baptism) in baptisms.data"
                     :key="baptism.id"
                     class="space-y-6 md:space-y-10"
                 >

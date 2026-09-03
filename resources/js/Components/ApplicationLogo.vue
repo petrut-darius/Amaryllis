@@ -26,7 +26,7 @@ defineProps({
                 'text-[7px]': size === 'small',
             }"
         >
-            Floral Design
+            Design Floral - Targu Mures
         </div>
     </div>
 </template>

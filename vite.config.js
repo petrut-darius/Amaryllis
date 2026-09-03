@@ -2,7 +2,6 @@ import tailwindcss from '@tailwindcss/vite';
 import vue from '@vitejs/plugin-vue';
 import laravel from 'laravel-vite-plugin';
 import { defineConfig } from 'vite';
-import legacy from "@vitejs/plugin-legacy"
 
 export default defineConfig({
     plugins: [
@@ -22,9 +21,6 @@ export default defineConfig({
                 }
             },
         }),
-        legacy({
-            targets: ["defaults", "safari >= 13"]
-        })
     ],
     define: {
         __VUE_PROD_DEVTOOLS__: false,
@@ -34,7 +30,7 @@ export default defineConfig({
         pure: ['console.log'],
     },
     build: {
-        target: ['es2020', 'safari15'],
+        target: ['es2020', 'safari14'],
         cssMinify: 'lightningcss',
     },
 });

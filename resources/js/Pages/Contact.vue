@@ -34,12 +34,12 @@ const structuredData = computed(() => {
         '@context': 'https://schema.org',
         '@type': 'ContactPage',
         mainEntity: {
-            '@id': 'https://amaryllis-flori.ro/#organization',
+            '@id': 'https://floraria-amaryllis.ro/#organization',
         },
         description:
             'Contactează Amaryllis Florărie Târgu Mureș pentru comenzi personalizate și inquiry-uri de evenimente.',
         publisher: {
-            '@id': 'https://amaryllis-flori.ro/#organization',
+            '@id': 'https://floraria-amaryllis.ro/#organization',
         },
     });
 });

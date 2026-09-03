@@ -24,7 +24,7 @@ const structuredData = computed(() => {
                 description: item.description,
                 image: item.images?.[0]?.path,
                 author: {
-                    '@id': 'https://amaryllis-flori.ro/#organization',
+                    '@id': 'https://floraria-amaryllis.ro/#organization',
                 },
             },
         })),

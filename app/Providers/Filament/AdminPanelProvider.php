@@ -24,6 +24,7 @@ class AdminPanelProvider extends PanelProvider
     {
         return $panel
             ->default()
+            ->login()
             ->id('admin')
             ->path('admin-amaryllis')
             ->colors([

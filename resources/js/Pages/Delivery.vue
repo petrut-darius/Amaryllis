@@ -2,6 +2,7 @@
 import { Head, usePage } from '@inertiajs/vue3';
 import { computed, onMounted, ref } from 'vue';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
+import ErrorBoundary from '@/composables/ErrorBoundary.vue';
 
 const page = usePage();
 
@@ -18,7 +19,7 @@ const structuredData = computed(() => {
         description:
             'Informații despre serviciile de livrare flori în Târgu Mureș și ridicare personală din studio.',
         mainEntity: {
-            '@id': 'https://amaryllis-flori.ro/#organization',
+            '@id': 'https://floraria-amaryllis.ro/#organization',
         },
     });
 });
@@ -154,23 +155,33 @@ onMounted(() => {
                             cunoaște personal.
                         </p>
                     </div>
-                    <div
-                        class="space-y-6 overflow-hidden rounded-sm bg-white shadow-sm ring-1 ring-brand-charcoal/5"
-                    >
-                        <gmp-map
-                            style="width: 100%; height: 500px"
-                            :center="`${center.lat},${center.lng}`"
-                            zoom="15"
-                            map-id="DEMO_MAP_ID"
-                            rendering-type="RASTER"
-                        >
-                            <gmp-advanced-marker
-                                :position="`${center.lat},${center.lng}`"
-                                title="Amaryllis"
-                                @click="openMaps()"
-                            ></gmp-advanced-marker>
-                        </gmp-map>
-                    </div>
+                    <ErrorBoundary>
+                        <template #default>
+                            <div
+                                class="space-y-6 overflow-hidden rounded-sm bg-white shadow-sm ring-1 ring-brand-charcoal/5"
+                            >
+                                <gmp-map
+                                    style="width: 100%; height: 500px"
+                                    :center="`${center.lat},${center.lng}`"
+                                    zoom="15"
+                                    map-id="DEMO_MAP_ID"
+                                    rendering-type="RASTER"
+                                >
+                                    <gmp-advanced-marker
+                                        :position="`${center.lat},${center.lng}`"
+                                        title="Amaryllis"
+                                        @click="openMaps()"
+                                    ></gmp-advanced-marker>
+                                </gmp-map>
+                            </div>
+                        </template>
+                        <template #error="{ error, clearError }">
+                            <div class="error-box">
+                            <p>{{ error instanceof Error ? error.message : String(error) }}</p>
+                            <button @click="clearError">Retry</button>
+                            </div>
+                        </template>
+                    </ErrorBoundary>
                 </div>
             </div>
 

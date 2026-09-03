@@ -107,11 +107,11 @@ const structuredData = computed(() => {
         "@graph": [
             {
                 "@type": "LocalBusiness",
-                "@id": "https://amaryllis-flori.ro/#organization",
+                "@id": "https://floraria-amaryllis.ro/#organization",
                 "name": "Amaryllis Floral Design",
-                "url": "https://amaryllis-flori.ro",
-                "logo": "https://amaryllis-flori.ro/amaryllis_logo.png",
-                "image": "https://amaryllis-flori.ro/amaryllis_logo.png",
+                "url": "https://floraria-amaryllis.ro",
+                "logo": "https://floraria-amaryllis.ro/amaryllis_logo.png",
+                "image": "https://floraria-amaryllis.ro/amaryllis_logo.png",
                 "description": "Florărie boutique în Târgu Mureș specializată în design floral creativ, buchete artizanale și decor pentru evenimente.",
                 "telephone": "+40743331147",
                 "email": "hello@amaryllis.com",
@@ -147,11 +147,11 @@ const structuredData = computed(() => {
             },
             {
                 "@type": "WebSite",
-                "@id": "https://amaryllis-flori.ro/#website",
-                "url": "https://amaryllis-flori.ro",
+                "@id": "https://floraria-amaryllis.ro/#website",
+                "url": "https://floraria-amaryllis.ro",
                 "name": "Amaryllis Floral Design",
                 "publisher": {
-                    "@id": "https://amaryllis-flori.ro/#organization"
+                    "@id": "https://floraria-amaryllis.ro/#organization"
                 },
                 "inLanguage": "ro-RO"
             }

@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Users\Schemas;
 
+use Filament\Infolists\Components\IconEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -13,9 +14,8 @@ class UserInfolist
         return $schema
             ->components([
                 TextEntry::make('name'),
-                TextEntry::make('super_admin')
-                    ->label('Super Admin?')
-                    ->badge(),
+                IconEntry::make('super_admin')
+                    ->boolean(),
                 TextEntry::make('email')
                     ->label('Email address')
                     ->icon(Heroicon::Envelope),

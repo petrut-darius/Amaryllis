@@ -12,7 +12,7 @@ const page = usePage();
 
 const user = page.props.auth.user;
 
-const newsletterForm = useForm({
+const newsletterForm = useForm('newsletter-subscribe-form',{
     name: user?.name ?? '',
     email: user?.email ?? '',
     terms_accepted_at: user?.terms_accepted_at ?? false,
@@ -33,7 +33,7 @@ const structuredData = computed(() => {
         description:
             'Abonează-te pentru noutăți și inspirație florală de la Amaryllis.',
         publisher: {
-            '@id': 'https://amaryllis-flori.ro/#organization',
+            '@id': 'https://floraria-amaryllis.ro/#organization',
         },
     });
 });

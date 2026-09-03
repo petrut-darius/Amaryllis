@@ -9,11 +9,11 @@ const structuredData = computed(() => {
         "@context": "https://schema.org",
         "@type": "AboutPage",
         "mainEntity": {
-            "@id": "https://amaryllis-flori.ro/#organization"
+            "@id": "https://floraria-amaryllis.ro/#organization"
         },
         "description": "Povestea Amaryllis - O tradiție de peste 25 de ani în design floral și evenimente premium în Târgu Mureș.",
         "publisher": {
-            "@id": "https://amaryllis-flori.ro/#organization"
+            "@id": "https://floraria-amaryllis.ro/#organization"
         }
     });
 });
@@ -29,7 +29,7 @@ const structuredData = computed(() => {
         <meta property="og:description" content="Amaryllis un loc în care eleganța, autenticitatea și emoția se întâlnesc. De la decoruri premium la arta floristicii moderne." />
         <meta property="og:type" content="website" />
         <meta property="og:url" :content="route('about')" />
-        <meta property="og:image" content="/amaryllis_logo.png" />
+        <meta property="og:image" content="https://floraria-amaryllis.ro/amaryllis_logo.png" />
 
         <component :is="'script'" type="application/ld+json">
             {{ structuredData }}
