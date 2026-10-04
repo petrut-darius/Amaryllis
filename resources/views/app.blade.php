@@ -7,7 +7,7 @@
         <!-- //logo -->
         <link rel="icon" type="image/png" href="/amaryllis_logo.png">
 
-        <title inertia>{{ config('app.name', 'Laravel') }}</title>
+        <title data-inertia>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">

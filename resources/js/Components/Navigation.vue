@@ -1,12 +1,29 @@
-<script setup lang="ts">
+\<script setup lang="ts">
 import { Link } from '@inertiajs/vue3';
-import { computed, ref, watch } from 'vue';
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue';
+import { route } from '../ziggy';
 
 const isOpen = ref(false);
 const scrollPosition = ref(0);
 const isDropdownOpen = ref(false);
 const isMobileDropdownOpen = ref(true);
 let dropdownTimeout: ReturnType<typeof setTimeout> | null = null;
+
+// Teleport content is not part of the SSR output, so it must only render
+// on the client after mount. Otherwise Vue tries to hydrate it against
+// <body>'s first child (Inertia's <script data-page>) and reports a mismatch.
+const mounted = ref(false);
+
+onMounted(() => {
+    mounted.value = true;
+});
+
+const unlockBody = () => {
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+};
 
 watch(isOpen, (val) => {
     if (val) {
@@ -16,12 +33,14 @@ watch(isOpen, (val) => {
         document.body.style.top = `-${scrollPosition.value}px`;
         document.body.style.width = '100%';
     } else {
-        document.body.style.overflow = '';
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.width = '';
+        unlockBody();
         window.scrollTo(0, scrollPosition.value);
     }
+});
+
+onBeforeUnmount(() => {
+    if (isOpen.value) unlockBody();
+    if (dropdownTimeout) clearTimeout(dropdownTimeout);
 });
 
 const primaryLinks = [
@@ -50,6 +69,8 @@ const isPortfolioActive = computed(() => {
     return (
         // @ts-ignore
         route().current('gallery*') ||
+        // @ts-ignore
+        route().current('flowers*') ||
         // @ts-ignore
         route().current('bouquets*') ||
         // @ts-ignore
@@ -197,8 +218,8 @@ const toggleMenu = () => {
         ></span>
     </button>
 
-    <!-- Mobile Navigation Menu -->
-    <Teleport to="body">
+    <!-- Mobile Navigation Menu (client-only: teleports are not server-rendered) -->
+    <Teleport v-if="mounted" to="body">
         <Transition
             enter-active-class="transition duration-700 ease-out"
             enter-from-class="opacity-0 scale-95"
@@ -228,9 +249,9 @@ const toggleMenu = () => {
                 </button>
 
                 <div class="my-auto flex flex-col items-center space-y-8 py-8">
-                    <img 
-                        src="/amaryllis_logo.png" 
-                        alt="Amaryllis Floral Design" 
+                    <img
+                        src="/amaryllis_logo.png"
+                        alt="Amaryllis Floral Design"
                         class="w-32 md:w-auto"
                     />
 
@@ -329,5 +350,3 @@ const toggleMenu = () => {
         </Transition>
     </Teleport>
 </template>
-
-
