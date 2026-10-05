@@ -88,7 +88,7 @@ import Navigation from '@/Components/Navigation.vue';
                         class="relative z-10 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-ruby text-white shadow-sm transition-all duration-500 group-hover:scale-110 sm:h-8 sm:w-8 md:h-9 md:w-9"
                     >
                         <i
-                            class="fa-solid fa-phone-flip text-[11px] transition-transform duration-500 group-hover:rotate-12 sm:text-xs md:text-sm"
+                            icon="phone-flip" class="text-[11px] transition-transform duration-500 group-hover:rotate-12 sm:text-xs md:text-sm"
                         ></i>
                     </div>
                 </a>

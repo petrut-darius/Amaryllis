@@ -108,7 +108,7 @@ const structuredData = computed(() => {
                     <span
                         class="relative z-10 flex items-center gap-3 transition-colors duration-500 group-hover:text-brand-charcoal"
                     >
-                        <i class="fa-brands fa-whatsapp text-base"></i>
+                        <i :icon="['fab', 'whatsapp']" class="text-base"></i>
                         WhatsApp
                     </span>
                     <div
@@ -126,7 +126,7 @@ const structuredData = computed(() => {
                     <span
                         class="relative z-10 flex items-center gap-3 transition-colors duration-500 group-hover:text-brand-charcoal"
                     >
-                        <i class="fa-solid fa-envelope text-base"></i>
+                        <i icon="envelope" class="text-base"></i>
                         Email
                     </span>
                     <div
@@ -139,7 +139,7 @@ const structuredData = computed(() => {
                     class="group relative inline-flex items-center justify-center overflow-hidden rounded-sm border-2 border-brand-ruby/20 px-4 py-4 text-xs font-bold tracking-[0.2em] text-brand-ruby uppercase transition-all duration-500 hover:bg-brand-ruby hover:text-white active:scale-95 md:py-6 md:text-sm"
                 >
                     <span class="relative z-10 flex items-center gap-3">
-                        <i class="fa-solid fa-truck-fast text-base"></i>
+                        <i icon="truck-fast" class="text-base"></i>
                         Livrare
                     </span>
                     <div
@@ -159,7 +159,7 @@ const structuredData = computed(() => {
                     <span
                         class="relative z-10 flex items-center gap-3 transition-colors duration-500 group-hover:text-brand-charcoal"
                     >
-                        <i class="fa-solid fa-phone text-base"></i>
+                        <i icon="phone" class="text-base"></i>
                         Sună
                     </span>
                     <div

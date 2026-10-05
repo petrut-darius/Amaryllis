@@ -162,7 +162,7 @@ const structuredData = computed(() => {
 
 <template>
     <Head>
-        <title>Amaryllis | Florărie Târgu Mureș - Design Floral Creativ</title>
+        <title>Florărie Târgu Mureș | Buchete & Nunți – Amaryllis</title>
         <meta name="description" content="Florărie boutique în Târgu Mureș. Creăm buchete unice, aranjamente florale pentru evenimente, nunți și botezuri. Livrare flori la domiciliu și design floral de excepție.">
         <link rel="canonical" :href="route('home')" />
 
@@ -188,11 +188,22 @@ const structuredData = computed(() => {
                     class="absolute inset-0 z-0 overflow-hidden transform-gpu"
                     :style="{ opacity: 1 - heroScrollProgress }"
                 >
-                    <img 
-                        src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&q=80&w=1600" 
-                        alt="Editorial Floral Design"
-                        class="w-full h-full object-cover"
-                    />
+                    <picture class="block w-full h-full">
+                        <source
+                            media="(min-width: 768px)"
+                            srcset="/images/hero-desktop-1200.webp 1200w, /images/hero-desktop-1600.webp 1600w"
+                            sizes="100vw" width="1600" height="900" />
+                        <img
+                            src="/images/hero-mobile-900.webp"
+                            srcset="/images/hero-mobile-640.webp 640w, /images/hero-mobile-900.webp 900w"
+                            sizes="100vw" width="900" height="1350"
+                            fetchpriority="high" decoding="async"
+                            alt="Buchet de flori proaspete creat în atelierul Amaryllis, Târgu Mureș"
+                            class="w-full h-full object-cover" />
+                    </picture>
+                    <h1 class="mb-8 text-xs md:text-sm font-semibold uppercase tracking-[0.35em] text-brand-charcoal">
+                        Florărie Târgu Mureș | Buchete & Nunți – Amaryllis
+                    </h1>
                     <div class="absolute inset-0 bg-gradient-to-b from-brand-charcoal/20 via-transparent to-brand-cream/60"></div>
                 </div>
 
